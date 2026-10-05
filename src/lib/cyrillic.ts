@@ -27,7 +27,7 @@ const WORDS: Record<string, string> = {
   yanvar: "январь", fevral: "февраль", aprel: "апрель", iyun: "июнь", iyul: "июль",
   sentabr: "сентябрь", oktabr: "октябрь", noyabr: "ноябрь", dekabr: "декабрь",
   rubl: "рубль", sirk: "цирк", sement: "цемент", fakultet: "факультет",
-  potensial: "потенциал", konsepsiya: "концепция", prinsip: "принцип", protsent: "процент",
+  potensial: "потенциал", polsha: "Польша", konsepsiya: "концепция", prinsip: "принцип", protsent: "процент",
 };
 
 /**
@@ -132,7 +132,10 @@ export function deepCyrillic<T>(value: T): T {
   if (typeof value === "string") return toCyrillic(value) as T;
   if (Array.isArray(value)) return value.map(deepCyrillic) as T;
   if (value && typeof value === "object") {
-    return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, deepCyrillic(v)])) as T;
+    // "key" va "code" — texnik qiymatlar (xarita nuqtasi kaliti va h.k.), ular o'girilmaydi
+    return Object.fromEntries(
+      Object.entries(value).map(([k, v]) => [k, k === "key" || k === "code" ? v : deepCyrillic(v)]),
+    ) as T;
   }
   return value;
 }

@@ -11,6 +11,7 @@ import { Portrait } from "./Portrait";
 import { Star, Tiles } from "./Tiles";
 import { ApplyForm } from "./ApplyForm";
 import { Socials } from "./Socials";
+import { NetworkMap } from "./NetworkMap";
 import { CountUp, Countdown, Line, Reveal, Words } from "./motion";
 
 const fadeLeft = {
@@ -371,6 +372,102 @@ export function ForumFacts({ locale }: { locale: Locale }) {
   );
 }
 
+/** Xalqaro tarmoq: mamlakatlar xaritasi */
+export function NetworkSection({ locale }: { locale: Locale }) {
+  const t = getTexts(locale);
+  return (
+    <section className="section overflow-hidden">
+      <div className="shell">
+        <SectionHead title={t.network.title} lead={t.network.lead} />
+        <div className="mt-14 md:mt-20">
+          <NetworkMap
+            countries={t.network.countries}
+            more={t.network.more}
+            directionsTitle={t.network.directionsTitle}
+            directions={t.network.directions}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Forumda kutilayotganlar: asosiy raqamlar va jihatlar */
+export function ForumExpect({ locale }: { locale: Locale }) {
+  const t = getTexts(locale);
+  const numbers = [
+    { value: forum.participants, suffix: "", label: t.forum.participantsShort },
+    { value: forum.ambassadors, suffix: "+", label: t.forum.ambassadorsLabel },
+  ];
+  return (
+    <section className="section bg-deep">
+      <div className="shell grid gap-12 lg:grid-cols-[1fr_1.7fr] lg:gap-24">
+        <div className="lg:sticky lg:top-32 lg:self-start">
+          <h2 className="h-section">
+            <Words text={t.forum.expectTitle} />
+          </h2>
+          <dl className="mt-12 grid grid-cols-2 gap-8">
+            {numbers.map((n, i) => (
+              <Reveal key={n.label} delay={0.2 + i * 0.12} className="flex flex-col-reverse">
+                <dt className="muted mt-2">{n.label}</dt>
+                <dd className="gold-text font-display text-7xl leading-none md:text-8xl">
+                  <CountUp value={n.value} suffix={n.suffix} />
+                </dd>
+              </Reveal>
+            ))}
+          </dl>
+        </div>
+        <dl className="border-t border-[var(--hair)]">
+          {t.forum.highlights.map((item, i) => (
+            <div key={item.name} className="row-hover border-b border-[var(--hair)]">
+              <Reveal delay={i * 0.06}>
+                <div className="row-shift py-9 md:py-11">
+                  <dt className="h-item">{item.name}</dt>
+                  <dd className="muted mt-3 max-w-xl">{item.text}</dd>
+                </div>
+              </Reveal>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  );
+}
+
+/** Kutilayotgan mehmonlar (faqat rasmi qo'yilganlari ko'rinadi) */
+export function ForumGuests({ locale }: { locale: Locale }) {
+  const guests = forum.guests.filter((g) => g.photo);
+  if (guests.length === 0) return null;
+  const t = getTexts(locale);
+  return (
+    <section className="on-light section bg-ivory text-ink">
+      <div className="shell">
+        <SectionHead title={t.forum.guestsTitle} />
+        <ul className="mt-16 grid gap-x-8 gap-y-14 sm:grid-cols-3 md:gap-x-12">
+          {guests.map((g, i) => (
+            <li key={g.photo}>
+              <Reveal delay={i * 0.12}>
+                <div className="group">
+                  <Portrait
+                    dir="guests"
+                    file={g.photo}
+                    name={pick(g.name, locale)}
+                    alt={`${pick(g.name, locale)}. ${pick(g.about, locale)}`}
+                    sizes="(min-width: 640px) 400px, 92vw"
+                    seed={i * 7 + 2}
+                  />
+                  <h3 className="mt-6 text-[1.7rem] leading-tight md:text-[2rem]">{pick(g.name, locale)}</h3>
+                  <p className="muted mt-2">{pick(g.about, locale)}</p>
+                </div>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 export function forumTarget() {
   return `${forum.date}T${forum.time || "00:00"}:00+05:00`;
 }
@@ -398,12 +495,20 @@ export function ForumBand({ locale }: { locale: Locale }) {
               {d.month} {d.year}
             </span>
           </time>
-          <p className="mt-10 border-t border-[var(--hair)] pt-6">
-            <span className="block font-display text-5xl leading-none">
-              <CountUp value={forum.participants} />
-            </span>
-            <span className="muted mt-2 block">{t.forum.participantsLabel}</span>
-          </p>
+          <dl className="mt-10 grid grid-cols-2 gap-6 border-t border-[var(--hair)] pt-6">
+            <div className="flex flex-col-reverse">
+              <dt className="muted mt-2">{t.forum.participantsShort}</dt>
+              <dd className="font-display text-5xl leading-none">
+                <CountUp value={forum.participants} />
+              </dd>
+            </div>
+            <div className="flex flex-col-reverse">
+              <dt className="muted mt-2">{t.forum.ambassadorsLabel}</dt>
+              <dd className="font-display text-5xl leading-none">
+                <CountUp value={forum.ambassadors} suffix="+" />
+              </dd>
+            </div>
+          </dl>
         </Reveal>
         <div className="max-w-2xl">
           <p className="text-lg text-gold-light">{t.forum.band}</p>

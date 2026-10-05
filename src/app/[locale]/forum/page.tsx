@@ -3,8 +3,10 @@ import { JsonLd } from "@/components/JsonLd";
 import { Countdown, Reveal } from "@/components/motion";
 import {
   ApplySection,
+  ForumExpect,
   ForumFacts,
-  Formula,
+  ForumGuests,
+  NetworkSection,
   PageHead,
   SectionHead,
   forumTarget,
@@ -41,14 +43,12 @@ export default async function ForumPage({ params }: Props) {
               <Countdown target={forumTarget()} labels={t.forum.countdown} />
             </Reveal>
           )}
-          <div className="mt-20 md:mt-28">
-            <h2 className="muted text-lg">{t.about.formulaTitle}</h2>
-            <div className="mt-8">
-              <Formula items={t.home.formula} />
-            </div>
-          </div>
         </div>
       </section>
+
+      <ForumExpect locale={locale} />
+      <NetworkSection locale={locale} />
+      <ForumGuests locale={locale} />
 
       <section className="section bg-deep">
         <div className="shell">

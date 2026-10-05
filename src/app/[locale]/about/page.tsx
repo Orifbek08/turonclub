@@ -6,6 +6,7 @@ import {
   Benefits,
   Formula,
   FounderGrid,
+  NetworkSection,
   PageHead,
   PartnersRow,
   SectionHead,
@@ -46,6 +47,7 @@ export default async function AboutPage({ params }: Props) {
           </div>
         </div>
       </section>
+      <NetworkSection locale={locale} />
       <Benefits locale={locale} />
       <section className="on-light section bg-ivory text-ink">
         <div className="shell">

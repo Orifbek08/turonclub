@@ -7,6 +7,7 @@ import { initials } from "@/lib/content";
  * `file` bo'sh bo'lsa, o'rnida ism bosh harflari chiqadi.
  */
 export function Portrait({
+  dir = "founders",
   file,
   name,
   alt,
@@ -14,6 +15,7 @@ export function Portrait({
   seed = 0,
   priority = false,
 }: {
+  dir?: "founders" | "guests";
   file: string;
   name: string;
   alt: string;
@@ -28,7 +30,7 @@ export function Portrait({
         <div className="frame-inner absolute inset-0">
           {file ? (
             <Image
-              src={`/images/founders/${file}`}
+              src={`/images/${dir}/${file}`}
               alt={alt}
               fill
               sizes={sizes}
