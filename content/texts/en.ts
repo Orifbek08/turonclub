@@ -234,7 +234,6 @@ export const en: Texts = {
       "Bilateral business meetings",
     ],
   },
-  partners: { title: "Partners" },
   faq: { title: "Frequently asked questions" },
   form: {
     title: "Apply to join",

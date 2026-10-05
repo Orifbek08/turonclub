@@ -19,7 +19,6 @@ Kodga tegish shart emas. Hamma matn va ro‘yxatlar `content/` papkasida:
 | `content/site.ts` | Telefon, email, manzil, ijtimoiy tarmoqlar, raqamlar, birinchi ekran rasmi (`heroPhoto`) |
 | `content/founders.ts` | Asoschilar (birinchisi bosh sahifada iqtibos bilan chiqadi) |
 | `content/forum.ts` | Forum: sana, vaqt, joy, dastur (`/forum` sahifasi) |
-| `content/partners.ts` | Hamkorlar |
 | `content/faq.ts` | Savol-javoblar |
 | `content/texts/uz.ts`, `ru.ts`, `en.ts` | Sahifalardagi barcha matnlar va SEO sarlavhalari |
 
@@ -37,7 +36,6 @@ Rasmni tegishli papkaga qo‘ying va fayl nomini content faylidagi `photo` (yoki
 | Papka | Nima uchun | Tavsiya |
 | --- | --- | --- |
 | `public/images/founders/` | Asoschilar portretlari | vertikal 4:5, kamida 1200×1500, JPG, bir xil fon |
-| `public/images/partners/` | Hamkor logotiplari | SVG yoki shaffof fonli PNG |
 | `public/og.png` | Havola ulashilganda chiqadigan rasm | 1200×630 |
 
 SEO uchun fayl nomlari: faqat kichik lotin harflari va chiziqcha, mazmunli nom.

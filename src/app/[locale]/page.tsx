@@ -13,7 +13,6 @@ import {
   FounderTrio,
   FounderQuote,
   Marquee,
-  PartnersRow,
   SectionHead,
   Stats,
   Tiers,
@@ -198,7 +197,6 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      <PartnersRow locale={locale} />
       <FaqList locale={locale} />
       <ApplySection locale={locale} />
     </>

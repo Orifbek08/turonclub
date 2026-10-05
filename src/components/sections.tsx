@@ -3,7 +3,6 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { dateParts, getTexts, href, longDate, pick, todayInTashkent, type Locale } from "@/lib/i18n";
 import { site } from "@content/site";
-import { partners } from "@content/partners";
 import { faq } from "@content/faq";
 import { forum } from "@content/forum";
 import { foundersOnStage, hasPage, type Founder } from "@content/founders";
@@ -568,54 +567,6 @@ export function Steps({ locale }: { locale: Locale }) {
         </li>
       ))}
     </ol>
-  );
-}
-
-export function PartnersRow({ locale }: { locale: Locale }) {
-  if (partners.length === 0) return null;
-  const t = getTexts(locale);
-  const row = (hidden: boolean) => (
-    <ul aria-hidden={hidden || undefined} className="flex shrink-0 items-center">
-      {partners.map((p, i) => {
-        const inner = p.logo ? (
-          <Image
-            src={`/images/partners/${p.logo}`}
-            alt={hidden ? "" : p.name}
-            width={200}
-            height={72}
-            className="h-12 w-auto object-contain opacity-70 brightness-0 invert transition-opacity hover:opacity-100"
-          />
-        ) : (
-          <span className="font-display text-3xl text-ivory/45">{p.name}</span>
-        );
-        return (
-          <li key={i} className="px-10 md:px-16">
-            {p.url && !hidden ? (
-              <a href={p.url} rel="noopener" target="_blank">
-                {inner}
-              </a>
-            ) : (
-              inner
-            )}
-          </li>
-        );
-      })}
-    </ul>
-  );
-  return (
-    <section className="border-y border-[var(--hair)] py-16 md:py-20">
-      <div className="shell">
-        <h2 className="muted text-lg">{t.partners.title}</h2>
-      </div>
-      <div className="mt-10 overflow-hidden">
-        <div className="marquee-track reverse" style={{ ["--dur" as string]: `${Math.max(partners.length, 4) * 6}s` }}>
-          {row(false)}
-          {row(true)}
-          {row(true)}
-          {row(true)}
-        </div>
-      </div>
-    </section>
   );
 }
 

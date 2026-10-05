@@ -8,7 +8,6 @@ import {
   FounderGrid,
   NetworkSection,
   PageHead,
-  PartnersRow,
   SectionHead,
   Stats,
 } from "@/components/sections";
@@ -65,7 +64,6 @@ export default async function AboutPage({ params }: Props) {
           </div>
         </div>
       </section>
-      <PartnersRow locale={locale} />
       <ApplySection locale={locale} />
     </>
   );

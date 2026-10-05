@@ -239,7 +239,6 @@ export const uz = {
       "Ikki tomonlama biznes uchrashuvlari",
     ],
   },
-  partners: { title: "Hamkorlar" },
   faq: { title: "Ko‘p beriladigan savollar" },
   form: {
     title: "Ariza qoldiring",

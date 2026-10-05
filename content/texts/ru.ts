@@ -234,7 +234,6 @@ export const ru: Texts = {
       "Двусторонние деловые встречи",
     ],
   },
-  partners: { title: "Партнёры" },
   faq: { title: "Частые вопросы" },
   form: {
     title: "Оставьте заявку",

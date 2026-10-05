@@ -28,11 +28,35 @@ export const forum = {
   ambassadors: 50,
   guests: [
     {
+      name: { uz: "Abror Muxtor Aliy", ru: "Аброр Мухтор Алий", en: "Abror Mukhtor Aliy" },
+      about: { uz: "Bloger", ru: "Блогер", en: "Blogger" },
+      photo: "abror-muxtor-aliy.webp",
+    },
+    {
+      name: { uz: "Muhammadali Eshonqulov", ru: "Мухаммадали Эшонкулов", en: "Muhammadali Eshonqulov" },
+      about: {
+        uz: "Biznes-murabbiy, xalqaro iqtisodchi",
+        ru: "Бизнес-тренер, экономист-международник",
+        en: "Business mentor, international economist",
+      },
+      photo: "muhammadali-eshonqulov.webp",
+    },
+    {
+      name: { uz: "Jahongir Ortiqxo‘jayev", ru: "Джахонгир Артыкходжаев", en: "Jakhongir Artikkhodjayev" },
+      about: {
+        uz: "Tadbirkor, Toshkent shahrining sobiq hokimi",
+        ru: "Предприниматель, бывший хоким города Ташкента",
+        en: "Entrepreneur, former mayor of Tashkent",
+      },
+      photo: "jahongir-ortiqxojayev.webp",
+    },
+    {
+      // Rasmi yuborilmagan, shuning uchun hozircha saytda ko'rinmaydi
       name: { uz: "Rasul Kusherbayev", ru: "Расул Кушербаев", en: "Rasul Kusherbayev" },
       about: {
-        uz: "Jurnalist va bloger, Oliy Majlis Qonunchilik palatasining sobiq deputati.",
-        ru: "Журналист и блогер, бывший депутат Законодательной палаты Олий Мажлиса.",
-        en: "Journalist and blogger, former member of the Legislative Chamber of the Oliy Majlis.",
+        uz: "Jurnalist va bloger, Oliy Majlis Qonunchilik palatasining sobiq deputati",
+        ru: "Журналист и блогер, бывший депутат Законодательной палаты Олий Мажлиса",
+        en: "Journalist and blogger, former member of the Legislative Chamber of the Oliy Majlis",
       },
       photo: "",
     },
