@@ -225,7 +225,6 @@ export const en: Texts = {
   },
   footer: {
     tagline: "An international business platform that connects entrepreneurs with investment, partnerships and new markets.",
-    rights: "All rights reserved.",
   },
   notFound: {
     title: "Page not found",

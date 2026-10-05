@@ -58,13 +58,6 @@ export function Footer({ locale }: { locale: Locale }) {
         <LogoWord className="h-auto w-full text-deep" />
       </Parallax>
 
-      <div className="relative border-t border-[var(--hair)] bg-night">
-        <div className="shell py-6 text-sm text-mist">
-          <p>
-            © {new Date().getFullYear()} {site.name} — {pick(site.descriptor, locale)}. {t.footer.rights}
-          </p>
-        </div>
-      </div>
     </footer>
   );
 }

@@ -228,7 +228,6 @@ export const uz = {
   },
   footer: {
     tagline: "Tadbirkorlarni investitsiya, hamkorlik va yangi bozorlar bilan bog‘laydigan xalqaro biznes platforma.",
-    rights: "Barcha huquqlar himoyalangan.",
   },
   notFound: {
     title: "Sahifa topilmadi",
