@@ -54,12 +54,14 @@ export default async function EventsPage({ params }: Props) {
             "@type": "BusinessEvent",
             name: pick(e.title, locale),
             description: pick(e.summary, locale),
-            startDate: `${e.date}T${e.time}:00+05:00`,
+            startDate: e.time ? `${e.date}T${e.time}:00+05:00` : e.date,
             eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
             eventStatus: "https://schema.org/EventScheduled",
-            location: { "@type": "Place", name: pick(e.venue, locale), address: pick(e.venue, locale) },
+            ...(pick(e.venue, locale) && {
+              location: { "@type": "Place", name: pick(e.venue, locale), address: pick(e.venue, locale) },
+            }),
             organizer: { "@type": "Organization", name: site.name, url: site.url },
-            url: `${site.url}/${locale}/events#${e.slug}`,
+            url: `${site.url}/${locale}${e.link || `/events#${e.slug}`}`,
           }}
         />
       ))}

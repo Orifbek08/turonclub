@@ -23,6 +23,7 @@ export function Header({ locale }: { locale: Locale }) {
           items={[
             { href: href(locale, "/about"), label: t.nav.about },
             { href: href(locale, "/founders"), label: t.nav.founders },
+            { href: href(locale, "/forum"), label: t.nav.forum },
             { href: href(locale, "/events"), label: t.nav.events },
             { href: href(locale, "/membership"), label: t.nav.membership },
             { href: href(locale, "/contact"), label: t.nav.contact },

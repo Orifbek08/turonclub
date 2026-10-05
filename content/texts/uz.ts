@@ -7,6 +7,7 @@ export const uz = {
   nav: {
     about: "Klub haqida",
     founders: "Asoschilar",
+    forum: "Forum",
     events: "Tadbirlar",
     membership: "A’zolik",
     contact: "Aloqa",
@@ -21,63 +22,123 @@ export const uz = {
     allFounders: "Barcha asoschilar",
     allEvents: "Barcha tadbirlar",
     register: "Qatnashish",
+    forum: "Forum haqida batafsil",
+    forumRegister: "Forumda qatnashish",
+    membership: "A’zolik haqida batafsil",
     aboutClub: "Klub haqida batafsil",
     home: "Bosh sahifaga qaytish",
   },
   home: {
-    title: "Kapital, tajriba va ta’sir bir davrada",
-    lead: "Turon — yirik biznes egalari va qaror qabul qiluvchilar uchun yopiq xalqaro klub. A’zolik faqat tavsiya va shaxsiy suhbat asosida.",
+    title: "Kerakli odamlar, kerakli bozorlar, kerakli imkoniyatlar — bir joyda",
+    lead: "Turon xalqaro biznes klubi tadbirkorlarni investitsiya, hamkorlik, B2B uchrashuvlar, yangi bozorlar va xalqaro aloqalar bilan bog‘laydigan biznes platforma.",
     nextEvent: "Yaqin tadbir",
     scroll: "Pastga",
     /** Bosh sahifadagi harakatlanuvchi yozuv */
-    marquee: ["Ishonch", "Sarmoya", "Hamkorlik", "Ta’sir", "Tajriba", "Meros"],
+    marquee: ["Capital", "Connection", "B2B", "Market", "Export", "Import", "Global", "Knowledge"],
     /** Skroll qilganda so‘zma-so‘z ochiladigan matn */
     manifesto:
-      "Turon — bu shunchaki tanishuv joyi emas. Bu yerda yirik bitimlar ishonch bilan boshlanadi, tajriba avloddan avlodga o‘tadi va har bir a’zo o‘z so‘zining qadrini biladi.",
+      "Turon — biznesingizni rivojlantirish uchun kerakli odamlar, kerakli bozorlar va kerakli imkoniyatlarni bir joyga birlashtiruvchi xalqaro biznes ekotizim.",
+    /** Klub formulasi: to‘rt bosqich */
+    formula: ["Kuchli aloqalar", "Yangi imkoniyatlar", "Yangi bozorlar", "Yangi natijalar"],
   },
   about: {
     title: "Klub haqida",
-    lead: "Turon — ishbilarmonlar bir-birini taniydigan, bir-biridan o‘rganadigan va birgalikda ish boshlaydigan joy.",
-    p1: "Bu yerga klub tarixi yoziladi: qachon va nima maqsadda tashkil etilgani, kimlar asos solgani.",
-    p2: "Bu yerga klubning missiyasi va qadriyatlari yoziladi: a’zolardan nima kutiladi va klub ularga nima beradi.",
-    valuesTitle: "Klub tamoyillari",
-    values: [
-      { name: "Ishonch", text: "Uchrashuvlarda aytilgan gap klub ichida qoladi." },
-      { name: "Tenglik", text: "Har bir a’zo so‘zlash va tinglanish huquqiga ega." },
-      { name: "Foyda", text: "Har bir uchrashuvdan aniq xulosa va aloqa bilan chiqiladi." },
-    ],
+    lead: "Turon — oddiy biznes klub emas. Bu tadbirkorlarni investitsiya, hamkorlik, B2B uchrashuvlar, yangi bozorlar va xalqaro aloqalar bilan bog‘laydigan biznes platforma.",
+    missionTitle: "Missiya",
+    mission:
+      "Turon xalqaro biznes klubining missiyasi — O‘zbekiston va xorij tadbirkorlarini birlashtirish, ular o‘rtasida ishonchli biznes aloqalarini shakllantirish, investitsiya va kapital jalb qilish, yangi bozorlarga chiqish hamda xalqaro hamkorlik uchun amaliy imkoniyatlar yaratish.",
+    formulaTitle: "Klub formulasi",
   },
-  formats: {
-    title: "A’zolik nimani beradi",
+  benefits: {
+    title: "A’zolikning 12 ta asosiy qiymati",
+    lead: "Klub a’zosi shunchaki tadbirlarga qatnashmaydi: u kapital, aloqalar, bozorlar va ekspert ko‘magiga yo‘l oladi.",
     items: [
       {
-        name: "Yopiq kechalar",
-        text: "Maxsus mehmon tor doirada o‘z tajribasini so‘zlab beradi, so‘ng a’zolar bilan ochiq suhbat bo‘ladi.",
+        code: "CAPITAL",
+        name: "Investitsiya va kapital jalb qilish",
+        text: "Loyihalarni investorlar, investitsiya fondlari va potensial moliyaviy hamkorlar bilan bog‘lash.",
       },
       {
-        name: "Yopiq davra suhbatlari",
-        text: "A’zolar dolzarb masalalarni tor doirada, yozuvsiz muhokama qiladi.",
+        code: "CONNECTION",
+        name: "Kuchli biznes aloqalar",
+        text: "Tadbirkorlar, investorlar, kompaniyalar va xalqaro hamkorlar bilan sifatli biznes tarmoq.",
       },
       {
-        name: "Soha guruhlari",
-        text: "Bir sohada ishlaydigan a’zolar muntazam uchrashib, tajriba almashadi.",
+        code: "B2B",
+        name: "One-to-One biznes uchrashuvlar",
+        text: "A’zoning ehtiyojiga qarab potensial hamkorlar bilan to‘g‘ridan-to‘g‘ri uchrashuvlar tashkil qilish.",
       },
       {
-        name: "Davlat va biznes muloqoti",
-        text: "Davlat idoralari vakillari bilan ochiq savol-javob uchrashuvlari.",
+        code: "MARKET",
+        name: "Yangi bozorlar",
+        text: "O‘zbekistondagi kompaniyalarga xorijiy bozorlarga chiqishda, xorijiy kompaniyalarga esa O‘zbekiston va mintaqada o‘z o‘rnini topishda yordam.",
+      },
+      {
+        code: "EXPORT",
+        name: "Eksport imkoniyatlari",
+        text: "Mahsulot va xizmatlarni xalqaro bozorlarga olib chiqish uchun hamkorlar va xaridorlar bilan aloqalar.",
+      },
+      {
+        code: "IMPORT",
+        name: "Import va ta’minot",
+        text: "Xorijdan texnologiya, xomashyo, mahsulot va biznes hamkorlarni topish imkoniyati.",
+      },
+      {
+        code: "GLOBAL",
+        name: "Xalqaro biznes missiyalar",
+        text: "Xorijiy mamlakatlarga biznes tashriflar, delegatsiyalar, forumlar va B2B uchrashuvlarda ishtirok.",
+      },
+      {
+        code: "TURON PRIVILEGE CARD",
+        name: "Maxsus imtiyozlar",
+        text: "Klub a’zolari uchun hamkor kompaniyalar xizmatlarida maxsus imtiyoz va chegirmalar, jumladan 30% gacha bo‘lgan takliflar.",
+      },
+      {
+        code: "KNOWLEDGE",
+        name: "Biznes bilimlari",
+        text: "Investitsiya, eksport, marketing, moliya, boshqaruv va xalqaro savdo bo‘yicha seminarlar va uchrashuvlar.",
+      },
+      {
+        code: "EXPERT SUPPORT",
+        name: "Ekspertlar yordami",
+        text: "Yuridik, moliyaviy, investitsion, eksport-import va boshqa yo‘nalishlarda ekspertlar bilan ishlash.",
+      },
+      {
+        code: "VIP NETWORKING",
+        name: "VIP biznes muhiti",
+        text: "Yuqori darajadagi tadbirkorlar, investorlar, rahbarlar va xalqaro delegatsiyalar bilan yopiq formatda muloqot.",
+      },
+      {
+        code: "PERSONAL BUSINESS SUPPORT",
+        name: "Shaxsiy biznes ko‘magi",
+        text: "A’zoning aniq maqsadiga qarab: hamkor topish, investorga chiqish, bozorga kirish, B2B uchrashuv yoki xalqaro aloqa o‘rnatish bo‘yicha individual yondashuv.",
       },
     ],
+  },
+  forum: {
+    title: "Turon xalqaro biznes klubining ochilish marosimi",
+    lead: "Klubning rasmiy ochilishi va bir kunlik biznes forum: tadbirkorlar, investorlar va xalqaro hamkorlar bir maydonda.",
+    band: "Ochilish marosimi va forum",
+    dateLabel: "Sana",
+    formatLabel: "Format",
+    format: "Bir kunlik forum",
+    venueLabel: "Joy",
+    venueTbd: "Tez orada e’lon qilinadi",
+    timeLabel: "Boshlanishi",
+    programTitle: "Dastur",
+    programTbd: "Forum dasturi tez orada e’lon qilinadi.",
+    countdown: { days: "kun", hours: "soat", minutes: "daqiqa", seconds: "soniya" },
   },
   founders: {
     title: "Asoschilar",
-    lead: "Klubni o‘z sohasida nom qozongan tadbirkorlar tashkil etgan va shaxsan boshqaradi.",
+    lead: "Klub asoschilari va rahbariyati.",
     focus: "Faoliyat sohalari",
     bio: "Asoschi haqida",
     back: "Barcha asoschilar",
   },
   events: {
     title: "Tadbirlar",
-    lead: "Klubning yopiq uchrashuvlari taqvimi. Qatnashish faqat a’zolar va taklif etilgan mehmonlar uchun.",
+    lead: "Klub tadbirlari taqvimi: forumlar, B2B uchrashuvlar va biznes missiyalar.",
     upcoming: "Kelgusi tadbirlar",
     past: "O‘tgan tadbirlar",
     empty: "Yangi tadbirlar tez orada e’lon qilinadi. Xabardor bo‘lish uchun ariza qoldiring.",
@@ -85,19 +146,70 @@ export const uz = {
   },
   membership: {
     title: "A’zolik",
-    lead: "Klubga faqat amaldagi a’zoning tavsiyasi va shaxsiy suhbat asosida qabul qilinadi.",
+    lead: "A’zo shunchaki klubga kirmaydi. U aloqadan o‘sishgacha olib boradigan tizimga kiradi.",
+    ideaTitle: "A’zolikning asosiy g‘oyasi",
+    /** Zanjir: inglizcha nom va uning ma’nosi */
+    chain: [
+      { code: "NETWORK", name: "Aloqa" },
+      { code: "ACCESS", name: "Imkoniyat" },
+      { code: "BUSINESS", name: "Biznes" },
+      { code: "MARKET", name: "Bozor" },
+      { code: "CAPITAL", name: "Kapital" },
+      { code: "GROWTH", name: "O‘sish" },
+    ],
     forWhoTitle: "Klub kimlar uchun",
     forWho: [
-      "Faoliyat yuritayotgan biznes egalari va hammuassislar",
-      "Yirik kompaniyalarning yuqori lavozimli rahbarlari",
-      "Davlat va jamoat tashkilotlari bilan ishlaydigan ekspertlar",
+      "Xorijiy bozorlarga chiqmoqchi bo‘lgan O‘zbekiston kompaniyalari",
+      "O‘zbekiston va mintaqada o‘z o‘rnini topmoqchi bo‘lgan xorijiy kompaniyalar",
+      "Loyiha va ishonchli hamkor izlayotgan investorlar",
+    ],
+    tiersTitle: "A’zolik paketlari",
+    tiers: [
+      {
+        name: "Business Member",
+        note: "Asosiy biznes a’zolik",
+        items: [
+          "Klub tadbirlari",
+          "Biznes netvorking",
+          "B2B uchrashuvlar",
+          "Biznes ma’lumotlar",
+          "Knowledge tadbirlari",
+          "Privilege Card",
+          "Umumiy biznes hamkorlik imkoniyatlari",
+        ],
+      },
+      {
+        name: "Premium Member",
+        note: "Kengaytirilgan xizmat",
+        items: [
+          "Barcha Business imkoniyatlari",
+          "Individual biznes ko‘mak",
+          "Ustuvor B2B uchrashuvlar",
+          "Ekspertlar bilan ishlash",
+          "Investitsiya loyihalarini taqdim qilish imkoniyati",
+          "Xalqaro biznes tadbirlarida ustuvor ishtirok",
+        ],
+      },
+      {
+        name: "VIP Member",
+        note: "Yuqori darajadagi a’zolik",
+        items: [
+          "Shaxsiy biznes ko‘magi",
+          "VIP networking",
+          "Yopiq biznes uchrashuvlar",
+          "Investorlar bilan alohida muloqot",
+          "Xalqaro delegatsiyalar",
+          "Biznes missiyalarda ustuvorlik",
+          "Klubning maxsus xalqaro imkoniyatlaridan foydalanish",
+        ],
+      },
     ],
     stepsTitle: "A’zo bo‘lish tartibi",
     steps: [
       { name: "Ariza", text: "Saytdagi shaklni to‘ldirasiz." },
-      { name: "Suhbat", text: "Klub vakili siz bilan bog‘lanib, uchrashuv belgilaydi." },
-      { name: "Qaror", text: "Klub kengashi arizani ko‘rib chiqadi." },
-      { name: "Qabul", text: "Siz birinchi tadbirga taklif olasiz." },
+      { name: "Suhbat", text: "Klub vakili siz bilan bog‘lanib, maqsadlaringizni aniqlaydi." },
+      { name: "Paket", text: "Sizga mos a’zolik paketi tanlanadi." },
+      { name: "A’zolik", text: "Klub imkoniyatlaridan foydalanishni boshlaysiz." },
     ],
   },
   partners: { title: "Hamkorlar" },
@@ -125,7 +237,7 @@ export const uz = {
     socials: "Ijtimoiy tarmoqlar",
   },
   footer: {
-    tagline: "Yirik biznes egalari va qaror qabul qiluvchilar uchun yopiq xalqaro klub.",
+    tagline: "Tadbirkorlarni investitsiya, hamkorlik va yangi bozorlar bilan bog‘laydigan xalqaro biznes platforma.",
     rights: "Barcha huquqlar himoyalangan.",
     privacy: "Maxfiylik siyosati",
   },
@@ -142,33 +254,39 @@ export const uz = {
   },
   meta: {
     home: {
-      title: "Turon — xalqaro biznes klubi",
+      title: "Turon xalqaro biznes klubi",
       description:
-        "Turon — yirik biznes egalari va qaror qabul qiluvchilar uchun yopiq xalqaro biznes klubi: yopiq kechalar, davra suhbatlari va ishonchli aloqalar.",
+        "Turon xalqaro biznes klubi — tadbirkorlarni investitsiya, hamkorlik, B2B uchrashuvlar, yangi bozorlar va xalqaro aloqalar bilan bog‘laydigan biznes platforma.",
     },
     about: {
       title: "Klub haqida",
-      description: "Turon tarixi, missiyasi, tamoyillari va rahbariyati.",
+      description: "Turon xalqaro biznes klubining missiyasi, pozitsiyasi va asosiy yo‘nalishlari.",
     },
     founders: {
       title: "Asoschilar",
       description: "Turon xalqaro biznes klubi asoschilari va rahbariyati.",
     },
+    forum: {
+      title: "Ochilish marosimi va forum — 27-oktabr 2026",
+      description:
+        "Turon xalqaro biznes klubining rasmiy ochilish marosimi va bir kunlik biznes forum 2026-yil 27-oktabrda bo‘lib o‘tadi.",
+    },
     events: {
       title: "Tadbirlar",
-      description: "Turon kelgusi va o‘tgan tadbirlari taqvimi.",
+      description: "Turon xalqaro biznes klubining kelgusi va o‘tgan tadbirlari.",
     },
     membership: {
       title: "A’zolik",
-      description: "Turon a’zosi bo‘lish tartibi, talablar va ariza shakli.",
+      description:
+        "Turon xalqaro biznes klubiga a’zolik: 12 ta asosiy qiymat, Business, Premium va VIP paketlari, ariza shakli.",
     },
     contact: {
       title: "Aloqa",
-      description: "Turon telefon raqami, manzili va ish vaqti.",
+      description: "Turon xalqaro biznes klubi telefon raqami, manzili va ish vaqti.",
     },
     privacy: {
       title: "Maxfiylik siyosati",
-      description: "Turon saytining maxfiylik siyosati.",
+      description: "Turon xalqaro biznes klubi saytining maxfiylik siyosati.",
     },
   },
   months: [

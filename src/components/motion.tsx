@@ -235,3 +235,46 @@ export function HeaderShell({ children }: { children: ReactNode }) {
     </motion.header>
   );
 }
+
+/** Tadbirgacha qolgan vaqt: kun, soat, daqiqa, soniya */
+export function Countdown({
+  target,
+  labels,
+}: {
+  /** ISO vaqt, masalan "2026-10-27T10:00:00+05:00" */
+  target: string;
+  labels: { days: string; hours: string; minutes: string; seconds: string };
+}) {
+  const [left, setLeft] = useState<number | null>(null);
+  useEffect(() => {
+    const end = new Date(target).getTime();
+    const tick = () => setLeft(Math.max(0, end - Date.now()));
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, [target]);
+
+  const total = Math.floor((left ?? 0) / 1000);
+  const parts = [
+    { value: Math.floor(total / 86400), label: labels.days },
+    { value: Math.floor((total % 86400) / 3600), label: labels.hours },
+    { value: Math.floor((total % 3600) / 60), label: labels.minutes },
+    { value: total % 60, label: labels.seconds },
+  ];
+  if (left === 0) return null;
+  return (
+    <dl className="grid max-w-xl grid-cols-4 border border-[var(--hair)]" role="timer">
+      {parts.map((p, i) => (
+        <div
+          key={p.label}
+          className={`flex flex-col-reverse items-center py-5 md:py-7 ${i > 0 ? "border-l border-[var(--hair)]" : ""}`}
+        >
+          <dt className="mt-2 text-[0.8rem] text-mist md:text-[0.9rem]">{p.label}</dt>
+          <dd className="gold-text font-display text-4xl leading-none tabular-nums md:text-6xl">
+            {left === null ? "--" : String(p.value).padStart(2, "0")}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  );
+}

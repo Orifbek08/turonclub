@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import { Reveal, Words } from "@/components/motion";
-import { ApplySection, FaqList, Formats, PageHead, SectionHead, Steps } from "@/components/sections";
+import {
+  ApplySection,
+  Benefits,
+  Chain,
+  FaqList,
+  PageHead,
+  SectionHead,
+  Steps,
+  Tiers,
+} from "@/components/sections";
 import { JsonLd } from "@/components/JsonLd";
 import { getTexts, pick, type Locale } from "@/lib/i18n";
 import { pageMeta } from "@/lib/seo";
@@ -20,6 +29,23 @@ export default async function MembershipPage({ params }: Props) {
     <>
       <PageHead title={t.membership.title} lead={t.membership.lead} />
       <section className="section">
+        <div className="shell">
+          <SectionHead title={t.membership.ideaTitle} />
+          <div className="mt-14">
+            <Chain locale={locale} />
+          </div>
+        </div>
+      </section>
+      <Benefits locale={locale} />
+      <section className="section">
+        <div className="shell">
+          <SectionHead title={t.membership.tiersTitle} />
+          <div className="mt-16 md:mt-20">
+            <Tiers locale={locale} />
+          </div>
+        </div>
+      </section>
+      <section className="section bg-deep">
         <div className="shell grid gap-12 lg:grid-cols-[1fr_1.7fr] lg:gap-24">
           <h2 className="h-section">
             <Words text={t.membership.forWhoTitle} />
@@ -35,7 +61,6 @@ export default async function MembershipPage({ params }: Props) {
           </ul>
         </div>
       </section>
-      <Formats locale={locale} />
       <section className="section">
         <div className="shell">
           <SectionHead title={t.membership.stepsTitle} />

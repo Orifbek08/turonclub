@@ -1,9 +1,11 @@
 /**
  * TADBIRLAR
- * date — "YYYY-MM-DD" ko'rinishida. Sana o'tib ketgach, tadbir o'zi
- *        "O'tgan tadbirlar" bo'limiga tushadi.
- * time — boshlanish vaqti, masalan "18:30".
- * guest — taklif etilgan mehmon yoki so'zlovchi ismi va lavozimi (bo'lmasa uchala tilda "").
+ * date  — "YYYY-MM-DD" ko'rinishida. Sana o'tib ketgach, tadbir o'zi
+ *         "O'tgan tadbirlar" bo'limiga tushadi.
+ * time  — boshlanish vaqti, masalan "18:30". Hali aniq bo'lmasa "" qoldiring.
+ * venue — joy. Hali aniq bo'lmasa uchala tilda "" qoldiring.
+ * guest — taklif etilgan mehmon yoki so'zlovchi (bo'lmasa uchala tilda "").
+ * link  — tadbirning saytdagi alohida sahifasi (bo'lmasa ""), masalan "/forum".
  */
 import type { Localized } from "@/lib/i18n";
 
@@ -15,82 +17,26 @@ export type ClubEvent = {
   summary: Localized;
   venue: Localized;
   guest: Localized;
+  link: string;
 };
 
 export const events: ClubEvent[] = [
   {
-    slug: "tadbir-1",
-    date: "2026-11-12",
-    time: "18:30",
+    slug: "ochilish-marosimi-forum",
+    date: "2026-10-27",
+    time: "",
     title: {
-      uz: "Tadbir nomi: maxsus mehmon bilan yopiq uchrashuv",
-      ru: "Название события: закрытая встреча с особым гостем",
-      en: "Event title: a closed evening with a special guest",
+      uz: "Turon xalqaro biznes klubining ochilish marosimi va forum",
+      ru: "Церемония открытия международного бизнес-клуба Turon и форум",
+      en: "Opening ceremony of Turon International Business Club and forum",
     },
     summary: {
-      uz: "Tadbir mavzusi va unda nimalar muhokama qilinishi haqida ikki jumla.",
-      ru: "Два предложения о теме события и о том, что будет обсуждаться.",
-      en: "Two sentences on the topic of the event and what will be discussed.",
+      uz: "Klubning rasmiy ochilishi va bir kunlik biznes forum.",
+      ru: "Официальное открытие клуба и однодневный бизнес-форум.",
+      en: "The official opening of the club and a one-day business forum.",
     },
-    venue: {
-      uz: "Toshkent, o‘tkaziladigan joy",
-      ru: "Ташкент, место проведения",
-      en: "Tashkent, venue",
-    },
-    guest: {
-      uz: "Mehmon ismi, lavozimi",
-      ru: "Имя гостя, должность",
-      en: "Guest name, position",
-    },
-  },
-  {
-    slug: "tadbir-2",
-    date: "2026-11-26",
-    time: "19:00",
-    title: {
-      uz: "Tadbir nomi: soha rahbarlari davra suhbati",
-      ru: "Название события: круглый стол руководителей отрасли",
-      en: "Event title: a round table of industry leaders",
-    },
-    summary: {
-      uz: "Tadbir mavzusi va unda nimalar muhokama qilinishi haqida ikki jumla.",
-      ru: "Два предложения о теме события и о том, что будет обсуждаться.",
-      en: "Two sentences on the topic of the event and what will be discussed.",
-    },
-    venue: {
-      uz: "Toshkent, o‘tkaziladigan joy",
-      ru: "Ташкент, место проведения",
-      en: "Tashkent, venue",
-    },
-    guest: {
-      uz: "Mehmon ismi, lavozimi",
-      ru: "Имя гостя, должность",
-      en: "Guest name, position",
-    },
-  },
-  {
-    slug: "tadbir-3",
-    date: "2026-12-10",
-    time: "18:30",
-    title: {
-      uz: "Tadbir nomi: yil yakuni uchrashuvi",
-      ru: "Название события: итоговая встреча года",
-      en: "Event title: the year-end meeting",
-    },
-    summary: {
-      uz: "Tadbir mavzusi va unda nimalar muhokama qilinishi haqida ikki jumla.",
-      ru: "Два предложения о теме события и о том, что будет обсуждаться.",
-      en: "Two sentences on the topic of the event and what will be discussed.",
-    },
-    venue: {
-      uz: "Toshkent, o‘tkaziladigan joy",
-      ru: "Ташкент, место проведения",
-      en: "Tashkent, venue",
-    },
-    guest: {
-      uz: "Mehmon ismi, lavozimi",
-      ru: "Имя гостя, должность",
-      en: "Guest name, position",
-    },
+    venue: { uz: "", ru: "", en: "" },
+    guest: { uz: "", ru: "", en: "" },
+    link: "/forum",
   },
 ];

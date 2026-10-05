@@ -27,7 +27,19 @@ const WORDS: Record<string, string> = {
   yanvar: "январь", fevral: "февраль", aprel: "апрель", iyun: "июнь", iyul: "июль",
   sentabr: "сентябрь", oktabr: "октябрь", noyabr: "ноябрь", dekabr: "декабрь",
   rubl: "рубль", sirk: "цирк", sement: "цемент", fakultet: "факультет",
+  potensial: "потенциал", konsepsiya: "концепция", prinsip: "принцип", protsent: "процент",
 };
+
+/**
+ * Lotincha qoladigan atamalar (brend va inglizcha nomlar).
+ * Yangi atama kerak bo'lsa, shu ro'yxatga qo'shing.
+ * BOSH HARFLAR bilan yozilgan lotincha so'zlar (CAPITAL, B2B, VIP) o'zi lotinda qoladi.
+ */
+export const KEEP_PHRASES = [
+  "One-to-One", "Privilege Card", "Global Council", "Business Member", "Premium Member",
+  "VIP Member", "VIP networking", "Turon", "Business", "Premium", "Knowledge",
+  "Capital", "Connection", "Market", "Export", "Import", "Global",
+];
 
 /** Lotincha qoladigan bo'laklar: havolalar, pochta, domenlar */
 const KEEP = /\S*[@/]\S*|\b[\w-]+\.(?:uz|com|org|net|ru)\b/g;
@@ -90,6 +102,11 @@ function word(w: string): string {
   return out;
 }
 
+const PHRASES = new RegExp(
+  `(?<![A-Za-z‘’])(?:${[...KEEP_PHRASES].sort((a, b) => b.length - a.length).join("|")})(?![a-z‘’])`,
+  "g",
+);
+
 export function toCyrillic(text: string): string {
   // Apostroflarni bir xil ko'rinishga keltiramiz
   const normalized = text
@@ -97,10 +114,15 @@ export function toCyrillic(text: string): string {
     .replace(/[ʼ']/g, "’");
 
   const kept: string[] = [];
-  const masked = normalized.replace(KEEP, (m) => {
+  const mask = (m: string) => {
     kept.push(m);
     return `\u0000${kept.length - 1}\u0000`;
-  });
+  };
+  const masked = normalized
+    .replace(KEEP, mask)
+    .replace(PHRASES, mask)
+    // BOSH HARFLAR bilan yozilgan lotincha so'zlar: CAPITAL, B2B, VIP, TURON
+    .replace(/\b[A-Z][A-Z0-9]+\b/g, mask);
   const converted = masked.replace(/[A-Za-z‘’]+/g, word);
   return converted.replace(/\u0000(\d+)\u0000/g, (_, n) => kept[Number(n)]!);
 }

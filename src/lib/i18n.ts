@@ -47,6 +47,14 @@ export function shortDate(iso: string, locale: Locale): string {
   return locale === "uz" || locale === "uz-cyrl" ? `${day}-${month}` : `${day} ${month}`;
 }
 
+/** "2026-yil 27-oktabr" / "27 октября 2026" / "27 October 2026" */
+export function longDate(iso: string, locale: Locale): string {
+  const { day, month, year } = dateParts(iso, locale);
+  if (locale === "uz") return `${year}-yil ${day}-${month}`;
+  if (locale === "uz-cyrl") return `${year}-йил ${day}-${month}`;
+  return `${day} ${month} ${year}`;
+}
+
 /** Toshkent vaqti bilan bugungi sana, "YYYY-MM-DD" */
 export function todayInTashkent(): string {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Tashkent" }).format(new Date());

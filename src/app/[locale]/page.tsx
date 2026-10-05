@@ -5,16 +5,18 @@ import { LogoMark } from "@/components/Logo";
 import { Drift, Line, Parallax, Reveal, Scrub, Words } from "@/components/motion";
 import {
   ApplySection,
+  Benefits,
   EventRows,
   FaqList,
-  Formats,
+  ForumBand,
+  Formula,
   FounderGrid,
   FounderQuote,
   Marquee,
   PartnersRow,
   SectionHead,
   Stats,
-  Steps,
+  Tiers,
 } from "@/components/sections";
 import { getTexts, href, shortDate, pick, type Locale } from "@/lib/i18n";
 import { splitEvents } from "@/lib/content";
@@ -61,7 +63,7 @@ export default async function HomePage({ params }: Props) {
           <Reveal intro y={16}>
             <p className="text-lg text-gold-light">{pick(site.descriptor, locale)}</p>
           </Reveal>
-          <h1 className="h-hero mt-6 max-w-[13ch]">
+          <h1 className="h-hero mt-6 max-w-[24ch]">
             <Words text={t.home.title} intro delay={0.15} />
           </h1>
           <div className="mt-10 grid gap-10 md:mt-14 md:grid-cols-[1fr_auto] md:items-end">
@@ -86,15 +88,16 @@ export default async function HomePage({ params }: Props) {
               <div className="flex items-center justify-between gap-8 pt-6">
                 {next ? (
                   <Link
-                    href={`${href(locale, "/events")}#${next.slug}`}
+                    href={next.link ? href(locale, next.link) : `${href(locale, "/events")}#${next.slug}`}
                     className="group flex flex-wrap items-baseline gap-x-6 gap-y-1"
                   >
                     <span className="muted text-[0.95rem]">{t.home.nextEvent}</span>
                     <span className="font-display text-xl transition-colors group-hover:text-gold-light md:text-2xl">
                       {pick(next.title, locale)}
                     </span>
-                    <time dateTime={`${next.date}T${next.time}`} className="text-gold-light">
-                      {shortDate(next.date, locale)}, {next.time}
+                    <time dateTime={next.date} className="text-gold-light">
+                      {shortDate(next.date, locale)}
+                      {next.time && `, ${next.time}`}
                     </time>
                   </Link>
                 ) : (
@@ -111,6 +114,7 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       <Marquee items={t.home.marquee} />
+      <ForumBand locale={locale} />
 
       {/* ---------- Klub haqida: skrollda ochiladigan matn ---------- */}
       <section className="section relative overflow-hidden">
@@ -123,6 +127,9 @@ export default async function HomePage({ params }: Props) {
             text={t.home.manifesto}
             className="mt-8 max-w-6xl font-display text-[clamp(2rem,4.6vw,4.4rem)] leading-[1.1]"
           />
+          <div className="mt-14 md:mt-20">
+            <Formula items={t.home.formula} />
+          </div>
           <Reveal delay={0.1}>
             <p className="mt-12">
               <Link href={href(locale, "/about")} className="text-link">
@@ -136,7 +143,7 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      <Formats locale={locale} />
+      <Benefits locale={locale} />
 
       {/* ---------- Asoschilar (och bo'lim) ---------- */}
       <section className="on-light section bg-ivory text-ink">
@@ -182,12 +189,20 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      {/* ---------- A'zo bo'lish tartibi ---------- */}
+      {/* ---------- A'zolik paketlari ---------- */}
       <section className="section bg-deep">
         <div className="shell">
-          <SectionHead title={t.membership.stepsTitle} lead={t.membership.lead} />
+          <SectionHead
+            title={t.membership.tiersTitle}
+            lead={t.membership.lead}
+            action={
+              <Link href={href(locale, "/membership")} className="text-link">
+                {t.cta.membership}
+              </Link>
+            }
+          />
           <div className="mt-16 md:mt-20">
-            <Steps locale={locale} />
+            <Tiers locale={locale} />
           </div>
         </div>
       </section>

@@ -19,6 +19,7 @@ Kodga tegish shart emas. Hamma matn va ro‘yxatlar `content/` papkasida:
 | `content/site.ts` | Telefon, email, manzil, ijtimoiy tarmoqlar, raqamlar |
 | `content/founders.ts` | Asoschilar (birinchisi bosh sahifada iqtibos bilan chiqadi) |
 | `content/events.ts` | Tadbirlar (sanasi o‘tgani o‘zi arxivga tushadi) |
+| `content/forum.ts` | Forum: sana, vaqt, joy, dastur (`/forum` sahifasi) |
 | `content/partners.ts` | Hamkorlar |
 | `content/faq.ts` | Savol-javoblar |
 | `content/texts/uz.ts`, `ru.ts`, `en.ts` | Sahifalardagi barcha matnlar va SEO sarlavhalari |

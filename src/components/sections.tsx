@@ -1,17 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { dateParts, getTexts, href, pick, type Locale } from "@/lib/i18n";
+import { dateParts, getTexts, href, longDate, pick, todayInTashkent, type Locale } from "@/lib/i18n";
 import { site } from "@content/site";
 import { partners } from "@content/partners";
 import { faq } from "@content/faq";
+import { forum } from "@content/forum";
 import type { Founder } from "@content/founders";
 import type { ClubEvent } from "@content/events";
 import { Portrait } from "./Portrait";
 import { Star, Tiles } from "./Tiles";
 import { ApplyForm } from "./ApplyForm";
 import { Socials } from "./Socials";
-import { CountUp, Line, Reveal, Words } from "./motion";
+import { CountUp, Countdown, Line, Reveal, Words } from "./motion";
 
 const fadeLeft = {
   maskImage: "linear-gradient(to left, #000 15%, transparent 95%)",
@@ -158,10 +159,11 @@ export function EventRows({
           <li key={e.slug} id={e.slug} className="row-hover border-b border-[var(--hair)]">
             <Reveal delay={i * 0.08}>
               <div className="grid gap-x-10 gap-y-5 py-10 md:grid-cols-[11rem_1fr_auto] md:items-center md:py-12">
-                <time dateTime={`${e.date}T${e.time}`} className="flex items-baseline gap-4 md:block">
+                <time dateTime={e.time ? `${e.date}T${e.time}` : e.date} className="flex items-baseline gap-4 md:block">
                   <span className="gold-text font-display text-7xl leading-none md:text-8xl">{d.day}</span>
                   <span className="muted block text-[0.95rem] md:mt-3">
-                    {d.month} {d.year}, {e.time}
+                    {d.month} {d.year}
+                    {e.time && `, ${e.time}`}
                   </span>
                 </time>
                 <div className="row-shift">
@@ -174,18 +176,20 @@ export function EventRows({
                         <dd>{pick(e.guest, locale)}</dd>
                       </div>
                     )}
-                    <div>
-                      <dt className="sr-only">{t.contact.address}</dt>
-                      <dd className="text-ivory/80">{pick(e.venue, locale)}</dd>
-                    </div>
+                    {pick(e.venue, locale) && (
+                      <div>
+                        <dt className="sr-only">{t.contact.address}</dt>
+                        <dd className="text-ivory/80">{pick(e.venue, locale)}</dd>
+                      </div>
+                    )}
                   </dl>
                 </div>
                 {withAction && (
                   <Link
-                    href={`${href(locale, "/membership")}?event=${e.slug}#apply`}
+                    href={e.link ? href(locale, e.link) : `${href(locale, "/membership")}#apply`}
                     className="btn btn-ghost btn-sm justify-self-start"
                   >
-                    {t.cta.register}
+                    {e.link ? t.cta.forum : t.cta.register}
                   </Link>
                 )}
               </div>
@@ -220,11 +224,200 @@ export function DefinitionRows({ title, items }: { title: string; items: { name:
   );
 }
 
-export function Formats({ locale }: { locale: Locale }) {
+/** A'zolikning 12 ta qiymati */
+export function Benefits({ locale }: { locale: Locale }) {
   const t = getTexts(locale);
   return (
     <section className="section bg-deep">
-      <DefinitionRows title={t.formats.title} items={t.formats.items} />
+      <div className="shell">
+        <SectionHead title={t.benefits.title} lead={t.benefits.lead} />
+        <ol className="mt-16 grid border-l border-t border-[var(--hair)] sm:grid-cols-2 lg:grid-cols-3">
+          {t.benefits.items.map((item, i) => (
+            <li key={item.code} className="row-hover border-b border-r border-[var(--hair)]">
+              <Reveal delay={(i % 3) * 0.08} className="h-full">
+                <div className="flex h-full flex-col p-7 md:p-9">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <span className="gold-text font-display text-4xl leading-none">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-right text-[0.8rem] font-semibold tracking-[0.14em] text-gold-light">
+                      {item.code}
+                    </span>
+                  </div>
+                  <h3 className="mt-8 text-[1.65rem] leading-tight">{item.name}</h3>
+                  <p className="muted mt-3 text-[0.98rem]">{item.text}</p>
+                </div>
+              </Reveal>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+function Arrow() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 48 12" className="h-3 w-10 shrink-0 text-gold md:w-12">
+      <path d="M0 6h45M40 1l6 5-6 5" fill="none" stroke="currentColor" strokeWidth="1" />
+    </svg>
+  );
+}
+
+/** Klub formulasi: bosqichlar zanjiri */
+export function Formula({ items }: { items: string[] }) {
+  return (
+    <ol className="flex flex-col gap-x-6 gap-y-4 md:flex-row md:flex-wrap md:items-center">
+      {items.map((item, i) => (
+        <li key={item} className="flex items-center gap-6">
+          <Reveal delay={i * 0.15}>
+            <span className="font-display text-[clamp(1.7rem,2.6vw,2.5rem)] leading-tight">{item}</span>
+          </Reveal>
+          {i < items.length - 1 && (
+            <Reveal delay={i * 0.15 + 0.1}>
+              <Arrow />
+            </Reveal>
+          )}
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+/** A'zolik zanjiri: NETWORK → ACCESS → ... → GROWTH */
+export function Chain({ locale }: { locale: Locale }) {
+  const t = getTexts(locale);
+  return (
+    <ol className="grid grid-cols-2 border-l border-t border-[var(--hair)] md:grid-cols-3 lg:grid-cols-6">
+      {t.membership.chain.map((step, i) => (
+        <li key={step.code} className="border-b border-r border-[var(--hair)]">
+          <Reveal delay={i * 0.1}>
+            <div className="p-6 md:p-7">
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-[0.8rem] font-semibold tracking-[0.14em] text-gold-light">{step.code}</span>
+                {i < t.membership.chain.length - 1 && <Arrow />}
+              </div>
+              <p className="mt-6 font-display text-3xl leading-none">{step.name}</p>
+            </div>
+          </Reveal>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+/** A'zolik paketlari */
+export function Tiers({ locale }: { locale: Locale }) {
+  const t = getTexts(locale);
+  const last = t.membership.tiers.length - 1;
+  return (
+    <ul className="grid gap-6 lg:grid-cols-3">
+      {t.membership.tiers.map((tier, i) => (
+        <li key={tier.name}>
+          <Reveal delay={i * 0.12} className="h-full">
+            <article
+              className={`relative flex h-full flex-col p-8 md:p-10 ${
+                i === last ? "bg-night" : "border border-[var(--hair)] bg-night/50"
+              }`}
+              style={i === last ? { border: "1px solid var(--color-gold)" } : undefined}
+            >
+              {i === last && (
+                <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1" style={{ background: "var(--gold-grad)" }} />
+              )}
+              <h3 className={`font-display text-4xl leading-none ${i === last ? "gold-text" : ""}`}>{tier.name}</h3>
+              <p className="muted mt-3">{tier.note}</p>
+              <ul className="mt-8 flex-1 space-y-3.5 border-t border-[var(--hair)] pt-8">
+                {tier.items.map((item) => (
+                  <li key={item} className="flex gap-3.5">
+                    <Star className="mt-[0.45em] h-2.5 w-2.5 shrink-0 text-gold" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link href="#apply" className={`btn mt-10 ${i === last ? "btn-gold" : "btn-ghost"}`}>
+                {t.cta.apply}
+              </Link>
+            </article>
+          </Reveal>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/** Forum haqidagi asosiy faktlar: sana, format, joy */
+export function ForumFacts({ locale }: { locale: Locale }) {
+  const t = getTexts(locale);
+  const venue = pick(forum.venue, locale);
+  const rows = [
+    { label: t.forum.dateLabel, value: longDate(forum.date, locale) },
+    ...(forum.time ? [{ label: t.forum.timeLabel, value: forum.time }] : []),
+    { label: t.forum.formatLabel, value: t.forum.format },
+    { label: t.forum.venueLabel, value: venue || t.forum.venueTbd },
+  ];
+  return (
+    <dl className="grid border-l border-t border-[var(--hair)] sm:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(0,1fr))]">
+      {rows.map((row, i) => (
+        <Reveal key={row.label} delay={i * 0.1} className="border-b border-r border-[var(--hair)]">
+          <div className="flex flex-col-reverse p-6 md:p-8">
+            <dd className="mt-3 font-display text-[1.7rem] leading-tight md:text-[2rem]">{row.value}</dd>
+            <dt className="muted text-[0.95rem]">{row.label}</dt>
+          </div>
+        </Reveal>
+      ))}
+    </dl>
+  );
+}
+
+export function forumTarget() {
+  return `${forum.date}T${forum.time || "00:00"}:00+05:00`;
+}
+
+/** Bosh sahifadagi forum bo'limi. Forum sanasi o'tgach, o'zi yashirinadi. */
+export function ForumBand({ locale }: { locale: Locale }) {
+  if (forum.date < todayInTashkent()) return null;
+  const t = getTexts(locale);
+  const d = dateParts(forum.date, locale);
+  return (
+    <section className="section relative isolate overflow-hidden bg-deep">
+      <Tiles
+        cols={7}
+        rows={8}
+        seed={4}
+        live
+        className="absolute inset-y-0 right-0 -z-10 hidden h-full w-[48%] opacity-80 lg:block"
+        style={fadeLeft}
+      />
+      <div className="shell grid gap-12 lg:grid-cols-[auto_1fr] lg:gap-20">
+        <Reveal>
+          <time dateTime={forum.date} className="block">
+            <span className="gold-text block font-display text-[clamp(7rem,16vw,14rem)] leading-[0.82]">{d.day}</span>
+            <span className="mt-4 block font-display text-3xl md:text-4xl">
+              {d.month} {d.year}
+            </span>
+          </time>
+        </Reveal>
+        <div className="max-w-2xl">
+          <p className="text-lg text-gold-light">{t.forum.band}</p>
+          <h2 className="h-section mt-5">
+            <Words text={t.forum.title} />
+          </h2>
+          <Reveal delay={0.25}>
+            <p className="lead mt-6 text-ivory/80">{t.forum.lead}</p>
+            <div className="mt-10">
+              <Countdown target={forumTarget()} labels={t.forum.countdown} />
+            </div>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link href={`${href(locale, "/forum")}#apply`} className="btn btn-gold">
+                {t.cta.forumRegister}
+              </Link>
+              <Link href={href(locale, "/forum")} className="btn btn-ghost">
+                {t.cta.forum}
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </div>
     </section>
   );
 }
