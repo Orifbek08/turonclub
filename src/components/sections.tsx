@@ -442,7 +442,7 @@ export function ForumGuests({ locale }: { locale: Locale }) {
     <section className="on-light section bg-ivory text-ink">
       <div className="shell">
         <SectionHead title={t.forum.guestsTitle} />
-        <ul className="mt-16 grid gap-x-8 gap-y-14 sm:grid-cols-3 md:gap-x-12">
+        <ul className="mt-16 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4 lg:gap-x-9">
           {guests.map((g, i) => (
             <li key={g.photo}>
               <Reveal delay={i * 0.12}>
@@ -452,10 +452,10 @@ export function ForumGuests({ locale }: { locale: Locale }) {
                     file={g.photo}
                     name={pick(g.name, locale)}
                     alt={`${pick(g.name, locale)}. ${pick(g.about, locale)}`}
-                    sizes="(min-width: 640px) 400px, 92vw"
+                    sizes="(min-width: 1024px) 300px, 46vw"
                     seed={i * 7 + 2}
                   />
-                  <h3 className="mt-6 text-[1.7rem] leading-tight md:text-[2rem]">{pick(g.name, locale)}</h3>
+                  <h3 className="mt-6 text-[1.45rem] leading-tight md:text-[1.7rem]">{pick(g.name, locale)}</h3>
                   <p className="muted mt-2">{pick(g.about, locale)}</p>
                 </div>
               </Reveal>

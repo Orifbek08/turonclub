@@ -51,14 +51,13 @@ export const forum = {
       photo: "jahongir-ortiqxojayev.webp",
     },
     {
-      // Rasmi yuborilmagan, shuning uchun hozircha saytda ko'rinmaydi
       name: { uz: "Rasul Kusherbayev", ru: "Расул Кушербаев", en: "Rasul Kusherbayev" },
       about: {
         uz: "Jurnalist va bloger, Oliy Majlis Qonunchilik palatasining sobiq deputati",
         ru: "Журналист и блогер, бывший депутат Законодательной палаты Олий Мажлиса",
         en: "Journalist and blogger, former member of the Legislative Chamber of the Oliy Majlis",
       },
-      photo: "",
+      photo: "rasul-kusherbayev.webp",
     },
   ] as { name: Localized; about: Localized; photo: string }[],
   program: [] as { time: string; title: Localized }[],
