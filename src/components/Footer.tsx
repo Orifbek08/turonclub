@@ -61,7 +61,7 @@ export function Footer({ locale }: { locale: Locale }) {
       <div className="relative border-t border-[var(--hair)] bg-night">
         <div className="shell py-6 text-sm text-mist">
           <p>
-            © {new Date().getFullYear()} {pick(site.legalName, locale)}. {t.footer.rights}
+            © {new Date().getFullYear()} {site.name} — {pick(site.descriptor, locale)}. {t.footer.rights}
           </p>
         </div>
       </div>
