@@ -1,7 +1,8 @@
 /**
  * ASOSCHILAR
  * Yangi asoschi qo'shish: quyidagi bloklardan birini nusxalab, ma'lumotni almashtiring.
- * Ro'yxatdagi BIRINCHI asoschi bosh sahifada katta iqtibos bilan chiqadi.
+ * Uchala asoschi bosh sahifaning birinchi ekranida yonma-yon chiqadi (o'rtada ikkinchisi).
+ * Ro'yxatdagi BIRINCHI asoschi bosh sahifada katta iqtibos bilan ham chiqadi.
  *
  * slug  — sahifa manzili: turonclub.uz/uz/founders/<slug>
  *         faqat kichik lotin harflari va chiziqcha: "alisher-karimov"
@@ -79,28 +80,6 @@ export const founders: Founder[] = [
       uz: ["Moliya", "Bank sektori"],
       ru: ["Финансы", "Банковский сектор"],
       en: ["Finance", "Banking"],
-    },
-    bio: {
-      uz: "Asoschi haqida qisqa ma’lumot: qaysi biznesni qurgani, asosiy yutuqlari va klubdagi o‘rni.",
-      ru: "Краткая информация об основателе: какой бизнес он построил, ключевые достижения и роль в клубе.",
-      en: "A short profile of the founder: the business they built, key achievements and their role in the club.",
-    },
-    quote: {
-      uz: "Bu yerga asoschining klub maqsadi haqidagi bir-ikki jumlasi yoziladi.",
-      ru: "Здесь будут одна-две фразы основателя о цели клуба.",
-      en: "One or two sentences from the founder about the purpose of the club go here.",
-    },
-  },
-  {
-    slug: "asoschi-4",
-    name: { uz: "Ism Familiya", ru: "Имя Фамилия", en: "First Last" },
-    role: { uz: "Hammuassis", ru: "Сооснователь", en: "Co-founder" },
-    company: "Kompaniya nomi",
-    photo: "",
-    focus: {
-      uz: ["Texnologiyalar", "Ishlab chiqarish"],
-      ru: ["Технологии", "Производство"],
-      en: ["Technology", "Manufacturing"],
     },
     bio: {
       uz: "Asoschi haqida qisqa ma’lumot: qaysi biznesni qurgani, asosiy yutuqlari va klubdagi o‘rni.",

@@ -16,9 +16,8 @@ Kodga tegish shart emas. Hamma matn va ro‘yxatlar `content/` papkasida:
 
 | Fayl | Nima bor |
 | --- | --- |
-| `content/site.ts` | Telefon, email, manzil, ijtimoiy tarmoqlar, raqamlar |
+| `content/site.ts` | Telefon, email, manzil, ijtimoiy tarmoqlar, raqamlar, birinchi ekran rasmi (`heroPhoto`) |
 | `content/founders.ts` | Asoschilar (birinchisi bosh sahifada iqtibos bilan chiqadi) |
-| `content/events.ts` | Tadbirlar (sanasi o‘tgani o‘zi arxivga tushadi) |
 | `content/forum.ts` | Forum: sana, vaqt, joy, dastur (`/forum` sahifasi) |
 | `content/partners.ts` | Hamkorlar |
 | `content/faq.ts` | Savol-javoblar |

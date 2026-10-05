@@ -8,7 +8,6 @@ export const uz = {
     about: "Klub haqida",
     founders: "Asoschilar",
     forum: "Forum",
-    events: "Tadbirlar",
     membership: "A’zolik",
     contact: "Aloqa",
     menu: "Menyu",
@@ -20,8 +19,6 @@ export const uz = {
     join: "A’zo bo‘lish",
     apply: "Ariza qoldirish",
     allFounders: "Barcha asoschilar",
-    allEvents: "Barcha tadbirlar",
-    register: "Qatnashish",
     forum: "Forum haqida batafsil",
     forumRegister: "Forumda qatnashish",
     membership: "A’zolik haqida batafsil",
@@ -117,11 +114,13 @@ export const uz = {
   },
   forum: {
     title: "Turon xalqaro biznes klubining ochilish marosimi",
-    lead: "Klubning rasmiy ochilishi va bir kunlik biznes forum: tadbirkorlar, investorlar va xalqaro hamkorlar bir maydonda.",
+    lead: "Klubning rasmiy ochilishi va 600 kishilik bir kunlik biznes forum: tadbirkorlar, investorlar va xalqaro hamkorlar bir maydonda.",
     band: "Ochilish marosimi va forum",
     dateLabel: "Sana",
     formatLabel: "Format",
-    format: "Bir kunlik forum",
+    format: "Bir kunlik biznes forum",
+    participantsLabel: "Ishtirokchilar",
+    participants: "600 kishi",
     venueLabel: "Joy",
     venueTbd: "Tez orada e’lon qilinadi",
     timeLabel: "Boshlanishi",
@@ -135,14 +134,6 @@ export const uz = {
     focus: "Faoliyat sohalari",
     bio: "Asoschi haqida",
     back: "Barcha asoschilar",
-  },
-  events: {
-    title: "Tadbirlar",
-    lead: "Klub tadbirlari taqvimi: forumlar, B2B uchrashuvlar va biznes missiyalar.",
-    upcoming: "Kelgusi tadbirlar",
-    past: "O‘tgan tadbirlar",
-    empty: "Yangi tadbirlar tez orada e’lon qilinadi. Xabardor bo‘lish uchun ariza qoldiring.",
-    guest: "Mehmon",
   },
   membership: {
     title: "A’zolik",
@@ -225,7 +216,6 @@ export const uz = {
     sending: "Yuborilmoqda…",
     success: "Ariza yuborildi. Klub vakili siz bilan bog‘lanadi.",
     error: "Ariza yuborilmadi. Qayta urinib ko‘ring yoki bizga qo‘ng‘iroq qiling.",
-    consent: "Arizani yuborish orqali shaxsiy ma’lumotlarni qayta ishlashga rozilik bildirasiz.",
   },
   contact: {
     title: "Aloqa",
@@ -239,14 +229,6 @@ export const uz = {
   footer: {
     tagline: "Tadbirkorlarni investitsiya, hamkorlik va yangi bozorlar bilan bog‘laydigan xalqaro biznes platforma.",
     rights: "Barcha huquqlar himoyalangan.",
-    privacy: "Maxfiylik siyosati",
-  },
-  privacy: {
-    title: "Maxfiylik siyosati",
-    body: [
-      "Bu yerga maxfiylik siyosati matni joylanadi. Matnni yurist bilan kelishib yozing.",
-      "Unda qaysi shaxsiy ma’lumotlar yig‘ilishi, ular nima maqsadda ishlatilishi, qancha saqlanishi va foydalanuvchi o‘z ma’lumotlarini qanday o‘chirtirishi mumkinligi ko‘rsatiladi.",
-    ],
   },
   notFound: {
     title: "Sahifa topilmadi",
@@ -269,11 +251,7 @@ export const uz = {
     forum: {
       title: "Ochilish marosimi va forum — 27-oktabr 2026",
       description:
-        "Turon xalqaro biznes klubining rasmiy ochilish marosimi va bir kunlik biznes forum 2026-yil 27-oktabrda bo‘lib o‘tadi.",
-    },
-    events: {
-      title: "Tadbirlar",
-      description: "Turon xalqaro biznes klubining kelgusi va o‘tgan tadbirlari.",
+        "Turon xalqaro biznes klubining rasmiy ochilish marosimi va 600 kishilik bir kunlik biznes forum 2026-yil 27-oktabrda bo‘lib o‘tadi.",
     },
     membership: {
       title: "A’zolik",
@@ -283,10 +261,6 @@ export const uz = {
     contact: {
       title: "Aloqa",
       description: "Turon xalqaro biznes klubi telefon raqami, manzili va ish vaqti.",
-    },
-    privacy: {
-      title: "Maxfiylik siyosati",
-      description: "Turon xalqaro biznes klubi saytining maxfiylik siyosati.",
     },
   },
   months: [

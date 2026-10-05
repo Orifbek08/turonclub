@@ -6,8 +6,7 @@ import { site } from "@content/site";
 import { partners } from "@content/partners";
 import { faq } from "@content/faq";
 import { forum } from "@content/forum";
-import type { Founder } from "@content/founders";
-import type { ClubEvent } from "@content/events";
+import { founders, type Founder } from "@content/founders";
 import { Portrait } from "./Portrait";
 import { Star, Tiles } from "./Tiles";
 import { ApplyForm } from "./ApplyForm";
@@ -91,16 +90,16 @@ export function Marquee({ items }: { items: string[] }) {
 
 export function FounderGrid({ locale, items }: { locale: Locale; items: Founder[] }) {
   return (
-    <ul className="grid grid-cols-2 gap-x-5 gap-y-12 lg:grid-cols-4 lg:gap-x-9">
+    <ul className="grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-3 md:gap-x-10">
       {items.map((f, i) => (
         <li key={f.slug}>
-          <Reveal delay={(i % 4) * 0.1}>
+          <Reveal delay={(i % 3) * 0.1}>
             <Link href={href(locale, `/founders/${f.slug}`)} className="group block">
               <Portrait
                 file={f.photo}
                 name={pick(f.name, locale)}
                 alt={`${pick(f.name, locale)}, ${pick(f.role, locale)}, ${f.company}`}
-                sizes="(min-width: 1024px) 300px, 46vw"
+                sizes="(min-width: 768px) 400px, 46vw"
                 seed={i * 5}
               />
               <h3 className="mt-6 text-[1.6rem] leading-tight md:text-[1.9rem]">{pick(f.name, locale)}</h3>
@@ -112,6 +111,51 @@ export function FounderGrid({ locale, items }: { locale: Locale; items: Founder[
         </li>
       ))}
     </ul>
+  );
+}
+
+/**
+ * Bosh sahifaning birinchi ekrani uchun: uch asoschi yonma-yon.
+ * content/site.ts da heroPhoto yozilgan bo'lsa, o'rniga bitta umumiy surat chiqadi.
+ */
+export function FounderTrio({ locale }: { locale: Locale }) {
+  const t = getTexts(locale);
+  if (site.heroPhoto) {
+    return (
+      <Link href={href(locale, "/founders")} className="relative block aspect-[5/4] w-full" aria-label={t.founders.title}>
+        <Image
+          src={`/images/founders/${site.heroPhoto}`}
+          alt={founders.map((f) => pick(f.name, locale)).join(", ")}
+          fill
+          priority
+          sizes="(min-width: 1024px) 46vw, 92vw"
+          className="object-contain object-bottom"
+        />
+      </Link>
+    );
+  }
+  // O'rtadagi (ro'yxatda ikkinchi) asoschi kattaroq va oldinda turadi
+  const trio = founders.slice(0, 3);
+  return (
+    <Link href={href(locale, "/founders")} className="group/trio flex items-end justify-center" aria-label={t.founders.title}>
+      {trio.map((f, i) => (
+        <div
+          key={f.slug}
+          className={`group relative transition-transform duration-700 ease-out hover:z-20 hover:-translate-y-2 ${
+            i === 1 ? "z-10 w-[40%]" : "w-[33%]"
+          } ${i === 0 ? "-mr-[5%]" : ""} ${i === 2 ? "-ml-[5%]" : ""}`}
+        >
+          <Portrait
+            file={f.photo}
+            name={pick(f.name, locale)}
+            alt={`${pick(f.name, locale)}, ${pick(f.role, locale)}, ${f.company}`}
+            sizes="(min-width: 1024px) 18vw, 36vw"
+            seed={i * 5 + 1}
+            priority
+          />
+        </div>
+      ))}
+    </Link>
   );
 }
 
@@ -138,66 +182,6 @@ export function FounderQuote({ locale, founder }: { locale: Locale; founder: Fou
         </figcaption>
       </Reveal>
     </figure>
-  );
-}
-
-export function EventRows({
-  locale,
-  items,
-  withAction = true,
-}: {
-  locale: Locale;
-  items: ClubEvent[];
-  withAction?: boolean;
-}) {
-  const t = getTexts(locale);
-  return (
-    <ul className="border-t border-[var(--hair)]">
-      {items.map((e, i) => {
-        const d = dateParts(e.date, locale);
-        return (
-          <li key={e.slug} id={e.slug} className="row-hover border-b border-[var(--hair)]">
-            <Reveal delay={i * 0.08}>
-              <div className="grid gap-x-10 gap-y-5 py-10 md:grid-cols-[11rem_1fr_auto] md:items-center md:py-12">
-                <time dateTime={e.time ? `${e.date}T${e.time}` : e.date} className="flex items-baseline gap-4 md:block">
-                  <span className="gold-text font-display text-7xl leading-none md:text-8xl">{d.day}</span>
-                  <span className="muted block text-[0.95rem] md:mt-3">
-                    {d.month} {d.year}
-                    {e.time && `, ${e.time}`}
-                  </span>
-                </time>
-                <div className="row-shift">
-                  <h3 className="h-item">{pick(e.title, locale)}</h3>
-                  <p className="muted mt-3 max-w-2xl">{pick(e.summary, locale)}</p>
-                  <dl className="mt-4 flex flex-wrap gap-x-8 gap-y-1 text-[0.95rem]">
-                    {pick(e.guest, locale) && (
-                      <div className="flex gap-2">
-                        <dt className="muted">{t.events.guest}:</dt>
-                        <dd>{pick(e.guest, locale)}</dd>
-                      </div>
-                    )}
-                    {pick(e.venue, locale) && (
-                      <div>
-                        <dt className="sr-only">{t.contact.address}</dt>
-                        <dd className="text-ivory/80">{pick(e.venue, locale)}</dd>
-                      </div>
-                    )}
-                  </dl>
-                </div>
-                {withAction && (
-                  <Link
-                    href={e.link ? href(locale, e.link) : `${href(locale, "/membership")}#apply`}
-                    className="btn btn-ghost btn-sm justify-self-start"
-                  >
-                    {e.link ? t.cta.forum : t.cta.register}
-                  </Link>
-                )}
-              </div>
-            </Reveal>
-          </li>
-        );
-      })}
-    </ul>
   );
 }
 
@@ -353,10 +337,11 @@ export function ForumFacts({ locale }: { locale: Locale }) {
     { label: t.forum.dateLabel, value: longDate(forum.date, locale) },
     ...(forum.time ? [{ label: t.forum.timeLabel, value: forum.time }] : []),
     { label: t.forum.formatLabel, value: t.forum.format },
+    { label: t.forum.participantsLabel, value: t.forum.participants },
     { label: t.forum.venueLabel, value: venue || t.forum.venueTbd },
   ];
   return (
-    <dl className="grid border-l border-t border-[var(--hair)] sm:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(0,1fr))]">
+    <dl className="grid border-l border-t border-[var(--hair)] sm:grid-cols-2 lg:grid-cols-4">
       {rows.map((row, i) => (
         <Reveal key={row.label} delay={i * 0.1} className="border-b border-r border-[var(--hair)]">
           <div className="flex flex-col-reverse p-6 md:p-8">
@@ -396,6 +381,12 @@ export function ForumBand({ locale }: { locale: Locale }) {
               {d.month} {d.year}
             </span>
           </time>
+          <p className="mt-10 border-t border-[var(--hair)] pt-6">
+            <span className="block font-display text-5xl leading-none">
+              <CountUp value={forum.participants} />
+            </span>
+            <span className="muted mt-2 block">{t.forum.participantsLabel}</span>
+          </p>
         </Reveal>
         <div className="max-w-2xl">
           <p className="text-lg text-gold-light">{t.forum.band}</p>
@@ -578,11 +569,7 @@ export function ApplySection({ locale }: { locale: Locale }) {
         </div>
         <Reveal delay={0.2}>
           <div className="border border-[var(--hair)] bg-night/70 p-7 backdrop-blur-sm md:p-12">
-            <ApplyForm
-              locale={locale}
-              t={t.form}
-              privacy={{ href: href(locale, "/privacy"), label: t.footer.privacy }}
-            />
+            <ApplyForm locale={locale} t={t.form} />
           </div>
         </Reveal>
       </div>

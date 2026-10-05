@@ -11,7 +11,6 @@ export function Footer({ locale }: { locale: Locale }) {
     { href: href(locale, "/about"), label: t.nav.about },
     { href: href(locale, "/founders"), label: t.nav.founders },
     { href: href(locale, "/forum"), label: t.nav.forum },
-    { href: href(locale, "/events"), label: t.nav.events },
     { href: href(locale, "/membership"), label: t.nav.membership },
     { href: href(locale, "/contact"), label: t.nav.contact },
   ];
@@ -60,13 +59,10 @@ export function Footer({ locale }: { locale: Locale }) {
       </Parallax>
 
       <div className="relative border-t border-[var(--hair)] bg-night">
-        <div className="shell flex flex-col gap-2 py-6 text-sm text-mist md:flex-row md:justify-between">
+        <div className="shell py-6 text-sm text-mist">
           <p>
             © {new Date().getFullYear()} {pick(site.legalName, locale)}. {t.footer.rights}
           </p>
-          <Link href={href(locale, "/privacy")} className="transition-colors hover:text-gold-light">
-            {t.footer.privacy}
-          </Link>
         </div>
       </div>
     </footer>

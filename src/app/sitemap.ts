@@ -10,10 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/founders",
     "/forum",
-    "/events",
     "/membership",
     "/contact",
-    "/privacy",
     ...founders.map((f) => `/founders/${f.slug}`),
   ];
   return paths.flatMap((path) =>

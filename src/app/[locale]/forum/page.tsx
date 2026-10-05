@@ -3,7 +3,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { Countdown, Reveal } from "@/components/motion";
 import {
   ApplySection,
-  Benefits,
   ForumFacts,
   Formula,
   PageHead,
@@ -80,7 +79,6 @@ export default async function ForumPage({ params }: Props) {
       </section>
 
       <ApplySection locale={locale} />
-      <Benefits locale={locale} />
 
       <JsonLd
         data={{

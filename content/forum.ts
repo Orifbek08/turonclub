@@ -14,6 +14,8 @@ import type { Localized } from "@/lib/i18n";
 
 export const forum = {
   date: "2026-10-27",
+  /** Ishtirokchilar soni (bosh sahifada katta raqam bilan chiqadi) */
+  participants: 600,
   time: "",
   venue: { uz: "", ru: "", en: "" } as Localized,
   program: [] as { time: string; title: Localized }[],

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import type { Texts } from "@content/texts/uz";
 import { site } from "@content/site";
@@ -50,15 +49,7 @@ async function sendToBitrix(values: Record<string, string>, lang: string) {
   }
 }
 
-export function ApplyForm({
-  locale,
-  t,
-  privacy,
-}: {
-  locale: string;
-  t: Texts["form"];
-  privacy: { href: string; label: string };
-}) {
+export function ApplyForm({ locale, t }: { locale: string; t: Texts["form"] }) {
   const [status, setStatus] = useState<Status>("idle");
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -142,12 +133,6 @@ export function ApplyForm({
             {t.error}
           </p>
         )}
-        <p className="mt-5 text-sm text-mist">
-          {t.consent}{" "}
-          <Link href={privacy.href} className="underline underline-offset-4 hover:text-gold-light">
-            {privacy.label}
-          </Link>
-        </p>
       </div>
     </form>
   );

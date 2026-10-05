@@ -61,7 +61,7 @@ export function HeaderNav({
 
   return (
     <>
-      <nav className="hidden items-center gap-7 xl:flex" aria-label="Main">
+      <nav className="hidden items-center gap-7 lg:flex" aria-label="Main">
         {items.map((item) => (
           <Link
             key={item.href}
@@ -82,7 +82,7 @@ export function HeaderNav({
         ))}
       </nav>
 
-      <div className="hidden items-center gap-6 xl:flex">
+      <div className="hidden items-center gap-6 lg:flex">
         {langs}
         <Link href={cta.href} className="btn btn-ghost btn-sm">
           {cta.label}
@@ -91,7 +91,7 @@ export function HeaderNav({
 
       <button
         type="button"
-        className="-mr-2 px-3 py-2 font-medium text-ivory xl:hidden"
+        className="-mr-2 px-3 py-2 font-medium text-ivory lg:hidden"
         aria-expanded={open}
         aria-controls="mobile-menu"
         onClick={() => setOpen((v) => !v)}
@@ -107,7 +107,7 @@ export function HeaderNav({
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-x-0 top-full h-[calc(100dvh-5rem)] overflow-y-auto bg-night pb-10 xl:hidden"
+            className="absolute inset-x-0 top-full h-[calc(100dvh-5rem)] overflow-y-auto bg-night pb-10 lg:hidden"
           >
             <nav className="shell flex h-full flex-col" aria-label="Main">
               {items.map((item, i) => (

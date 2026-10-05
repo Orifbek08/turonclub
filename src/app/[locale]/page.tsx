@@ -6,11 +6,11 @@ import { Drift, Line, Parallax, Reveal, Scrub, Words } from "@/components/motion
 import {
   ApplySection,
   Benefits,
-  EventRows,
   FaqList,
   ForumBand,
   Formula,
   FounderGrid,
+  FounderTrio,
   FounderQuote,
   Marquee,
   PartnersRow,
@@ -18,10 +18,10 @@ import {
   Stats,
   Tiers,
 } from "@/components/sections";
-import { getTexts, href, shortDate, pick, type Locale } from "@/lib/i18n";
-import { splitEvents } from "@/lib/content";
+import { getTexts, href, pick, shortDate, todayInTashkent, type Locale } from "@/lib/i18n";
 import { pageMeta } from "@/lib/seo";
 import { founders } from "@content/founders";
+import { forum } from "@content/forum";
 import { site } from "@content/site";
 
 // Tadbir sanasi o'tganda sahifa o'zi yangilanishi uchun (soatiga bir marta)
@@ -38,8 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   const t = getTexts(locale);
-  const { upcoming } = splitEvents();
-  const next = upcoming[0];
+  const forumAhead = forum.date >= todayInTashkent();
 
   return (
     <>
@@ -59,45 +58,47 @@ export default async function HomePage({ params }: Props) {
 
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-night/60 md:hidden" />
 
-        <div className="shell flex flex-1 flex-col justify-end pb-8 pt-36 md:pb-10">
-          <Reveal intro y={16}>
-            <p className="text-lg text-gold-light">{pick(site.descriptor, locale)}</p>
-          </Reveal>
-          <h1 className="h-hero mt-6 max-w-[24ch]">
-            <Words text={t.home.title} intro delay={0.15} />
-          </h1>
-          <div className="mt-10 grid gap-10 md:mt-14 md:grid-cols-[1fr_auto] md:items-end">
-            <Reveal intro delay={0.75}>
-              <p className="lead text-ivory/80">{t.home.lead}</p>
-            </Reveal>
-            <Reveal intro delay={0.9}>
-              <div className="flex flex-wrap gap-4">
-                <Link href={href(locale, "/membership#apply")} className="btn btn-gold">
-                  {t.cta.join}
-                </Link>
-                <Link href={href(locale, "/about")} className="btn btn-ghost">
-                  {t.nav.about}
-                </Link>
-              </div>
+        <div className="shell flex flex-1 flex-col justify-end pb-8 pt-32 md:pb-10">
+          <div className="grid items-end gap-x-12 gap-y-12 lg:grid-cols-[1.12fr_0.88fr]">
+            <div>
+              <Reveal intro y={16}>
+                <p className="text-lg text-gold-light">{pick(site.descriptor, locale)}</p>
+              </Reveal>
+              <h1 className="h-hero mt-6">
+                <Words text={t.home.title} intro delay={0.15} />
+              </h1>
+              <Reveal intro delay={0.75}>
+                <p className="lead mt-8 text-ivory/80 md:mt-10">{t.home.lead}</p>
+              </Reveal>
+              <Reveal intro delay={0.9}>
+                <div className="mt-10 flex flex-wrap gap-4">
+                  <Link href={href(locale, "/membership#apply")} className="btn btn-gold">
+                    {t.cta.join}
+                  </Link>
+                  <Link href={href(locale, "/about")} className="btn btn-ghost">
+                    {t.nav.about}
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+            <Reveal intro delay={0.6} y={60} className="mx-auto w-full max-w-md lg:max-w-none">
+              <FounderTrio locale={locale} />
             </Reveal>
           </div>
 
           <Reveal intro delay={1.1} y={0}>
-            <div className="mt-14 md:mt-20">
+            <div className="mt-12 md:mt-14">
               <Line delay={2.6} />
               <div className="flex items-center justify-between gap-8 pt-6">
-                {next ? (
-                  <Link
-                    href={next.link ? href(locale, next.link) : `${href(locale, "/events")}#${next.slug}`}
-                    className="group flex flex-wrap items-baseline gap-x-6 gap-y-1"
-                  >
+                {forumAhead ? (
+                  <Link href={href(locale, "/forum")} className="group flex flex-wrap items-baseline gap-x-6 gap-y-1">
                     <span className="muted text-[0.95rem]">{t.home.nextEvent}</span>
                     <span className="font-display text-xl transition-colors group-hover:text-gold-light md:text-2xl">
-                      {pick(next.title, locale)}
+                      {t.forum.title}
                     </span>
-                    <time dateTime={next.date} className="text-gold-light">
-                      {shortDate(next.date, locale)}
-                      {next.time && `, ${next.time}`}
+                    <time dateTime={forum.date} className="text-gold-light">
+                      {shortDate(forum.date, locale)}
+                      {forum.time && `, ${forum.time}`}
                     </time>
                   </Link>
                 ) : (
@@ -163,28 +164,7 @@ export default async function HomePage({ params }: Props) {
             </div>
           )}
           <div className="mt-16 md:mt-24">
-            <FounderGrid locale={locale} items={founders.slice(0, 4)} />
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- Tadbirlar ---------- */}
-      <section className="section">
-        <div className="shell">
-          <SectionHead
-            title={t.events.upcoming}
-            action={
-              <Link href={href(locale, "/events")} className="text-link">
-                {t.cta.allEvents}
-              </Link>
-            }
-          />
-          <div className="mt-14">
-            {upcoming.length > 0 ? (
-              <EventRows locale={locale} items={upcoming.slice(0, 3)} />
-            ) : (
-              <p className="lead muted">{t.events.empty}</p>
-            )}
+            <FounderGrid locale={locale} items={founders.slice(0, 3)} />
           </div>
         </div>
       </section>

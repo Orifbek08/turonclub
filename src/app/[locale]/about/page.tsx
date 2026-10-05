@@ -60,7 +60,7 @@ export default async function AboutPage({ params }: Props) {
             }
           />
           <div className="mt-16">
-            <FounderGrid locale={locale} items={founders.slice(0, 4)} />
+            <FounderGrid locale={locale} items={founders.slice(0, 3)} />
           </div>
         </div>
       </section>

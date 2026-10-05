@@ -9,7 +9,6 @@ export const en: Texts = {
     about: "About",
     founders: "Founders",
     forum: "Forum",
-    events: "Events",
     membership: "Membership",
     contact: "Contact",
     menu: "Menu",
@@ -21,8 +20,6 @@ export const en: Texts = {
     join: "Become a member",
     apply: "Apply",
     allFounders: "All founders",
-    allEvents: "All events",
-    register: "Attend",
     forum: "More about the forum",
     forumRegister: "Attend the forum",
     membership: "More about membership",
@@ -115,11 +112,13 @@ export const en: Texts = {
   },
   forum: {
     title: "Opening ceremony of Turon International Business Club",
-    lead: "The official opening of the club and a one-day business forum: entrepreneurs, investors and international partners in one venue.",
+    lead: "The official opening of the club and a one-day business forum for 600 participants: entrepreneurs, investors and international partners in one venue.",
     band: "Opening ceremony and forum",
     dateLabel: "Date",
     formatLabel: "Format",
-    format: "One-day forum",
+    format: "One-day business forum",
+    participantsLabel: "Participants",
+    participants: "600 people",
     venueLabel: "Venue",
     venueTbd: "To be announced soon",
     timeLabel: "Starts",
@@ -133,14 +132,6 @@ export const en: Texts = {
     focus: "Areas of business",
     bio: "About the founder",
     back: "All founders",
-  },
-  events: {
-    title: "Events",
-    lead: "The club’s calendar: forums, B2B meetings and business missions.",
-    upcoming: "Upcoming events",
-    past: "Past events",
-    empty: "New events will be announced soon. Apply to be the first to know.",
-    guest: "Guest",
   },
   membership: {
     title: "Membership",
@@ -222,7 +213,6 @@ export const en: Texts = {
     sending: "Sending…",
     success: "Application sent. A club representative will contact you.",
     error: "The application was not sent. Try again or call us.",
-    consent: "By sending the application you agree to the processing of your personal data.",
   },
   contact: {
     title: "Contact",
@@ -236,14 +226,6 @@ export const en: Texts = {
   footer: {
     tagline: "An international business platform that connects entrepreneurs with investment, partnerships and new markets.",
     rights: "All rights reserved.",
-    privacy: "Privacy policy",
-  },
-  privacy: {
-    title: "Privacy policy",
-    body: [
-      "The privacy policy text goes here. Have it reviewed by a lawyer.",
-      "It states which personal data is collected, what it is used for, how long it is kept and how a user can request its deletion.",
-    ],
   },
   notFound: {
     title: "Page not found",
@@ -266,11 +248,7 @@ export const en: Texts = {
     forum: {
       title: "Opening ceremony and forum — 27 October 2026",
       description:
-        "The official opening ceremony of Turon International Business Club and a one-day business forum take place on 27 October 2026.",
-    },
-    events: {
-      title: "Events",
-      description: "Upcoming and past events of Turon International Business Club.",
+        "The official opening ceremony of Turon International Business Club and a one-day business forum for 600 participants take place on 27 October 2026.",
     },
     membership: {
       title: "Membership",
@@ -280,10 +258,6 @@ export const en: Texts = {
     contact: {
       title: "Contact",
       description: "Phone number, address and working hours of Turon International Business Club.",
-    },
-    privacy: {
-      title: "Privacy policy",
-      description: "The privacy policy of the Turon International Business Club website.",
     },
   },
   months: [

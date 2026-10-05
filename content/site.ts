@@ -49,6 +49,15 @@ export const site = {
   } satisfies Localized,
 
   /**
+   * Bosh sahifaning birinchi ekranidagi rasm: uch asoschi birga turgan surat.
+   * Faylni public/images/founders/ papkasiga qo'ying va nomini shu yerga yozing,
+   * masalan "asoschilar.png". Bo'sh bo'lsa, o'rnida uch asoschining alohida
+   * portretlari yonma-yon chiqadi.
+   * Tavsiya: fonsiz (shaffof PNG) yoki to'q fonli, kamida 2000 piksel kenglikda.
+   */
+  heroPhoto: "",
+
+  /**
    * Ijtimoiy tarmoqlar. Havolani to'liq yozing: "https://instagram.com/..."
    * Instagram, LinkedIn va Facebook belgisi doim ko'rinadi (havola bo'lmasa, bosilmaydi).
    * Telegram va YouTube faqat havola yozilganda chiqadi.
