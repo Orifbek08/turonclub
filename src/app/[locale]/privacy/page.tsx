@@ -16,8 +16,8 @@ export default async function PrivacyPage({ params }: Props) {
   return (
     <>
       <PageHead title={t.privacy.title} />
-      <section className="bg-stone py-16 md:py-24">
-        <div className="shell max-w-3xl space-y-6 text-lg">
+      <section className="section">
+        <div className="shell max-w-3xl space-y-6 text-lg text-ivory/85">
           {t.privacy.body.map((p) => (
             <p key={p}>{p}</p>
           ))}

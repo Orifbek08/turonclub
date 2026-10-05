@@ -7,7 +7,7 @@ import type { Texts } from "./uz";
 export const en: Texts = {
   nav: {
     about: "About",
-    speakers: "Speakers",
+    founders: "Founders",
     events: "Events",
     membership: "Membership",
     contact: "Contact",
@@ -19,20 +19,24 @@ export const en: Texts = {
   cta: {
     join: "Become a member",
     apply: "Apply",
-    allSpeakers: "All speakers",
+    allFounders: "All founders",
     allEvents: "All events",
     register: "Attend",
     aboutClub: "More about the club",
     home: "Back to home",
   },
   home: {
-    title: "Entrepreneurs, speakers and decision-makers at one table",
-    lead: "Turon Club is a private club for business owners and executives. We invite experienced speakers and help members build relationships they can rely on.",
+    title: "Capital, experience and influence at one table",
+    lead: "Turon is a private international club for owners of major businesses and decision-makers. Membership is by recommendation and personal interview only.",
     nextEvent: "Next event",
+    scroll: "Scroll",
+    marquee: ["Trust", "Capital", "Partnership", "Influence", "Experience", "Legacy"],
+    manifesto:
+      "Turon is more than a place to meet. Here major deals begin with trust, experience passes from one generation to the next, and every member knows the worth of their word.",
   },
   about: {
     title: "About the club",
-    lead: "Turon Club is where business people meet, learn from one another and start working together.",
+    lead: "Turon is where business people meet, learn from one another and start working together.",
     p1: "The history of the club goes here: when and why it was founded, and by whom.",
     p2: "The mission and values of the club go here: what the club expects from its members and what it gives them in return.",
     valuesTitle: "Club principles",
@@ -43,11 +47,11 @@ export const en: Texts = {
     ],
   },
   formats: {
-    title: "How the club works",
+    title: "What membership gives you",
     items: [
       {
-        name: "Speaker evenings",
-        text: "An invited speaker shares their experience, then takes questions from members.",
+        name: "Private evenings",
+        text: "A special guest shares their experience in a small circle, followed by an open conversation with members.",
       },
       {
         name: "Closed round tables",
@@ -63,25 +67,24 @@ export const en: Texts = {
       },
     ],
   },
-  speakers: {
-    title: "Speakers",
-    lead: "Entrepreneurs, executives and experts with a proven record in their field speak at the club.",
-    topics: "Topics",
-    bio: "About the speaker",
-    back: "All speakers",
-    events: "Events with this speaker",
+  founders: {
+    title: "Founders",
+    lead: "The club was founded, and is personally led, by entrepreneurs who have earned their name in their fields.",
+    focus: "Areas of business",
+    bio: "About the founder",
+    back: "All founders",
   },
   events: {
     title: "Events",
-    lead: "The calendar of upcoming meetings. Apply to attend and we will contact you.",
+    lead: "The calendar of the club’s private meetings. Attendance is for members and invited guests only.",
     upcoming: "Upcoming events",
     past: "Past events",
     empty: "New events will be announced soon. Apply to be the first to know.",
-    speaker: "Speaker",
+    guest: "Guest",
   },
   membership: {
     title: "Membership",
-    lead: "Admission to the club is by application and a personal interview.",
+    lead: "Admission is only by recommendation from a current member and a personal interview.",
     forWhoTitle: "Who the club is for",
     forWho: [
       "Owners and co-owners of operating businesses",
@@ -122,7 +125,7 @@ export const en: Texts = {
     socials: "Social media",
   },
   footer: {
-    tagline: "A club of business owners and executives.",
+    tagline: "A private international club for owners of major businesses and decision-makers.",
     rights: "All rights reserved.",
     privacy: "Privacy policy",
   },
@@ -139,33 +142,33 @@ export const en: Texts = {
   },
   meta: {
     home: {
-      title: "Turon Club — a club of business owners and executives",
+      title: "Turon — International Business Club",
       description:
-        "Turon Club is a private business club for entrepreneurs and executives in Uzbekistan: speaker evenings, round tables and trusted connections.",
+        "Turon is a private international business club for owners of major businesses and decision-makers: private evenings, round tables and trusted connections.",
     },
     about: {
       title: "About the club",
-      description: "The history, mission, principles and leadership of Turon Club.",
+      description: "The history, mission, principles and leadership of Turon.",
     },
-    speakers: {
-      title: "Speakers",
-      description: "Entrepreneurs, executives and experts who speak at Turon Club events.",
+    founders: {
+      title: "Founders",
+      description: "The founders and leadership of Turon International Business Club.",
     },
     events: {
       title: "Events",
-      description: "The calendar of upcoming and past Turon Club events.",
+      description: "The calendar of upcoming and past Turon events.",
     },
     membership: {
       title: "Membership",
-      description: "How to join Turon Club: the admission process, criteria and application form.",
+      description: "How to join Turon: the admission process, criteria and application form.",
     },
     contact: {
       title: "Contact",
-      description: "Turon Club phone number, address and working hours.",
+      description: "Turon phone number, address and working hours.",
     },
     privacy: {
       title: "Privacy policy",
-      description: "The privacy policy of the Turon Club website.",
+      description: "The privacy policy of the Turon website.",
     },
   },
   months: [

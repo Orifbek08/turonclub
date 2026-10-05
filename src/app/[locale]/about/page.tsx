@@ -1,7 +1,19 @@
 import type { Metadata } from "next";
-import { ApplySection, Formats, Leader, PageHead, PartnersRow, Stats } from "@/components/sections";
-import { getTexts, type Locale } from "@/lib/i18n";
+import Link from "next/link";
+import { Reveal, Scrub } from "@/components/motion";
+import {
+  ApplySection,
+  DefinitionRows,
+  Formats,
+  FounderGrid,
+  PageHead,
+  PartnersRow,
+  SectionHead,
+  Stats,
+} from "@/components/sections";
+import { getTexts, href, type Locale } from "@/lib/i18n";
 import { pageMeta } from "@/lib/seo";
+import { founders } from "@content/founders";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
@@ -16,39 +28,45 @@ export default async function AboutPage({ params }: Props) {
   return (
     <>
       <PageHead title={t.about.title} lead={t.about.lead} />
-      <section className="bg-stone py-20 md:py-28">
+      <section className="section">
         <div className="shell">
-          <div className="max-w-3xl space-y-6 text-lg">
-            <p>{t.about.p1}</p>
-            <p>{t.about.p2}</p>
+          <Scrub
+            text={t.home.manifesto}
+            className="max-w-6xl font-display text-[clamp(1.9rem,4vw,3.8rem)] leading-[1.12]"
+          />
+          <div className="mt-16 grid gap-10 md:mt-24 md:grid-cols-2 md:gap-20">
+            <Reveal>
+              <p className="text-lg text-ivory/85">{t.about.p1}</p>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <p className="text-lg text-ivory/85">{t.about.p2}</p>
+            </Reveal>
           </div>
-          <div className="mt-16 empty:hidden">
+          <div className="mt-20 empty:hidden md:mt-28">
             <Stats locale={locale} />
           </div>
-          <div className="mt-20">
-            <Leader locale={locale} />
+        </div>
+      </section>
+      <section className="section bg-deep">
+        <DefinitionRows title={t.about.valuesTitle} items={t.about.values} />
+      </section>
+      <section className="on-light section bg-ivory text-ink">
+        <div className="shell">
+          <SectionHead
+            title={t.founders.title}
+            lead={t.founders.lead}
+            action={
+              <Link href={href(locale, "/founders")} className="text-link">
+                {t.cta.allFounders}
+              </Link>
+            }
+          />
+          <div className="mt-16">
+            <FounderGrid locale={locale} items={founders.slice(0, 4)} />
           </div>
         </div>
       </section>
-      <section className="bg-paper py-20 md:py-28">
-        <div className="shell grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
-          <h2 className="h-section">{t.about.valuesTitle}</h2>
-          <dl className="border-t border-ink/20">
-            {t.about.values.map((v) => (
-              <div
-                key={v.name}
-                className="grid gap-2 border-b border-ink/20 py-7 md:grid-cols-[minmax(0,15rem)_1fr] md:gap-10"
-              >
-                <dt className="h-item">{v.name}</dt>
-                <dd className="text-muted">{v.text}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-      <div className="border-t border-line">
-        <Formats locale={locale} />
-      </div>
+      <Formats locale={locale} />
       <PartnersRow locale={locale} />
       <ApplySection locale={locale} />
     </>

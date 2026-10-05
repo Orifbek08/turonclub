@@ -8,7 +8,7 @@ import { locales, ogLocale, type Locale } from "./i18n";
  */
 export function pageMeta(opts: {
   locale: Locale;
-  path: string; // "" bosh sahifa, "/speakers" va hokazo
+  path: string; // "" bosh sahifa, "/founders" va hokazo
   title: string;
   description: string;
   absoluteTitle?: boolean;

@@ -1,5 +1,5 @@
 import { events, type ClubEvent } from "@content/events";
-import { speakers, type Speaker } from "@content/speakers";
+import { founders, type Founder } from "@content/founders";
 import { todayInTashkent } from "./i18n";
 
 export function splitEvents(): { upcoming: ClubEvent[]; past: ClubEvent[] } {
@@ -11,8 +11,8 @@ export function splitEvents(): { upcoming: ClubEvent[]; past: ClubEvent[] } {
   };
 }
 
-export function findSpeaker(slug: string): Speaker | undefined {
-  return speakers.find((s) => s.slug === slug);
+export function findFounder(slug: string): Founder | undefined {
+  return founders.find((f) => f.slug === slug);
 }
 
 export function initials(name: string): string {

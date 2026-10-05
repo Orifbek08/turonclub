@@ -40,7 +40,7 @@ export function ApplyForm({
 
   if (status === "success") {
     return (
-      <p role="status" className="font-display text-3xl leading-snug">
+      <p role="status" className="font-display text-4xl leading-snug text-gold-light">
         {t.success}
       </p>
     );
@@ -54,10 +54,10 @@ export function ApplyForm({
   ];
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2">
+    <form onSubmit={onSubmit} className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
       {fields.map((f) => (
         <label key={f.name} className="block">
-          <span className="mb-1.5 block text-[0.95rem] font-medium">{f.label}</span>
+          <span className="block text-[0.9rem] text-mist">{f.label}</span>
           <input
             className="field"
             name={f.name}
@@ -70,23 +70,23 @@ export function ApplyForm({
         </label>
       ))}
       <label className="block sm:col-span-2">
-        <span className="mb-1.5 block text-[0.95rem] font-medium">{t.message}</span>
-        <textarea className="field" name="message" rows={3} maxLength={1000} />
+        <span className="block text-[0.9rem] text-mist">{t.message}</span>
+        <textarea className="field resize-none" name="message" rows={2} maxLength={1000} />
       </label>
       {/* Botlarga qarshi yashirin maydon: odam ko'rmaydi va to'ldirmaydi */}
       <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
       <div className="sm:col-span-2">
-        <button type="submit" className="btn btn-primary w-full sm:w-auto" disabled={status === "sending"}>
+        <button type="submit" className="btn btn-gold w-full sm:w-auto" disabled={status === "sending"}>
           {status === "sending" ? t.sending : t.submit}
         </button>
         {status === "error" && (
-          <p role="alert" className="mt-4 font-medium text-[#a3261c]">
+          <p role="alert" className="mt-5 font-medium text-[#ff9d8f]">
             {t.error}
           </p>
         )}
-        <p className="mt-4 text-sm text-muted">
+        <p className="mt-5 text-sm text-mist">
           {t.consent}{" "}
-          <Link href={privacy.href} className="underline underline-offset-4 hover:text-ink">
+          <Link href={privacy.href} className="underline underline-offset-4 hover:text-gold-light">
             {privacy.label}
           </Link>
         </p>

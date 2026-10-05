@@ -3,9 +3,7 @@
  * date — "YYYY-MM-DD" ko'rinishida. Sana o'tib ketgach, tadbir o'zi
  *        "O'tgan tadbirlar" bo'limiga tushadi.
  * time — boshlanish vaqti, masalan "18:30".
- * speakerSlug — content/speakers.ts dagi spikerning slug'i (bo'lmasa "").
- * photo — public/images/events/ papkasidagi rasm nomi. Hozircha saytda ishlatilmaydi,
- *         ijtimoiy tarmoqda ulashilganda chiqadigan rasm uchun saqlab qo'yilgan.
+ * guest — taklif etilgan mehmon yoki so'zlovchi ismi va lavozimi (bo'lmasa uchala tilda "").
  */
 import type { Localized } from "@/lib/i18n";
 
@@ -16,8 +14,7 @@ export type ClubEvent = {
   title: Localized;
   summary: Localized;
   venue: Localized;
-  speakerSlug: string;
-  photo: string;
+  guest: Localized;
 };
 
 export const events: ClubEvent[] = [
@@ -26,9 +23,9 @@ export const events: ClubEvent[] = [
     date: "2026-11-12",
     time: "18:30",
     title: {
-      uz: "Tadbir nomi: spiker bilan yopiq uchrashuv",
-      ru: "Название события: закрытая встреча со спикером",
-      en: "Event title: a closed evening with a speaker",
+      uz: "Tadbir nomi: maxsus mehmon bilan yopiq uchrashuv",
+      ru: "Название события: закрытая встреча с особым гостем",
+      en: "Event title: a closed evening with a special guest",
     },
     summary: {
       uz: "Tadbir mavzusi va unda nimalar muhokama qilinishi haqida ikki jumla.",
@@ -40,8 +37,11 @@ export const events: ClubEvent[] = [
       ru: "Ташкент, место проведения",
       en: "Tashkent, venue",
     },
-    speakerSlug: "spiker-1",
-    photo: "",
+    guest: {
+      uz: "Mehmon ismi, lavozimi",
+      ru: "Имя гостя, должность",
+      en: "Guest name, position",
+    },
   },
   {
     slug: "tadbir-2",
@@ -62,8 +62,11 @@ export const events: ClubEvent[] = [
       ru: "Ташкент, место проведения",
       en: "Tashkent, venue",
     },
-    speakerSlug: "spiker-2",
-    photo: "",
+    guest: {
+      uz: "Mehmon ismi, lavozimi",
+      ru: "Имя гостя, должность",
+      en: "Guest name, position",
+    },
   },
   {
     slug: "tadbir-3",
@@ -84,7 +87,10 @@ export const events: ClubEvent[] = [
       ru: "Ташкент, место проведения",
       en: "Tashkent, venue",
     },
-    speakerSlug: "spiker-3",
-    photo: "",
+    guest: {
+      uz: "Mehmon ismi, lavozimi",
+      ru: "Имя гостя, должность",
+      en: "Guest name, position",
+    },
   },
 ];

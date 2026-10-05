@@ -6,7 +6,14 @@
 import type { Localized } from "@/lib/i18n";
 
 export const site = {
-  name: "Turon Club",
+  name: "Turon",
+
+  /** Logotip ostidagi yozuv */
+  descriptor: {
+    uz: "Xalqaro biznes klubi",
+    ru: "Международный бизнес-клуб",
+    en: "International Business Club",
+  } satisfies Localized,
 
   /** Sayt manzili. Oxirida "/" bo'lmasin. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://turonclub.uz",
@@ -20,9 +27,9 @@ export const site = {
 
   /** Yuridik shaxs nomi, masalan: "TURON CLUB" MChJ */
   legalName: {
-    uz: "“Turon Club” MChJ",
-    ru: "ООО «Turon Club»",
-    en: "Turon Club LLC",
+    uz: "“Turon” MChJ",
+    ru: "ООО «Turon»",
+    en: "Turon LLC",
   } satisfies Localized,
 
   phone: "+998 00 000 00 00",
@@ -50,28 +57,9 @@ export const site = {
   },
 
   /**
-   * Klub rahbari. Rasmni public/images/team/ papkasiga qo'ying va fayl nomini
-   * `photo` ga yozing, masalan "ism-familiya.jpg". Bo'sh bo'lsa, naqshli ramka ko'rinadi.
-   */
-  leader: {
-    name: "Ism Familiya",
-    photo: "",
-    role: {
-      uz: "Turon Club asoschisi",
-      ru: "Основатель Turon Club",
-      en: "Founder of Turon Club",
-    } satisfies Localized,
-    quote: {
-      uz: "Bu yerga rahbarning klub maqsadi haqidagi bir-ikki jumlasi yoziladi.",
-      ru: "Здесь будут одна-две фразы руководителя о цели клуба.",
-      en: "One or two sentences from the founder about the purpose of the club go here.",
-    } satisfies Localized,
-  },
-
-  /**
    * Bosh sahifadagi raqamlar. Hozir bo'sh, shuning uchun bo'lim ko'rinmaydi.
-   * Faqat haqiqiy raqamlarni yozing. Namuna:
-   * { value: "120", label: { uz: "klub a’zosi", ru: "членов клуба", en: "club members" } },
+   * Faqat haqiqiy raqamlarni yozing (sahifada ular sanab chiqiladi). Namuna:
+   * { value: 120, suffix: "+", label: { uz: "klub a’zosi", ru: "членов клуба", en: "club members" } },
    */
-  stats: [] as { value: string; label: Localized }[],
+  stats: [] as { value: number; suffix: string; label: Localized }[],
 };

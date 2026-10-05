@@ -17,32 +17,48 @@
  * Rangni o'zgartirish uchun faqat shu blokdagi qiymatlarni almashtiring.
  */
 @theme {
-  --color-lapis: #0f1f47; /* asosiy to'q ko'k */
-  --color-lapis-soft: #1c3270; /* to'q fon ustidagi naqsh va chiziqlar */
-  --color-stone: #f1f2ee; /* och fon */
-  --color-paper: #ffffff;
-  --color-ink: #141a28; /* matn */
-  --color-muted: #566076; /* ikkinchi darajali matn */
-  --color-glaze: #14766f; /* aksent: feruza */
-  --color-glaze-light: #84d6cc; /* to'q fon ustidagi aksent */
-  --color-brass: #a88446; /* ingichka chiziqlar */
-  --color-line: #d5d8d2;
+  --color-night: #04051a; /* asosiy fon: tungi ko'k */
+  --color-navy: #000052; /* logotip rangi */
+  --color-deep: #0a0c33; /* fon ustidagi panellar */
+  --color-gold: #c9a96a; /* aksent: oltin */
+  --color-gold-light: #f1e0b4;
+  --color-gold-deep: #8c6f33;
+  --color-ivory: #f5f0e6; /* matn va och bo'limlar */
+  --color-mist: #a9aac4; /* to'q fondagi ikkinchi darajali matn */
+  --color-ink: #0a0b2e; /* och fondagi matn */
+  --color-ink-soft: #55577a;
 
   --font-display: "Forum", "Times New Roman", serif;
   --font-sans: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
+:root {
+  --gold-grad: linear-gradient(105deg, #8c6f33 0%, #f1e0b4 42%, #c9a96a 70%, #9a7b3c 100%);
+  --hair: rgba(201, 169, 106, 0.26);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 @layer base {
   html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 6rem;
+    background: var(--color-night);
+  }
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
   }
   body {
-    background: var(--color-stone);
-    color: var(--color-ink);
+    background: var(--color-night);
+    color: var(--color-ivory);
     font-family: var(--font-sans);
     font-size: 1.0625rem;
-    line-height: 1.6;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
   h1,
@@ -56,113 +72,182 @@
     text-wrap: pretty;
   }
   :focus-visible {
-    outline: 2px solid var(--color-glaze);
-    outline-offset: 3px;
+    outline: 2px solid var(--color-gold-light);
+    outline-offset: 4px;
   }
-  .on-dark :focus-visible {
-    outline-color: var(--color-glaze-light);
+  .on-light :focus-visible {
+    outline-color: var(--color-navy);
   }
   ::selection {
-    background: var(--color-glaze);
-    color: #fff;
+    background: var(--color-gold);
+    color: var(--color-night);
   }
 }
 
 @layer components {
   .shell {
     width: 100%;
-    max-width: 78rem;
+    max-width: 84rem;
     margin-inline: auto;
     padding-inline: 1.25rem;
   }
   @media (min-width: 768px) {
     .shell {
-      padding-inline: 2.5rem;
+      padding-inline: 3rem;
     }
   }
 
+  .section {
+    padding-block: 6rem;
+  }
+  @media (min-width: 768px) {
+    .section {
+      padding-block: 10rem;
+    }
+  }
+
+  .h-hero {
+    font-size: clamp(2.9rem, 7.4vw, 7.25rem);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+  }
   .h-display {
-    font-size: clamp(2.5rem, 5.6vw, 4.75rem);
-    line-height: 1.04;
+    font-size: clamp(2.6rem, 6vw, 5.5rem);
+    line-height: 1.02;
     letter-spacing: -0.01em;
   }
   .h-section {
-    font-size: clamp(2rem, 3.6vw, 3.1rem);
-    line-height: 1.08;
+    font-size: clamp(2.2rem, 4.4vw, 4rem);
+    line-height: 1.04;
   }
   .h-item {
-    font-size: 1.6rem;
-    line-height: 1.15;
+    font-size: clamp(1.6rem, 2.4vw, 2.25rem);
+    line-height: 1.12;
   }
   .lead {
     font-size: 1.1875rem;
-    line-height: 1.55;
-    max-width: 38rem;
+    line-height: 1.6;
+    max-width: 36rem;
+  }
+  .muted {
+    color: var(--color-mist);
+  }
+  .on-light .muted {
+    color: var(--color-ink-soft);
   }
 
+  .gold-text {
+    background: var(--gold-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .rule {
+    border-color: var(--hair);
+  }
+  .on-light .rule {
+    border-color: rgba(10, 11, 46, 0.18);
+  }
+
+  /* Tugmalar: ustiga borilganda yorug'lik "sirpanib" o'tadi */
   .btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 3rem;
-    padding: 0.7rem 1.5rem;
+    min-height: 3.5rem;
+    padding: 0.9rem 2.1rem;
+    overflow: hidden;
     font-weight: 600;
     font-size: 1rem;
     line-height: 1.2;
-    border: 1.5px solid transparent;
+    letter-spacing: 0.01em;
+    border: 1px solid transparent;
     transition:
-      background-color 0.15s,
-      color 0.15s,
-      border-color 0.15s;
+      color 0.4s var(--ease),
+      border-color 0.4s var(--ease),
+      background-color 0.4s var(--ease);
   }
-  .btn-primary {
-    background: var(--color-glaze);
-    color: #fff;
+  .btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.9s var(--ease);
+    pointer-events: none;
   }
-  .btn-primary:hover {
-    background: #0f5f59;
+  .btn:hover::after {
+    transform: translateX(120%);
   }
-  .btn-light {
-    background: var(--color-paper);
-    color: var(--color-lapis);
+  .btn-gold {
+    background: var(--gold-grad);
+    color: var(--color-night);
   }
-  .btn-light:hover {
-    background: var(--color-glaze-light);
+  .btn-ghost {
+    border-color: var(--color-gold);
+    color: var(--color-ivory);
   }
-  .btn-outline {
-    border-color: currentColor;
+  .btn-ghost:hover {
+    background: var(--color-gold);
+    color: var(--color-night);
   }
-  .btn-outline:hover {
-    background: var(--color-lapis);
-    border-color: var(--color-lapis);
-    color: #fff;
+  .on-light .btn-ghost {
+    border-color: var(--color-navy);
+    color: var(--color-navy);
   }
-  .on-dark .btn-outline:hover {
-    background: #fff;
-    border-color: #fff;
-    color: var(--color-lapis);
+  .on-light .btn-ghost:hover {
+    background: var(--color-navy);
+    color: var(--color-ivory);
+  }
+  .btn-sm {
+    min-height: 2.75rem;
+    padding: 0.6rem 1.4rem;
+    font-size: 0.95rem;
   }
 
+  /* Tagidagi chiziq chapdan o'ngga chiziladigan havola */
   .text-link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.35rem;
     font-weight: 600;
-    color: var(--color-glaze);
-    text-decoration: underline;
-    text-decoration-thickness: 1.5px;
-    text-underline-offset: 0.3em;
+    color: var(--color-gold-light);
   }
-  .text-link:hover {
-    color: var(--color-lapis);
+  .text-link::before,
+  .text-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
   }
-  .on-dark .text-link {
-    color: var(--color-glaze-light);
+  .text-link::before {
+    background: var(--hair);
   }
-  .on-dark .text-link:hover {
-    color: #fff;
+  .text-link::after {
+    background: var(--color-gold-light);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s var(--ease);
+  }
+  .text-link:hover::after {
+    transform: scaleX(1);
+  }
+  .on-light .text-link {
+    color: var(--color-navy);
+  }
+  .on-light .text-link::before {
+    background: rgba(10, 11, 46, 0.25);
+  }
+  .on-light .text-link::after {
+    background: var(--color-navy);
   }
 
-  /* Koshin shaklidagi sakkiz qirrali ramka (rasmlar uchun) */
+  /* Koshin shaklidagi sakkiz qirrali ramka (portretlar uchun) */
   .octagon {
-    --c: 14%;
+    --c: 13%;
     clip-path: polygon(
       var(--c) 0,
       calc(100% - var(--c)) 0,
@@ -174,46 +259,188 @@
       0 calc(var(--c) * 0.8)
     );
   }
+  .frame {
+    background: var(--gold-grad);
+    padding: 1px;
+    transition: padding 0.5s var(--ease);
+  }
+  .frame-inner {
+    transition: transform 1.1s var(--ease);
+  }
+  .group:hover .frame {
+    padding: 3px;
+  }
+  .group:hover .frame-inner {
+    transform: scale(1.05);
+  }
 
   .field {
     display: block;
     width: 100%;
-    min-height: 3rem;
-    padding: 0.7rem 0.9rem;
-    background: var(--color-paper);
-    border: 1.5px solid var(--color-line);
-    color: var(--color-ink);
+    min-height: 3.4rem;
+    padding: 0.85rem 0;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--hair);
+    color: var(--color-ivory);
     font: inherit;
+    transition: border-color 0.3s;
+  }
+  .field::placeholder {
+    color: rgba(169, 170, 196, 0.55);
   }
   .field:hover {
-    border-color: var(--color-muted);
+    border-bottom-color: var(--color-gold);
   }
   .field:focus-visible {
-    outline-offset: 0;
-    border-color: var(--color-glaze);
+    outline: none;
+    border-bottom-color: var(--color-gold-light);
+    box-shadow: 0 1px 0 0 var(--color-gold-light);
+  }
+
+  /* Qator ustiga borilganda oltin chiziq chiziladi */
+  .row-hover {
+    position: relative;
+  }
+  .row-hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 1px;
+    width: 100%;
+    background: var(--gold-grad);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.9s var(--ease);
+  }
+  .row-hover:hover::after {
+    transform: scaleX(1);
+  }
+  .row-hover .row-shift {
+    transition: transform 0.6s var(--ease);
+  }
+  @media (hover: hover) {
+    .row-hover:hover .row-shift {
+      transform: translateX(0.9rem);
+    }
   }
 }
 
-/* Bosh sahifa ochilganda rangli koshinlar birin-ketin "yonadi" */
-@keyframes tile-in {
-  from {
+/* ---------- Harakatlanuvchi yozuv ---------- */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--dur, 40s) linear infinite;
+}
+.marquee-track.reverse {
+  animation-direction: reverse;
+}
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-gold);
+}
+
+/* ---------- Koshinlar miltillashi ---------- */
+@keyframes tile-glow {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.tiles-live .tile-fill {
+  animation: tile-glow 7s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.83s);
+}
+
+/* ---------- Sayt ochilishidagi kirish ekrani ---------- */
+@keyframes intro-out {
+  to {
+    clip-path: inset(0 0 100% 0);
+    visibility: hidden;
+  }
+}
+@keyframes intro-logo {
+  0% {
     opacity: 0;
+    transform: scale(0.92);
+  }
+  45%,
+  80% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+}
+@keyframes intro-line {
+  from {
+    transform: scaleX(0);
   }
   to {
-    opacity: 1;
+    transform: scaleX(1);
   }
 }
-.tiles-animate .tile-fill {
-  opacity: 0;
-  animation: tile-in 0.7s ease-out forwards;
-  animation-delay: calc(var(--i) * 70ms + 150ms);
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--color-night);
+  clip-path: inset(0 0 0 0);
+  animation: intro-out 0.9s var(--ease) 1.5s forwards;
 }
+.intro-logo {
+  animation: intro-logo 1.7s var(--ease) forwards;
+}
+.intro-line {
+  transform-origin: left;
+  animation: intro-line 1.3s var(--ease) 0.1s both;
+}
+html.intro-seen .intro {
+  display: none;
+}
+
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+.scroll-cue::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-gold-light);
+  animation: scroll-cue 2.2s var(--ease) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  .tiles-animate .tile-fill {
-    opacity: 1;
+  .marquee-track,
+  .tiles-live .tile-fill,
+  .scroll-cue::after {
     animation: none;
+  }
+  .tiles-live .tile-fill {
+    opacity: 0.8;
+  }
+  .intro {
+    display: none;
+  }
+  .btn::after {
+    display: none;
   }
 }

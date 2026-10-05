@@ -18,7 +18,7 @@ export function getTexts(locale: Locale): Texts {
   return texts[locale];
 }
 
-/** Sayt ichidagi havola: href("ru", "/speakers") -> "/ru/speakers" */
+/** Sayt ichidagi havola: href("ru", "/founders") -> "/ru/founders" */
 export function href(locale: Locale, path = ""): string {
   return `/${locale}${path === "/" ? "" : path}`;
 }

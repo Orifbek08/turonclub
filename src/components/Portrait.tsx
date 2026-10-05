@@ -3,11 +3,11 @@ import { Tiles } from "./Tiles";
 import { initials } from "@/lib/content";
 
 /**
- * Portret rasmi. `file` bo'sh bo'lsa, naqshli ramka va ism bosh harflari chiqadi,
- * shuning uchun rasmlar hali tayyor bo'lmasa ham sahifa to'liq ko'rinadi.
+ * Portret rasmi, oltin hoshiyali sakkiz qirrali ramkada.
+ * `file` bo'sh bo'lsa, naqsh va ism bosh harflari chiqadi, shuning uchun
+ * rasmlar hali tayyor bo'lmasa ham sahifa to'liq ko'rinadi.
  */
 export function Portrait({
-  dir,
   file,
   name,
   alt,
@@ -15,7 +15,6 @@ export function Portrait({
   seed = 0,
   priority = false,
 }: {
-  dir: "speakers" | "team";
   file: string;
   name: string;
   alt: string;
@@ -24,26 +23,30 @@ export function Portrait({
   priority?: boolean;
 }) {
   return (
-    <div className="octagon relative aspect-[4/5] overflow-hidden bg-lapis">
-      {file ? (
-        <Image
-          src={`/images/${dir}/${file}`}
-          alt={alt}
-          fill
-          sizes={sizes}
-          priority={priority}
-          className="object-cover"
-        />
-      ) : (
-        <div role="img" aria-label={alt} className="absolute inset-0">
-          <Tiles cols={4} rows={5} seed={seed} className="absolute inset-0 h-full w-full" />
-          <span className="absolute inset-0 grid place-items-center">
-            <span className="bg-lapis px-4 py-2 font-display text-5xl leading-none text-glaze-light">
-              {initials(name)}
-            </span>
-          </span>
+    <div className="frame octagon">
+      <div className="octagon relative aspect-[4/5] overflow-hidden bg-deep">
+        <div className="frame-inner absolute inset-0">
+          {file ? (
+            <Image
+              src={`/images/founders/${file}`}
+              alt={alt}
+              fill
+              sizes={sizes}
+              priority={priority}
+              className="object-cover"
+            />
+          ) : (
+            <div role="img" aria-label={alt} className="absolute inset-0">
+              <Tiles cols={4} rows={5} seed={seed} density={11} className="absolute inset-0 h-full w-full" />
+              <span className="absolute inset-0 grid place-items-center">
+                <span className="bg-deep px-5 py-3">
+                  <span className="gold-text font-display text-6xl leading-none">{initials(name)}</span>
+                </span>
+              </span>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 }

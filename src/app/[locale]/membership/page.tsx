@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { ApplySection, FaqList, PageHead, Steps } from "@/components/sections";
+import { Reveal, Words } from "@/components/motion";
+import { ApplySection, FaqList, Formats, PageHead, SectionHead, Steps } from "@/components/sections";
 import { JsonLd } from "@/components/JsonLd";
 import { getTexts, type Locale } from "@/lib/i18n";
 import { pageMeta } from "@/lib/seo";
@@ -18,20 +19,27 @@ export default async function MembershipPage({ params }: Props) {
   return (
     <>
       <PageHead title={t.membership.title} lead={t.membership.lead} />
-      <section className="bg-stone py-16 md:py-24">
+      <section className="section">
+        <div className="shell grid gap-12 lg:grid-cols-[1fr_1.7fr] lg:gap-24">
+          <h2 className="h-section">
+            <Words text={t.membership.forWhoTitle} />
+          </h2>
+          <ul className="border-t border-[var(--hair)]">
+            {t.membership.forWho.map((item, i) => (
+              <li key={item} className="row-hover border-b border-[var(--hair)]">
+                <Reveal delay={i * 0.08}>
+                  <p className="row-shift h-item py-9 md:py-11">{item}</p>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <Formats locale={locale} />
+      <section className="section">
         <div className="shell">
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
-            <h2 className="h-section">{t.membership.forWhoTitle}</h2>
-            <ul className="border-t border-ink/20">
-              {t.membership.forWho.map((item) => (
-                <li key={item} className="border-b border-ink/20 py-6 font-display text-2xl leading-snug">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <h2 className="h-section mt-20 md:mt-28">{t.membership.stepsTitle}</h2>
-          <div className="mt-10">
+          <SectionHead title={t.membership.stepsTitle} />
+          <div className="mt-16 md:mt-20">
             <Steps locale={locale} />
           </div>
         </div>

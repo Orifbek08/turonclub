@@ -1,19 +1,19 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/lib/i18n";
 import { site } from "@content/site";
-import { speakers } from "@content/speakers";
+import { founders } from "@content/founders";
 
 /** turonclub.uz/sitemap.xml — barcha sahifalar uch tilda, hreflang bilan */
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     "",
     "/about",
-    "/speakers",
+    "/founders",
     "/events",
     "/membership",
     "/contact",
     "/privacy",
-    ...speakers.map((s) => `/speakers/${s.slug}`),
+    ...founders.map((f) => `/founders/${f.slug}`),
   ];
   return paths.flatMap((path) =>
     locales.map((locale) => ({

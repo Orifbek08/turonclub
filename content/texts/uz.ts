@@ -6,7 +6,7 @@
 export const uz = {
   nav: {
     about: "Klub haqida",
-    speakers: "Spikerlar",
+    founders: "Asoschilar",
     events: "Tadbirlar",
     membership: "A’zolik",
     contact: "Aloqa",
@@ -18,20 +18,26 @@ export const uz = {
   cta: {
     join: "A’zo bo‘lish",
     apply: "Ariza qoldirish",
-    allSpeakers: "Barcha spikerlar",
+    allFounders: "Barcha asoschilar",
     allEvents: "Barcha tadbirlar",
     register: "Qatnashish",
     aboutClub: "Klub haqida batafsil",
     home: "Bosh sahifaga qaytish",
   },
   home: {
-    title: "Tadbirkorlar, spikerlar va qaror qabul qiluvchilar bir davrada",
-    lead: "Turon Club — biznes egalari va rahbarlar uchun yopiq klub. Biz tajribali spikerlarni taklif qilamiz va a’zolar o‘rtasida ishonchli aloqalar o‘rnatamiz.",
+    title: "Kapital, tajriba va ta’sir bir davrada",
+    lead: "Turon — yirik biznes egalari va qaror qabul qiluvchilar uchun yopiq xalqaro klub. A’zolik faqat tavsiya va shaxsiy suhbat asosida.",
     nextEvent: "Yaqin tadbir",
+    scroll: "Pastga",
+    /** Bosh sahifadagi harakatlanuvchi yozuv */
+    marquee: ["Ishonch", "Sarmoya", "Hamkorlik", "Ta’sir", "Tajriba", "Meros"],
+    /** Skroll qilganda so‘zma-so‘z ochiladigan matn */
+    manifesto:
+      "Turon — bu shunchaki tanishuv joyi emas. Bu yerda yirik bitimlar ishonch bilan boshlanadi, tajriba avloddan avlodga o‘tadi va har bir a’zo o‘z so‘zining qadrini biladi.",
   },
   about: {
     title: "Klub haqida",
-    lead: "Turon Club ishbilarmonlar bir-birini taniydigan, bir-biridan o‘rganadigan va birgalikda ish boshlaydigan joy.",
+    lead: "Turon — ishbilarmonlar bir-birini taniydigan, bir-biridan o‘rganadigan va birgalikda ish boshlaydigan joy.",
     p1: "Bu yerga klub tarixi yoziladi: qachon va nima maqsadda tashkil etilgani, kimlar asos solgani.",
     p2: "Bu yerga klubning missiyasi va qadriyatlari yoziladi: a’zolardan nima kutiladi va klub ularga nima beradi.",
     valuesTitle: "Klub tamoyillari",
@@ -42,11 +48,11 @@ export const uz = {
     ],
   },
   formats: {
-    title: "Klub qanday ishlaydi",
+    title: "A’zolik nimani beradi",
     items: [
       {
-        name: "Spiker kechalari",
-        text: "Taklif etilgan spiker o‘z tajribasini so‘zlab beradi, so‘ng a’zolar savol beradi.",
+        name: "Yopiq kechalar",
+        text: "Maxsus mehmon tor doirada o‘z tajribasini so‘zlab beradi, so‘ng a’zolar bilan ochiq suhbat bo‘ladi.",
       },
       {
         name: "Yopiq davra suhbatlari",
@@ -62,25 +68,24 @@ export const uz = {
       },
     ],
   },
-  speakers: {
-    title: "Spikerlar",
-    lead: "Klubda o‘z sohasida natija ko‘rsatgan tadbirkorlar, rahbarlar va mutaxassislar so‘zlaydi.",
-    topics: "Mavzular",
-    bio: "Spiker haqida",
-    back: "Barcha spikerlar",
-    events: "Spiker ishtirokidagi tadbirlar",
+  founders: {
+    title: "Asoschilar",
+    lead: "Klubni o‘z sohasida nom qozongan tadbirkorlar tashkil etgan va shaxsan boshqaradi.",
+    focus: "Faoliyat sohalari",
+    bio: "Asoschi haqida",
+    back: "Barcha asoschilar",
   },
   events: {
     title: "Tadbirlar",
-    lead: "Yaqin uchrashuvlar taqvimi. Qatnashish uchun ariza qoldiring, biz siz bilan bog‘lanamiz.",
+    lead: "Klubning yopiq uchrashuvlari taqvimi. Qatnashish faqat a’zolar va taklif etilgan mehmonlar uchun.",
     upcoming: "Kelgusi tadbirlar",
     past: "O‘tgan tadbirlar",
     empty: "Yangi tadbirlar tez orada e’lon qilinadi. Xabardor bo‘lish uchun ariza qoldiring.",
-    speaker: "Spiker",
+    guest: "Mehmon",
   },
   membership: {
     title: "A’zolik",
-    lead: "Klubga qabul ariza va shaxsiy suhbat asosida amalga oshiriladi.",
+    lead: "Klubga faqat amaldagi a’zoning tavsiyasi va shaxsiy suhbat asosida qabul qilinadi.",
     forWhoTitle: "Klub kimlar uchun",
     forWho: [
       "Faoliyat yuritayotgan biznes egalari va hammuassislar",
@@ -121,7 +126,7 @@ export const uz = {
     socials: "Ijtimoiy tarmoqlar",
   },
   footer: {
-    tagline: "Biznes egalari va rahbarlar klubi.",
+    tagline: "Yirik biznes egalari va qaror qabul qiluvchilar uchun yopiq xalqaro klub.",
     rights: "Barcha huquqlar himoyalangan.",
     privacy: "Maxfiylik siyosati",
   },
@@ -138,33 +143,33 @@ export const uz = {
   },
   meta: {
     home: {
-      title: "Turon Club — biznes egalari va rahbarlar klubi",
+      title: "Turon — xalqaro biznes klubi",
       description:
-        "Turon Club — O‘zbekistondagi tadbirkorlar va rahbarlar uchun yopiq biznes klub: spiker kechalari, davra suhbatlari va ishonchli aloqalar.",
+        "Turon — yirik biznes egalari va qaror qabul qiluvchilar uchun yopiq xalqaro biznes klubi: yopiq kechalar, davra suhbatlari va ishonchli aloqalar.",
     },
     about: {
       title: "Klub haqida",
-      description: "Turon Club tarixi, missiyasi, tamoyillari va rahbariyati.",
+      description: "Turon tarixi, missiyasi, tamoyillari va rahbariyati.",
     },
-    speakers: {
-      title: "Spikerlar",
-      description: "Turon Club tadbirlarida so‘zlaydigan tadbirkorlar, rahbarlar va mutaxassislar.",
+    founders: {
+      title: "Asoschilar",
+      description: "Turon xalqaro biznes klubi asoschilari va rahbariyati.",
     },
     events: {
       title: "Tadbirlar",
-      description: "Turon Club kelgusi va o‘tgan tadbirlari taqvimi.",
+      description: "Turon kelgusi va o‘tgan tadbirlari taqvimi.",
     },
     membership: {
       title: "A’zolik",
-      description: "Turon Club a’zosi bo‘lish tartibi, talablar va ariza shakli.",
+      description: "Turon a’zosi bo‘lish tartibi, talablar va ariza shakli.",
     },
     contact: {
       title: "Aloqa",
-      description: "Turon Club telefon raqami, manzili va ish vaqti.",
+      description: "Turon telefon raqami, manzili va ish vaqti.",
     },
     privacy: {
       title: "Maxfiylik siyosati",
-      description: "Turon Club saytining maxfiylik siyosati.",
+      description: "Turon saytining maxfiylik siyosati.",
     },
   },
   months: [

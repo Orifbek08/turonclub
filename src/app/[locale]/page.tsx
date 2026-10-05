@@ -1,21 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Tiles } from "@/components/Tiles";
+import { LogoMark } from "@/components/Logo";
+import { Drift, Line, Parallax, Reveal, Scrub, Words } from "@/components/motion";
 import {
   ApplySection,
   EventRows,
   FaqList,
   Formats,
-  Leader,
+  FounderGrid,
+  FounderQuote,
+  Marquee,
   PartnersRow,
-  SpeakerGrid,
+  SectionHead,
   Stats,
   Steps,
 } from "@/components/sections";
 import { getTexts, href, shortDate, type Locale } from "@/lib/i18n";
 import { splitEvents } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
-import { speakers } from "@content/speakers";
+import { founders } from "@content/founders";
+import { site } from "@content/site";
 
 // Tadbir sanasi o'tganda sahifa o'zi yangilanishi uchun (soatiga bir marta)
 export const revalidate = 3600;
@@ -36,60 +41,96 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <>
-      <section className="on-dark relative bg-lapis text-white">
-        <div className="absolute inset-y-0 right-0 hidden w-[40%] overflow-hidden lg:block">
-          <Tiles cols={6} rows={8} seed={2} animate className="h-full w-full" />
-        </div>
-        <Tiles cols={12} rows={2} seed={2} animate className="block h-24 w-full sm:h-32 lg:hidden" />
+      {/* ---------- Birinchi ekran ---------- */}
+      <section className="relative isolate flex min-h-[100svh] flex-col overflow-hidden">
+        <Drift className="absolute inset-0 -z-20">
+          <Tiles cols={16} rows={10} seed={2} live className="h-full w-full" />
+        </Drift>
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(90deg, #04051a 0%, rgba(4,5,26,0.92) 34%, rgba(4,5,26,0.35) 72%, rgba(4,5,26,0.15) 100%), linear-gradient(0deg, #04051a 2%, transparent 38%)",
+          }}
+        />
 
-        <div className="shell relative">
-          <div className="max-w-[44rem] pb-16 pt-12 lg:w-[58%] lg:pb-28 lg:pt-24">
-            <h1 className="h-display">{t.home.title}</h1>
-            <p className="lead mt-7 text-white/80">{t.home.lead}</p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link href={href(locale, "/membership#apply")} className="btn btn-light">
-                {t.cta.join}
-              </Link>
-              <Link href={href(locale, "/events")} className="btn btn-outline">
-                {t.nav.events}
-              </Link>
-            </div>
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-night/60 md:hidden" />
+
+        <div className="shell flex flex-1 flex-col justify-end pb-8 pt-36 md:pb-10">
+          <Reveal intro y={16}>
+            <p className="text-lg text-gold-light">{site.descriptor[locale]}</p>
+          </Reveal>
+          <h1 className="h-hero mt-6 max-w-[13ch]">
+            <Words text={t.home.title} intro delay={0.15} />
+          </h1>
+          <div className="mt-10 grid gap-10 md:mt-14 md:grid-cols-[1fr_auto] md:items-end">
+            <Reveal intro delay={0.75}>
+              <p className="lead text-ivory/80">{t.home.lead}</p>
+            </Reveal>
+            <Reveal intro delay={0.9}>
+              <div className="flex flex-wrap gap-4">
+                <Link href={href(locale, "/membership#apply")} className="btn btn-gold">
+                  {t.cta.join}
+                </Link>
+                <Link href={href(locale, "/about")} className="btn btn-ghost">
+                  {t.nav.about}
+                </Link>
+              </div>
+            </Reveal>
           </div>
 
-          {next && (
-            <Link
-              href={`${href(locale, "/events")}#${next.slug}`}
-              className="group relative -mb-12 grid gap-x-10 gap-y-2 bg-paper p-6 text-ink shadow-[0_18px_40px_-24px_rgba(15,31,71,0.55)] md:grid-cols-[auto_1fr_auto] md:items-center md:p-8"
-            >
-              <p className="text-[0.95rem] text-muted">{t.home.nextEvent}</p>
-              <p className="font-display text-2xl leading-tight group-hover:text-glaze md:text-[1.7rem]">
-                {next.title[locale]}
-              </p>
-              <p className="font-medium text-lapis">
-                <time dateTime={`${next.date}T${next.time}`}>
-                  {shortDate(next.date, locale)}, {next.time}
-                </time>
-              </p>
-            </Link>
-          )}
+          <Reveal intro delay={1.1} y={0}>
+            <div className="mt-14 md:mt-20">
+              <Line delay={2.6} />
+              <div className="flex items-center justify-between gap-8 pt-6">
+                {next ? (
+                  <Link
+                    href={`${href(locale, "/events")}#${next.slug}`}
+                    className="group flex flex-wrap items-baseline gap-x-6 gap-y-1"
+                  >
+                    <span className="muted text-[0.95rem]">{t.home.nextEvent}</span>
+                    <span className="font-display text-xl transition-colors group-hover:text-gold-light md:text-2xl">
+                      {next.title[locale]}
+                    </span>
+                    <time dateTime={`${next.date}T${next.time}`} className="text-gold-light">
+                      {shortDate(next.date, locale)}, {next.time}
+                    </time>
+                  </Link>
+                ) : (
+                  <span />
+                )}
+                <span className="muted hidden shrink-0 items-center gap-4 text-[0.95rem] md:flex">
+                  {t.home.scroll}
+                  <span aria-hidden="true" className="scroll-cue relative block h-12 w-px overflow-hidden bg-white/15" />
+                </span>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className={`bg-stone pb-20 md:pb-28 ${next ? "pt-32 md:pt-40" : "pt-20 md:pt-28"}`}>
-        <div className="shell">
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
-            <h2 className="h-section">{t.about.title}</h2>
-            <div>
-              <p className="font-display text-[1.75rem] leading-snug md:text-[2.1rem]">{t.about.lead}</p>
-              <p className="mt-6 max-w-2xl text-muted">{t.about.p1}</p>
-              <p className="mt-8">
-                <Link href={href(locale, "/about")} className="text-link">
-                  {t.cta.aboutClub}
-                </Link>
-              </p>
-            </div>
-          </div>
-          <div className="mt-16 empty:hidden">
+      <Marquee items={t.home.marquee} />
+
+      {/* ---------- Klub haqida: skrollda ochiladigan matn ---------- */}
+      <section className="section relative overflow-hidden">
+        <Parallax amount={120} className="pointer-events-none absolute -right-24 top-10 hidden lg:block">
+          <LogoMark className="h-[38rem] w-auto text-deep" />
+        </Parallax>
+        <div className="shell relative">
+          <h2 className="muted text-lg">{t.about.title}</h2>
+          <Scrub
+            text={t.home.manifesto}
+            className="mt-8 max-w-6xl font-display text-[clamp(2rem,4.6vw,4.4rem)] leading-[1.1]"
+          />
+          <Reveal delay={0.1}>
+            <p className="mt-12">
+              <Link href={href(locale, "/about")} className="text-link">
+                {t.cta.aboutClub}
+              </Link>
+            </p>
+          </Reveal>
+          <div className="mt-20 empty:hidden md:mt-28">
             <Stats locale={locale} />
           </div>
         </div>
@@ -97,46 +138,55 @@ export default async function HomePage({ params }: Props) {
 
       <Formats locale={locale} />
 
-      <section className="bg-stone py-20 md:py-28">
+      {/* ---------- Asoschilar (och bo'lim) ---------- */}
+      <section className="on-light section bg-ivory text-ink">
         <div className="shell">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <h2 className="h-section">{t.speakers.title}</h2>
-              <p className="lead mt-4 text-muted">{t.speakers.lead}</p>
+          <SectionHead
+            title={t.founders.title}
+            lead={t.founders.lead}
+            action={
+              <Link href={href(locale, "/founders")} className="text-link">
+                {t.cta.allFounders}
+              </Link>
+            }
+          />
+          {founders[0] && (
+            <div className="mt-16 md:mt-24">
+              <FounderQuote locale={locale} founder={founders[0]} />
             </div>
-            <Link href={href(locale, "/speakers")} className="text-link">
-              {t.cta.allSpeakers}
-            </Link>
-          </div>
-          <div className="mt-12">
-            <SpeakerGrid locale={locale} items={speakers.slice(0, 4)} />
+          )}
+          <div className="mt-16 md:mt-24">
+            <FounderGrid locale={locale} items={founders.slice(0, 4)} />
           </div>
         </div>
       </section>
 
-      <section className="bg-paper py-20 md:py-28">
+      {/* ---------- Tadbirlar ---------- */}
+      <section className="section">
         <div className="shell">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <h2 className="h-section">{t.events.upcoming}</h2>
-            <Link href={href(locale, "/events")} className="text-link">
-              {t.cta.allEvents}
-            </Link>
-          </div>
-          <div className="mt-10">
+          <SectionHead
+            title={t.events.upcoming}
+            action={
+              <Link href={href(locale, "/events")} className="text-link">
+                {t.cta.allEvents}
+              </Link>
+            }
+          />
+          <div className="mt-14">
             {upcoming.length > 0 ? (
               <EventRows locale={locale} items={upcoming.slice(0, 3)} />
             ) : (
-              <p className="lead text-muted">{t.events.empty}</p>
+              <p className="lead muted">{t.events.empty}</p>
             )}
           </div>
         </div>
       </section>
 
-      <section className="bg-stone py-20 md:py-28">
+      {/* ---------- A'zo bo'lish tartibi ---------- */}
+      <section className="section bg-deep">
         <div className="shell">
-          <Leader locale={locale} />
-          <h2 className="h-section mt-20 md:mt-28">{t.membership.stepsTitle}</h2>
-          <div className="mt-10">
+          <SectionHead title={t.membership.stepsTitle} lead={t.membership.lead} />
+          <div className="mt-16 md:mt-20">
             <Steps locale={locale} />
           </div>
         </div>
