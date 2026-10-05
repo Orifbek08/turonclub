@@ -397,6 +397,7 @@ export function ForumExpect({ locale }: { locale: Locale }) {
   const numbers = [
     { value: forum.participants, suffix: "", label: t.forum.participantsShort },
     { value: forum.ambassadors, suffix: "+", label: t.forum.ambassadorsLabel },
+    { value: forum.tvChannels, suffix: "+", label: t.forum.tvLabel },
   ];
   return (
     <section className="section bg-deep">
@@ -405,11 +406,11 @@ export function ForumExpect({ locale }: { locale: Locale }) {
           <h2 className="h-section">
             <Words text={t.forum.expectTitle} />
           </h2>
-          <dl className="mt-12 grid grid-cols-2 gap-8">
+          <dl className="mt-12 grid grid-cols-3 gap-6">
             {numbers.map((n, i) => (
               <Reveal key={n.label} delay={0.2 + i * 0.12} className="flex flex-col-reverse">
-                <dt className="muted mt-2">{n.label}</dt>
-                <dd className="gold-text font-display text-7xl leading-none md:text-8xl">
+                <dt className="muted mt-2 text-[0.95rem]">{n.label}</dt>
+                <dd className="gold-text font-display text-5xl leading-none md:text-6xl xl:text-7xl">
                   <CountUp value={n.value} suffix={n.suffix} />
                 </dd>
               </Reveal>

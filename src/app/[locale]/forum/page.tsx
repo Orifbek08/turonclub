@@ -50,33 +50,25 @@ export default async function ForumPage({ params }: Props) {
       <NetworkSection locale={locale} />
       <ForumGuests locale={locale} />
 
-      <section className="section bg-deep">
-        <div className="shell">
-          <SectionHead title={t.forum.programTitle} />
-          <div className="mt-14">
-            {forum.program.length > 0 ? (
-              <ol className="border-t border-[var(--hair)]">
-                {forum.program.map((item, i) => (
-                  <li key={`${item.time}-${i}`} className="row-hover border-b border-[var(--hair)]">
-                    <Reveal delay={i * 0.06}>
-                      <div className="row-shift grid gap-2 py-8 md:grid-cols-[10rem_1fr] md:items-baseline md:gap-10">
-                        <span className="gold-text font-display text-4xl leading-none">{item.time}</span>
-                        <span className="h-item">{pick(item.title, locale)}</span>
-                      </div>
-                    </Reveal>
-                  </li>
-                ))}
-              </ol>
-            ) : (
-              <Reveal>
-                <p className="font-display text-[clamp(1.7rem,2.6vw,2.5rem)] leading-tight text-ivory/80">
-                  {t.forum.programTbd}
-                </p>
-              </Reveal>
-            )}
+      {forum.program.length > 0 && (
+        <section className="section bg-deep">
+          <div className="shell">
+            <SectionHead title={t.forum.programTitle} />
+            <ol className="mt-14 border-t border-[var(--hair)]">
+              {forum.program.map((item, i) => (
+                <li key={`${item.time}-${i}`} className="row-hover border-b border-[var(--hair)]">
+                  <Reveal delay={i * 0.06}>
+                    <div className="row-shift grid gap-2 py-8 md:grid-cols-[10rem_1fr] md:items-baseline md:gap-10">
+                      <span className="gold-text font-display text-4xl leading-none">{item.time}</span>
+                      <span className="h-item">{pick(item.title, locale)}</span>
+                    </div>
+                  </Reveal>
+                </li>
+              ))}
+            </ol>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <ApplySection locale={locale} />
 

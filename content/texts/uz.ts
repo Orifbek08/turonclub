@@ -127,16 +127,17 @@ export const uz = {
     expectTitle: "Forumda kutilmoqda",
     ambassadorsLabel: "davlat elchilari",
     participantsShort: "ishtirokchi",
+    tvLabel: "telekanal",
     /** Forumning asosiy jihatlari */
     highlights: [
       { name: "Xalqaro darajadagi netvorking", text: "Tadbirkorlar, investorlar va xorijiy delegatsiyalar bilan bevosita tanishuv va muloqot." },
       { name: "50 dan ortiq davlat elchilari", text: "Forumga 50 dan ortiq davlatning elchilari tashrif buyurishi kutilmoqda." },
       { name: "Shou-biznes vakillari", text: "Taniqli san’at va shou-biznes namoyandalari ishtiroki." },
+      { name: "10 dan ortiq yetakchi telekanal", text: "Forumga O‘zbekistonning eng yetakchi 10 dan ortiq telekanali tashrif buyuradi." },
       { name: "Yetakchi media va blogerlar", text: "Forumni mamlakatning taniqli jurnalist va blogerlari yoritadi." },
     ],
     guestsTitle: "Kutilayotgan mehmonlar",
     programTitle: "Dastur",
-    programTbd: "Forum dasturi tez orada e’lon qilinadi.",
     countdown: { days: "kun", hours: "soat", minutes: "daqiqa", seconds: "soniya" },
   },
   founders: {

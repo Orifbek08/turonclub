@@ -125,15 +125,16 @@ export const en: Texts = {
     expectTitle: "Expected at the forum",
     ambassadorsLabel: "ambassadors",
     participantsShort: "participants",
+    tvLabel: "TV channels",
     highlights: [
       { name: "International-level networking", text: "Meet and talk directly with entrepreneurs, investors and foreign delegations." },
       { name: "Ambassadors of more than 50 countries", text: "Ambassadors of more than 50 countries are expected to attend the forum." },
       { name: "Show business figures", text: "Well-known figures from the arts and show business will take part." },
+      { name: "More than 10 leading TV channels", text: "More than 10 of Uzbekistan’s leading TV channels will attend the forum." },
       { name: "Leading media and bloggers", text: "The forum is covered by the country’s well-known journalists and bloggers." },
     ],
     guestsTitle: "Expected guests",
     programTitle: "Programme",
-    programTbd: "The forum programme will be announced soon.",
     countdown: { days: "days", hours: "hours", minutes: "minutes", seconds: "seconds" },
   },
   founders: {
