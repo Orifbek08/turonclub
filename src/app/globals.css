@@ -1,0 +1,219 @@
+@import "tailwindcss";
+@import "@fontsource/forum/latin-400.css";
+@import "@fontsource/forum/latin-ext-400.css";
+@import "@fontsource/forum/cyrillic-400.css";
+@import "@fontsource/golos-text/latin-400.css";
+@import "@fontsource/golos-text/latin-ext-400.css";
+@import "@fontsource/golos-text/cyrillic-400.css";
+@import "@fontsource/golos-text/latin-500.css";
+@import "@fontsource/golos-text/latin-ext-500.css";
+@import "@fontsource/golos-text/cyrillic-500.css";
+@import "@fontsource/golos-text/latin-600.css";
+@import "@fontsource/golos-text/latin-ext-600.css";
+@import "@fontsource/golos-text/cyrillic-600.css";
+
+/*
+ * BREND RANGLARI VA SHRIFTLAR
+ * Rangni o'zgartirish uchun faqat shu blokdagi qiymatlarni almashtiring.
+ */
+@theme {
+  --color-lapis: #0f1f47; /* asosiy to'q ko'k */
+  --color-lapis-soft: #1c3270; /* to'q fon ustidagi naqsh va chiziqlar */
+  --color-stone: #f1f2ee; /* och fon */
+  --color-paper: #ffffff;
+  --color-ink: #141a28; /* matn */
+  --color-muted: #566076; /* ikkinchi darajali matn */
+  --color-glaze: #14766f; /* aksent: feruza */
+  --color-glaze-light: #84d6cc; /* to'q fon ustidagi aksent */
+  --color-brass: #a88446; /* ingichka chiziqlar */
+  --color-line: #d5d8d2;
+
+  --font-display: "Forum", "Times New Roman", serif;
+  --font-sans: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+  body {
+    background: var(--color-stone);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-glaze);
+    outline-offset: 3px;
+  }
+  .on-dark :focus-visible {
+    outline-color: var(--color-glaze-light);
+  }
+  ::selection {
+    background: var(--color-glaze);
+    color: #fff;
+  }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  .h-display {
+    font-size: clamp(2.5rem, 5.6vw, 4.75rem);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+  }
+  .h-section {
+    font-size: clamp(2rem, 3.6vw, 3.1rem);
+    line-height: 1.08;
+  }
+  .h-item {
+    font-size: 1.6rem;
+    line-height: 1.15;
+  }
+  .lead {
+    font-size: 1.1875rem;
+    line-height: 1.55;
+    max-width: 38rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.7rem 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.2;
+    border: 1.5px solid transparent;
+    transition:
+      background-color 0.15s,
+      color 0.15s,
+      border-color 0.15s;
+  }
+  .btn-primary {
+    background: var(--color-glaze);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: #0f5f59;
+  }
+  .btn-light {
+    background: var(--color-paper);
+    color: var(--color-lapis);
+  }
+  .btn-light:hover {
+    background: var(--color-glaze-light);
+  }
+  .btn-outline {
+    border-color: currentColor;
+  }
+  .btn-outline:hover {
+    background: var(--color-lapis);
+    border-color: var(--color-lapis);
+    color: #fff;
+  }
+  .on-dark .btn-outline:hover {
+    background: #fff;
+    border-color: #fff;
+    color: var(--color-lapis);
+  }
+
+  .text-link {
+    font-weight: 600;
+    color: var(--color-glaze);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.3em;
+  }
+  .text-link:hover {
+    color: var(--color-lapis);
+  }
+  .on-dark .text-link {
+    color: var(--color-glaze-light);
+  }
+  .on-dark .text-link:hover {
+    color: #fff;
+  }
+
+  /* Koshin shaklidagi sakkiz qirrali ramka (rasmlar uchun) */
+  .octagon {
+    --c: 14%;
+    clip-path: polygon(
+      var(--c) 0,
+      calc(100% - var(--c)) 0,
+      100% calc(var(--c) * 0.8),
+      100% calc(100% - var(--c) * 0.8),
+      calc(100% - var(--c)) 100%,
+      var(--c) 100%,
+      0 calc(100% - var(--c) * 0.8),
+      0 calc(var(--c) * 0.8)
+    );
+  }
+
+  .field {
+    display: block;
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.7rem 0.9rem;
+    background: var(--color-paper);
+    border: 1.5px solid var(--color-line);
+    color: var(--color-ink);
+    font: inherit;
+  }
+  .field:hover {
+    border-color: var(--color-muted);
+  }
+  .field:focus-visible {
+    outline-offset: 0;
+    border-color: var(--color-glaze);
+  }
+}
+
+/* Bosh sahifa ochilganda rangli koshinlar birin-ketin "yonadi" */
+@keyframes tile-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.tiles-animate .tile-fill {
+  opacity: 0;
+  animation: tile-in 0.7s ease-out forwards;
+  animation-delay: calc(var(--i) * 70ms + 150ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .tiles-animate .tile-fill {
+    opacity: 1;
+    animation: none;
+  }
+}

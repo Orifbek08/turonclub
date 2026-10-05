@@ -1,0 +1,12 @@
+import type { MetadataRoute } from "next";
+import { site } from "@content/site";
+
+export default function robots(): MetadataRoute.Robots {
+  // content/site.ts da `indexable: true` qilinmaguncha sayt qidiruvdan yopiq turadi
+  if (!site.indexable) return { rules: { userAgent: "*", disallow: "/" } };
+  return {
+    rules: { userAgent: "*", allow: "/", disallow: "/api/" },
+    sitemap: `${site.url}/sitemap.xml`,
+    host: site.url,
+  };
+}
