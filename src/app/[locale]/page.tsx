@@ -58,20 +58,34 @@ export default async function HomePage({ params }: Props) {
 
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-night/60 md:hidden" />
 
-        <div className="shell flex flex-1 flex-col justify-end pb-8 pt-32 md:pb-10">
-          <div className="grid items-end gap-x-6 gap-y-10 lg:grid-cols-[1fr_1.05fr]">
-            <div>
+        <div className="shell flex flex-1 flex-col justify-end pb-8 pt-28 md:pb-10 lg:justify-between lg:pt-36">
+          {/* Telefonda tartib: sarlavha → asoschilar → matn va tugmalar.
+              Kompyuterda: chapda matn, o'ngda asoschilar. */}
+          <div className="grid gap-x-8 gap-y-8 lg:grid-cols-[0.92fr_1.08fr] lg:grid-rows-[auto_auto] lg:gap-y-0">
+            <div className="lg:col-start-1 lg:row-start-1">
               <Reveal intro y={16}>
                 <p className="text-lg text-gold-light">{pick(site.descriptor, locale)}</p>
               </Reveal>
               <h1 className="h-hero mt-6">
                 <Words text={t.home.title} intro delay={0.15} />
               </h1>
+            </div>
+
+            <Reveal
+              intro
+              delay={0.5}
+              y={50}
+              className="mx-auto w-full max-w-xl self-center lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:-mr-6 lg:max-w-none xl:-mr-12"
+            >
+              <FounderTrio locale={locale} />
+            </Reveal>
+
+            <div className="lg:col-start-1 lg:row-start-2">
               <Reveal intro delay={0.75}>
-                <p className="lead mt-8 text-ivory/80 md:mt-10">{t.home.lead}</p>
+                <p className="lead text-ivory/80 lg:mt-10">{t.home.lead}</p>
               </Reveal>
               <Reveal intro delay={0.9}>
-                <div className="mt-10 flex flex-wrap gap-4">
+                <div className="mt-8 flex flex-wrap gap-4 lg:mt-10">
                   <Link href={href(locale, "/membership#apply")} className="btn btn-gold">
                     {t.cta.join}
                   </Link>
@@ -81,9 +95,6 @@ export default async function HomePage({ params }: Props) {
                 </div>
               </Reveal>
             </div>
-            <Reveal intro delay={0.6} y={60} className="mx-auto w-full max-w-xl lg:-mr-6 lg:max-w-none xl:-mr-10">
-              <FounderTrio locale={locale} />
-            </Reveal>
           </div>
 
           <Reveal intro delay={1.1} y={0}>
