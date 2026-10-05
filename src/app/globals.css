@@ -365,34 +365,11 @@
   animation-delay: calc(var(--i) * -0.83s);
 }
 
-/* ---------- Sayt ochilishidagi kirish ekrani ---------- */
+/* ---------- Sayt ochilishidagi kirish ekrani (logotip videosi) ---------- */
 @keyframes intro-out {
   to {
-    clip-path: inset(0 0 100% 0);
+    opacity: 0;
     visibility: hidden;
-  }
-}
-@keyframes intro-logo {
-  0% {
-    opacity: 0;
-    transform: scale(0.92);
-  }
-  45%,
-  80% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.04);
-  }
-}
-@keyframes intro-line {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
   }
 }
 .intro {
@@ -402,15 +379,18 @@
   display: grid;
   place-items: center;
   background: var(--color-night);
-  clip-path: inset(0 0 0 0);
-  animation: intro-out 0.9s var(--ease) 1.5s forwards;
 }
-.intro-logo {
-  animation: intro-logo 1.7s var(--ease) forwards;
+/* Video boshlangach sanoq ketadi: 3,5 soniya video, so'ng ekran eriydi */
+html.intro-go .intro {
+  animation: intro-out 0.9s var(--ease) 3.6s forwards;
 }
-.intro-line {
-  transform-origin: left;
-  animation: intro-line 1.3s var(--ease) 0.1s both;
+.intro-video {
+  width: min(92vw, 62vh);
+  aspect-ratio: 720 / 800;
+  /* qora fon sayt foniga singib ketadi, faqat oq chiziqlar qoladi */
+  mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(closest-side, #000 82%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 82%, transparent 100%);
 }
 html.intro-seen .intro {
   display: none;

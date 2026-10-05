@@ -5,7 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { socialUrls } from "@/components/Socials";
 import { JsonLd } from "@/components/JsonLd";
-import { LogoStack } from "@/components/Logo";
+import { Intro } from "@/components/Intro";
 import { MotionRoot } from "@/components/motion";
 import { getTexts, isLocale, langTag, locales, pick } from "@/lib/i18n";
 import { site } from "@content/site";
@@ -52,12 +52,7 @@ export default async function LocaleLayout({
         </noscript>
       </head>
       <body>
-        <div className="intro" aria-hidden="true">
-          <div className="intro-logo text-[0.9rem] text-ivory md:text-[1.15rem]">
-            <LogoStack />
-            <span className="intro-line mt-[2.2em] block h-px w-full" style={{ background: "var(--gold-grad)" }} />
-          </div>
-        </div>
+        <Intro />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-ivory focus:px-4 focus:py-2 focus:text-ink"

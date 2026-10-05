@@ -26,7 +26,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 function introDelay(): number {
   if (typeof window === "undefined") return 0;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return 0;
-  return document.documentElement.classList.contains("intro-seen") ? 0.1 : 1.8;
+  return document.documentElement.classList.contains("intro-seen") ? 0.1 : 4.1;
 }
 
 /** Silliq skroll va umumiy sozlamalar */
