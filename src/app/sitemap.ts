@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
-import { locales } from "@/lib/i18n";
+import { langTag, locales } from "@/lib/i18n";
 import { site } from "@content/site";
 import { founders } from "@content/founders";
 
-/** turonclub.uz/sitemap.xml — barcha sahifalar uch tilda, hreflang bilan */
+/** turonclub.uz/sitemap.xml — barcha sahifalar to‘rt tilda, hreflang bilan */
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     "",
@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       priority: path === "" ? 1 : 0.7,
       alternates: {
-        languages: Object.fromEntries(locales.map((l) => [l, `${site.url}/${l}${path}`])),
+        languages: Object.fromEntries(locales.map((l) => [langTag[l], `${site.url}/${l}${path}`])),
       },
     })),
   );

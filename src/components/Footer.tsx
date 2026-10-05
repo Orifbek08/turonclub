@@ -1,26 +1,12 @@
 import Link from "next/link";
-import { getTexts, href, type Locale } from "@/lib/i18n";
+import { getTexts, href, pick, type Locale } from "@/lib/i18n";
 import { site } from "@content/site";
 import { LogoMark, LogoWord } from "./Logo";
 import { Parallax, Reveal } from "./motion";
-
-const socialNames: Record<string, string> = {
-  telegram: "Telegram",
-  instagram: "Instagram",
-  youtube: "YouTube",
-  facebook: "Facebook",
-  linkedin: "LinkedIn",
-};
-
-export function socialLinks() {
-  return Object.entries(site.socials)
-    .filter(([, url]) => url)
-    .map(([key, url]) => ({ name: socialNames[key] ?? key, url }));
-}
+import { Socials } from "./Socials";
 
 export function Footer({ locale }: { locale: Locale }) {
   const t = getTexts(locale);
-  const socials = socialLinks();
   const nav = [
     { href: href(locale, "/about"), label: t.nav.about },
     { href: href(locale, "/founders"), label: t.nav.founders },
@@ -60,18 +46,10 @@ export function Footer({ locale }: { locale: Locale }) {
                 {site.email}
               </a>
             </p>
-            <p>{site.address[locale]}</p>
-            {socials.length > 0 && (
-              <ul className="flex flex-wrap gap-x-6 gap-y-2 pt-3">
-                {socials.map((s) => (
-                  <li key={s.name}>
-                    <a href={s.url} rel="noopener" target="_blank" className="text-link">
-                      {s.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
+            <p>{pick(site.address, locale)}</p>
+            <div className="pt-4">
+              <Socials label={t.contact.socials} />
+            </div>
           </address>
         </Reveal>
       </div>
@@ -83,7 +61,7 @@ export function Footer({ locale }: { locale: Locale }) {
       <div className="relative border-t border-[var(--hair)] bg-night">
         <div className="shell flex flex-col gap-2 py-6 text-sm text-mist md:flex-row md:justify-between">
           <p>
-            © {new Date().getFullYear()} {site.legalName[locale]}. {t.footer.rights}
+            © {new Date().getFullYear()} {pick(site.legalName, locale)}. {t.footer.rights}
           </p>
           <Link href={href(locale, "/privacy")} className="transition-colors hover:text-gold-light">
             {t.footer.privacy}

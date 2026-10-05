@@ -1,7 +1,8 @@
 /**
  * KLUB HAQIDA ASOSIY MA'LUMOTLAR
- * Shu faylni to'ldiring: telefon, manzil, ijtimoiy tarmoqlar, rahbar.
- * Har bir matn uch tilda yoziladi: uz, ru, en.
+ * Shu faylni to'ldiring: telefon, manzil, ijtimoiy tarmoqlar.
+ * Har bir matn uch tilda yoziladi: uz (lotin), ru, en.
+ * O'zbek kirill varianti lotinchadan avtomatik hosil bo'ladi.
  */
 import type { Localized } from "@/lib/i18n";
 
@@ -47,13 +48,34 @@ export const site = {
     en: "Monday – Saturday, 10:00 – 19:00",
   } satisfies Localized,
 
-  /** Bo'sh qoldirilgan tarmoq saytda ko'rinmaydi. */
+  /**
+   * Ijtimoiy tarmoqlar. Havolani to'liq yozing: "https://instagram.com/..."
+   * Instagram, LinkedIn va Facebook belgisi doim ko'rinadi (havola bo'lmasa, bosilmaydi).
+   * Telegram va YouTube faqat havola yozilganda chiqadi.
+   */
   socials: {
-    telegram: "",
     instagram: "",
-    youtube: "",
-    facebook: "",
     linkedin: "",
+    facebook: "",
+    telegram: "",
+    youtube: "",
+  },
+
+  /**
+   * Bitrix24 CRM-forma: saytdagi arizalar shu formaga tushadi.
+   * Qiymatlar Bitrix24 bergan koddan olingan (data-b24-form="inline/386/amnir2").
+   * Bitrix24'da formaga maydon qo'shsangiz yoki o'chirsangiz, shu yerni ham yangilang.
+   */
+  bitrix: {
+    address: "https://asia-holding.bitrix24.kz",
+    formId: "386",
+    sec: "amnir2",
+    fields: {
+      name: "CONTACT_NAME",
+      phone: "CONTACT_PHONE",
+      business: "DEAL_UF_CRM_67972930C4E4A",
+      turnover: "DEAL_UF_CRM_1763981293632",
+    },
   },
 
   /**

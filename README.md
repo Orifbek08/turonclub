@@ -1,6 +1,6 @@
 # Turon — xalqaro biznes klubi sayti
 
-Uch tilli (o‘zbek, rus, ingliz) klub sayti. Next.js + Tailwind CSS + Motion.
+To‘rt tilli (o‘zbek lotin, o‘zbek kirill, rus, ingliz) klub sayti. Next.js + Tailwind CSS + Motion.
 
 ## Ishga tushirish
 
@@ -23,7 +23,12 @@ Kodga tegish shart emas. Hamma matn va ro‘yxatlar `content/` papkasida:
 | `content/faq.ts` | Savol-javoblar |
 | `content/texts/uz.ts`, `ru.ts`, `en.ts` | Sahifalardagi barcha matnlar va SEO sarlavhalari |
 
-Har bir matn uch tilda yoziladi: `uz`, `ru`, `en`.
+Har bir matn uch tilda yoziladi: `uz` (lotin), `ru`, `en`.
+
+**O‘zbek kirill varianti avtomatik hosil bo‘ladi**: lotincha matn qoidalar asosida
+kirillga o‘giriladi (`src/lib/cyrillic.ts`), alohida yozish shart emas. Biror so‘z
+noto‘g‘ri o‘girilsa, o‘sha matn yoniga qo‘lda `"uz-cyrl": "to‘g‘ri yozuv"` qatorini
+qo‘shing yoki so‘zni `cyrillic.ts` dagi `WORDS` ro‘yxatiga kiriting.
 
 ## Rasmlar
 
@@ -43,17 +48,26 @@ Rasmlar avtomatik kichraytiriladi va WebP/AVIF formatida beriladi.
 
 ## SEO
 
-- Har bir sahifa uch tilda alohida manzilga ega: `/uz/...`, `/ru/...`, `/en/...`
+- Har bir sahifa to‘rt tilda alohida manzilga ega: `/uz/...`, `/uz-cyrl/...`, `/ru/...`, `/en/...`
 - `hreflang`, `canonical`, Open Graph, `sitemap.xml`, `robots.txt` va schema.org
   ma’lumotlari (tashkilot, tadbir, shaxs, FAQ) avtomatik yaratiladi.
 - **Sayt hozir qidiruv tizimlaridan yopiq.** Haqiqiy ma’lumotlarni to‘ldirib bo‘lgach,
   `content/site.ts` faylida `indexable: true` qiling.
 
-## Ariza shakli
+## Ariza shakli (Bitrix24)
 
-Arizalar Telegram chatga yuboriladi. Buning uchun hostingda ikkita o‘zgaruvchi
-kerak (`.env.example` ga qarang): `TELEGRAM_BOT_TOKEN` va `TELEGRAM_CHAT_ID`.
-Ular sozlanmaguncha shakl “ariza yuborilmadi” xabarini ko‘rsatadi.
+Shakl ko‘rinishi saytniki, arizalar esa to‘g‘ridan-to‘g‘ri Bitrix24 CRM-formasiga
+tushadi. Sozlamalar `content/site.ts` faylida, `bitrix` blokida: portal manzili,
+forma raqami va maydon kodlari. Maydon nomlari saytda to‘rt tilda ko‘rsatiladi
+(`content/texts/*.ts` → `form`).
+
+Bitrix24’da formaga maydon qo‘shilsa yoki o‘chirilsa, `bitrix.fields` va
+`src/components/ApplyForm.tsx` ham yangilanishi kerak.
+
+## Ijtimoiy tarmoqlar
+
+Havolalar `content/site.ts` → `socials`. Instagram, LinkedIn va Facebook belgisi
+doim ko‘rinadi; havola yozilmaguncha bosilmaydi.
 
 ## Dizayn
 

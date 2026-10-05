@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { dateParts, getTexts, href, type Locale } from "@/lib/i18n";
+import { dateParts, getTexts, href, pick, type Locale } from "@/lib/i18n";
 import { site } from "@content/site";
 import { partners } from "@content/partners";
 import { faq } from "@content/faq";
@@ -10,6 +10,7 @@ import type { ClubEvent } from "@content/events";
 import { Portrait } from "./Portrait";
 import { Star, Tiles } from "./Tiles";
 import { ApplyForm } from "./ApplyForm";
+import { Socials } from "./Socials";
 import { CountUp, Line, Reveal, Words } from "./motion";
 
 const fadeLeft = {
@@ -26,7 +27,7 @@ export function PageHead({ title, lead }: { title: string; lead?: string }) {
         rows={5}
         seed={6}
         live
-        className="absolute inset-y-0 right-0 -z-10 h-full w-full md:w-[62%]"
+        className="absolute bottom-0 right-0 top-20 -z-10 w-full md:w-[62%]"
         style={fadeLeft}
       />
       <div className="shell pb-16 pt-40 md:pb-24 md:pt-56">
@@ -96,14 +97,14 @@ export function FounderGrid({ locale, items }: { locale: Locale; items: Founder[
             <Link href={href(locale, `/founders/${f.slug}`)} className="group block">
               <Portrait
                 file={f.photo}
-                name={f.name[locale]}
-                alt={`${f.name[locale]}, ${f.role[locale]}, ${f.company}`}
+                name={pick(f.name, locale)}
+                alt={`${pick(f.name, locale)}, ${pick(f.role, locale)}, ${f.company}`}
                 sizes="(min-width: 1024px) 300px, 46vw"
                 seed={i * 5}
               />
-              <h3 className="mt-6 text-[1.6rem] leading-tight md:text-[1.9rem]">{f.name[locale]}</h3>
+              <h3 className="mt-6 text-[1.6rem] leading-tight md:text-[1.9rem]">{pick(f.name, locale)}</h3>
               <p className="muted mt-1.5 text-[0.95rem]">
-                {f.role[locale]}, {f.company}
+                {pick(f.role, locale)}, {f.company}
               </p>
             </Link>
           </Reveal>
@@ -115,22 +116,22 @@ export function FounderGrid({ locale, items }: { locale: Locale; items: Founder[
 
 /** Asoschining yirik iqtibosi */
 export function FounderQuote({ locale, founder }: { locale: Locale; founder: Founder }) {
-  if (!founder.quote[locale]) return null;
+  if (!pick(founder.quote, locale)) return null;
   return (
     <figure className="max-w-5xl">
       <Star className="h-8 w-8 text-gold" />
       <blockquote className="mt-8 font-display text-[clamp(1.9rem,3.6vw,3.4rem)] leading-[1.14]">
         <p>
-          <Words text={founder.quote[locale]} stagger={0.035} />
+          <Words text={pick(founder.quote, locale)} stagger={0.035} />
         </p>
       </blockquote>
       <Reveal delay={0.4}>
         <figcaption className="mt-10 flex items-center gap-5">
           <span aria-hidden="true" className="h-px w-14" style={{ background: "var(--gold-grad)" }} />
           <span>
-            <span className="block font-semibold">{founder.name[locale]}</span>
+            <span className="block font-semibold">{pick(founder.name, locale)}</span>
             <span className="muted text-[0.95rem]">
-              {founder.role[locale]}, {founder.company}
+              {pick(founder.role, locale)}, {founder.company}
             </span>
           </span>
         </figcaption>
@@ -164,18 +165,18 @@ export function EventRows({
                   </span>
                 </time>
                 <div className="row-shift">
-                  <h3 className="h-item">{e.title[locale]}</h3>
-                  <p className="muted mt-3 max-w-2xl">{e.summary[locale]}</p>
+                  <h3 className="h-item">{pick(e.title, locale)}</h3>
+                  <p className="muted mt-3 max-w-2xl">{pick(e.summary, locale)}</p>
                   <dl className="mt-4 flex flex-wrap gap-x-8 gap-y-1 text-[0.95rem]">
-                    {e.guest[locale] && (
+                    {pick(e.guest, locale) && (
                       <div className="flex gap-2">
                         <dt className="muted">{t.events.guest}:</dt>
-                        <dd>{e.guest[locale]}</dd>
+                        <dd>{pick(e.guest, locale)}</dd>
                       </div>
                     )}
                     <div>
                       <dt className="sr-only">{t.contact.address}</dt>
-                      <dd className="text-ivory/80">{e.venue[locale]}</dd>
+                      <dd className="text-ivory/80">{pick(e.venue, locale)}</dd>
                     </div>
                   </dl>
                 </div>
@@ -234,7 +235,7 @@ export function Stats({ locale }: { locale: Locale }) {
     <dl className="grid grid-cols-2 gap-x-8 gap-y-12 border-t border-[var(--hair)] pt-14 md:grid-cols-4">
       {site.stats.map((s, i) => (
         <Reveal key={s.label.uz} delay={i * 0.1} className="flex flex-col-reverse">
-          <dt className="muted mt-2">{s.label[locale]}</dt>
+          <dt className="muted mt-2">{pick(s.label, locale)}</dt>
           <dd className="gold-text font-display text-6xl leading-none md:text-8xl">
             <CountUp value={s.value} suffix={s.suffix} />
           </dd>
@@ -325,13 +326,13 @@ export function FaqList({ locale }: { locale: Locale }) {
             <Reveal key={item.q.uz} delay={i * 0.06}>
               <details className="group border-b border-[var(--hair)]">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-8 font-display text-2xl transition-colors hover:text-gold-light md:text-[1.75rem] [&::-webkit-details-marker]:hidden">
-                  {item.q[locale]}
+                  {pick(item.q, locale)}
                   <span
                     aria-hidden="true"
                     className="relative h-5 w-5 shrink-0 before:absolute before:inset-x-0 before:top-1/2 before:h-px before:-translate-y-1/2 before:bg-gold after:absolute after:inset-y-0 after:left-1/2 after:w-px after:-translate-x-1/2 after:bg-gold after:transition-transform after:duration-500 group-open:after:rotate-90"
                   />
                 </summary>
-                <p className="muted max-w-2xl pb-9">{item.a[locale]}</p>
+                <p className="muted max-w-2xl pb-9">{pick(item.a, locale)}</p>
               </details>
             </Reveal>
           ))}
@@ -374,9 +375,12 @@ export function ApplySection({ locale }: { locale: Locale }) {
               </div>
               <div className="flex gap-4">
                 <dt className="muted w-28 shrink-0">{t.contact.hours}</dt>
-                <dd>{site.hours[locale]}</dd>
+                <dd>{pick(site.hours, locale)}</dd>
               </div>
             </dl>
+            <div className="mt-8">
+              <Socials label={t.contact.socials} />
+            </div>
           </Reveal>
         </div>
         <Reveal delay={0.2}>

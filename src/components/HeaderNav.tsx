@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 const languages = [
   { code: "uz", label: "O‘zb" },
+  { code: "uz-cyrl", label: "Ўзб" },
   { code: "ru", label: "Рус" },
   { code: "en", label: "Eng" },
 ] as const;
@@ -35,7 +36,7 @@ export function HeaderNav({
     };
   }, [open]);
 
-  const rest = pathname.replace(/^\/(uz|ru|en)(?=\/|$)/, "");
+  const rest = pathname.replace(/^\/(uz-cyrl|uz|ru|en)(?=\/|$)/, "");
   const isActive = (target: string) => pathname === target || pathname.startsWith(`${target}/`);
 
   const langs = (
@@ -44,8 +45,8 @@ export function HeaderNav({
         <li key={l.code}>
           <Link
             href={`/${l.code}${rest}`}
-            hrefLang={l.code}
-            lang={l.code}
+            hrefLang={l.code === "uz-cyrl" ? "uz-Cyrl" : l.code}
+            lang={l.code === "uz-cyrl" ? "uz-Cyrl" : l.code}
             aria-current={l.code === locale ? "true" : undefined}
             className={`block px-2 py-1 text-sm transition-colors ${
               l.code === locale ? "text-gold-light" : "text-ivory/55 hover:text-ivory"

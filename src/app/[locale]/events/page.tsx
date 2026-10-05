@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import { ApplySection, EventRows, PageHead, SectionHead } from "@/components/sections";
-import { getTexts, type Locale } from "@/lib/i18n";
+import { getTexts, pick, type Locale } from "@/lib/i18n";
 import { splitEvents } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@content/site";
@@ -52,12 +52,12 @@ export default async function EventsPage({ params }: Props) {
           data={{
             "@context": "https://schema.org",
             "@type": "BusinessEvent",
-            name: e.title[locale],
-            description: e.summary[locale],
+            name: pick(e.title, locale),
+            description: pick(e.summary, locale),
             startDate: `${e.date}T${e.time}:00+05:00`,
             eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
             eventStatus: "https://schema.org/EventScheduled",
-            location: { "@type": "Place", name: e.venue[locale], address: e.venue[locale] },
+            location: { "@type": "Place", name: pick(e.venue, locale), address: pick(e.venue, locale) },
             organizer: { "@type": "Organization", name: site.name, url: site.url },
             url: `${site.url}/${locale}/events#${e.slug}`,
           }}

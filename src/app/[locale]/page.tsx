@@ -16,7 +16,7 @@ import {
   Stats,
   Steps,
 } from "@/components/sections";
-import { getTexts, href, shortDate, type Locale } from "@/lib/i18n";
+import { getTexts, href, shortDate, pick, type Locale } from "@/lib/i18n";
 import { splitEvents } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
 import { founders } from "@content/founders";
@@ -51,7 +51,7 @@ export default async function HomePage({ params }: Props) {
           className="absolute inset-0 -z-10"
           style={{
             background:
-              "linear-gradient(90deg, #04051a 0%, rgba(4,5,26,0.92) 34%, rgba(4,5,26,0.35) 72%, rgba(4,5,26,0.15) 100%), linear-gradient(0deg, #04051a 2%, transparent 38%)",
+              "linear-gradient(90deg, #04051a 0%, rgba(4,5,26,0.92) 34%, rgba(4,5,26,0.35) 72%, rgba(4,5,26,0.15) 100%), linear-gradient(0deg, #04051a 2%, transparent 38%), linear-gradient(180deg, #04051a 0%, rgba(4,5,26,0.85) 9%, transparent 20%)",
           }}
         />
 
@@ -59,7 +59,7 @@ export default async function HomePage({ params }: Props) {
 
         <div className="shell flex flex-1 flex-col justify-end pb-8 pt-36 md:pb-10">
           <Reveal intro y={16}>
-            <p className="text-lg text-gold-light">{site.descriptor[locale]}</p>
+            <p className="text-lg text-gold-light">{pick(site.descriptor, locale)}</p>
           </Reveal>
           <h1 className="h-hero mt-6 max-w-[13ch]">
             <Words text={t.home.title} intro delay={0.15} />
@@ -91,7 +91,7 @@ export default async function HomePage({ params }: Props) {
                   >
                     <span className="muted text-[0.95rem]">{t.home.nextEvent}</span>
                     <span className="font-display text-xl transition-colors group-hover:text-gold-light md:text-2xl">
-                      {next.title[locale]}
+                      {pick(next.title, locale)}
                     </span>
                     <time dateTime={`${next.date}T${next.time}`} className="text-gold-light">
                       {shortDate(next.date, locale)}, {next.time}

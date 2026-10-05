@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-const locales = ["uz", "ru", "en"];
+const locales = ["uz", "uz-cyrl", "ru", "en"];
 
 /** Til ko'rsatilmagan manzilni mos tilga yo'naltiradi: "/" -> "/uz" */
 export function middleware(request: NextRequest) {

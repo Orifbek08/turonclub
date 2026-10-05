@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Reveal, Words } from "@/components/motion";
 import { ApplySection, FaqList, Formats, PageHead, SectionHead, Steps } from "@/components/sections";
 import { JsonLd } from "@/components/JsonLd";
-import { getTexts, type Locale } from "@/lib/i18n";
+import { getTexts, pick, type Locale } from "@/lib/i18n";
 import { pageMeta } from "@/lib/seo";
 import { faq } from "@content/faq";
 
@@ -52,8 +52,8 @@ export default async function MembershipPage({ params }: Props) {
           "@type": "FAQPage",
           mainEntity: faq.map((item) => ({
             "@type": "Question",
-            name: item.q[locale],
-            acceptedAnswer: { "@type": "Answer", text: item.a[locale] },
+            name: pick(item.q, locale),
+            acceptedAnswer: { "@type": "Answer", text: pick(item.a, locale) },
           })),
         }}
       />

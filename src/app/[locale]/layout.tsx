@@ -2,11 +2,12 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import "../globals.css";
 import { Header } from "@/components/Header";
-import { Footer, socialLinks } from "@/components/Footer";
+import { Footer } from "@/components/Footer";
+import { socialUrls } from "@/components/Socials";
 import { JsonLd } from "@/components/JsonLd";
 import { LogoStack } from "@/components/Logo";
 import { MotionRoot } from "@/components/motion";
-import { getTexts, isLocale, locales } from "@/lib/i18n";
+import { getTexts, isLocale, langTag, locales, pick } from "@/lib/i18n";
 import { site } from "@content/site";
 
 export function generateStaticParams() {
@@ -36,7 +37,7 @@ export default async function LocaleLayout({
   const t = getTexts(locale);
 
   return (
-    <html lang={locale}>
+    <html lang={langTag[locale]}>
       <head>
         {/* Kirish ekrani bir tashrifda faqat bir marta ko'rsatiladi */}
         <script
@@ -72,19 +73,19 @@ export default async function LocaleLayout({
           data={{
             "@context": "https://schema.org",
             "@type": "Organization",
-            name: `${site.name} — ${site.descriptor[locale]}`,
-            legalName: site.legalName[locale],
+            name: `${site.name} — ${pick(site.descriptor, locale)}`,
+            legalName: pick(site.legalName, locale),
             url: `${site.url}/${locale}`,
             logo: `${site.url}/brand/turon-logo.svg`,
             email: site.email,
             telephone: site.phone,
             address: {
               "@type": "PostalAddress",
-              streetAddress: site.address[locale],
+              streetAddress: pick(site.address, locale),
               addressLocality: "Tashkent",
               addressCountry: "UZ",
             },
-            sameAs: socialLinks().map((s) => s.url),
+            sameAs: socialUrls(),
           }}
         />
       </body>

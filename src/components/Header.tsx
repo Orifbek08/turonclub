@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getTexts, href, type Locale } from "@/lib/i18n";
+import { getTexts, href, pick, type Locale } from "@/lib/i18n";
 import { site } from "@content/site";
 import { HeaderNav } from "./HeaderNav";
 import { HeaderShell } from "./motion";
@@ -13,7 +13,7 @@ export function Header({ locale }: { locale: Locale }) {
         <Link
           href={href(locale)}
           className="flex items-center gap-3 text-ivory"
-          aria-label={`${site.name} — ${site.descriptor[locale]}`}
+          aria-label={`${site.name} — ${pick(site.descriptor, locale)}`}
         >
           <LogoMark className="h-11 w-auto" />
           <LogoWord className="h-[1.15rem] w-auto" />

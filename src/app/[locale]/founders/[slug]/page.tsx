@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { Portrait } from "@/components/Portrait";
 import { Line, Reveal, Words } from "@/components/motion";
 import { ApplySection, FounderQuote } from "@/components/sections";
-import { getTexts, href, locales, type Locale } from "@/lib/i18n";
+import { getTexts, href, locales, pick, type Locale } from "@/lib/i18n";
 import { findFounder } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@content/site";
@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return pageMeta({
     locale,
     path: `/founders/${slug}`,
-    title: `${f.name[locale]}, ${f.role[locale]}, ${f.company}`,
-    description: f.bio[locale].slice(0, 160),
+    title: `${pick(f.name, locale)}, ${pick(f.role, locale)}, ${f.company}`,
+    description: pick(f.bio, locale).slice(0, 160),
   });
 }
 
@@ -50,28 +50,28 @@ export default async function FounderPage({ params }: Props) {
             <Reveal>
               <Portrait
                 file={f.photo}
-                name={f.name[locale]}
-                alt={`${f.name[locale]}, ${f.role[locale]}, ${f.company}`}
+                name={pick(f.name, locale)}
+                alt={`${pick(f.name, locale)}, ${pick(f.role, locale)}, ${f.company}`}
                 sizes="(min-width: 768px) 416px, 92vw"
                 priority
               />
             </Reveal>
             <div>
               <h1 className="h-display">
-                <Words text={f.name[locale]} delay={0.1} />
+                <Words text={pick(f.name, locale)} delay={0.1} />
               </h1>
               <Reveal delay={0.4}>
                 <p className="mt-5 text-xl text-gold-light">
-                  {f.role[locale]}, {f.company}
+                  {pick(f.role, locale)}, {f.company}
                 </p>
               </Reveal>
               <Line className="mt-12" delay={0.5} />
               <Reveal delay={0.55}>
                 <h2 className="muted mt-10 text-lg">{t.founders.bio}</h2>
-                <p className="mt-4 max-w-2xl text-xl leading-relaxed">{f.bio[locale]}</p>
+                <p className="mt-4 max-w-2xl text-xl leading-relaxed">{pick(f.bio, locale)}</p>
                 <h2 className="muted mt-12 text-lg">{t.founders.focus}</h2>
                 <ul className="mt-5 flex flex-wrap gap-3">
-                  {f.focus[locale].map((item) => (
+                  {pick(f.focus, locale).map((item) => (
                     <li key={item} className="border border-[var(--hair)] px-5 py-2.5">
                       {item}
                     </li>
@@ -83,7 +83,7 @@ export default async function FounderPage({ params }: Props) {
         </div>
       </section>
 
-      {f.quote[locale] && (
+      {pick(f.quote, locale) && (
         <section className="on-light section bg-ivory text-ink">
           <div className="shell">
             <FounderQuote locale={locale} founder={f} />
@@ -96,10 +96,10 @@ export default async function FounderPage({ params }: Props) {
         data={{
           "@context": "https://schema.org",
           "@type": "Person",
-          name: f.name[locale],
-          jobTitle: f.role[locale],
+          name: pick(f.name, locale),
+          jobTitle: pick(f.role, locale),
           worksFor: { "@type": "Organization", name: f.company },
-          description: f.bio[locale],
+          description: pick(f.bio, locale),
           url: `${site.url}/${locale}/founders/${f.slug}`,
           ...(f.photo && { image: `${site.url}/images/founders/${f.photo}` }),
         }}

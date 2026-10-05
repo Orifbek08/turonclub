@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { socialLinks } from "@/components/Footer";
+import { Socials } from "@/components/Socials";
 import { Reveal } from "@/components/motion";
 import { ApplySection, PageHead } from "@/components/sections";
-import { getTexts, type Locale } from "@/lib/i18n";
+import { getTexts, pick, type Locale } from "@/lib/i18n";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@content/site";
 
@@ -16,7 +16,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ContactPage({ params }: Props) {
   const { locale } = await params;
   const t = getTexts(locale);
-  const socials = socialLinks();
   const rows = [
     {
       label: t.contact.phone,
@@ -34,8 +33,8 @@ export default async function ContactPage({ params }: Props) {
         </a>
       ),
     },
-    { label: t.contact.address, value: site.address[locale] },
-    { label: t.contact.hours, value: site.hours[locale] },
+    { label: t.contact.address, value: pick(site.address, locale) },
+    { label: t.contact.hours, value: pick(site.hours, locale) },
   ];
   return (
     <>
@@ -53,18 +52,16 @@ export default async function ContactPage({ params }: Props) {
                 </Reveal>
               </div>
             ))}
-            {socials.length > 0 && (
-              <div className="grid gap-1 border-b border-[var(--hair)] py-8 md:grid-cols-[14rem_1fr] md:items-baseline md:gap-10">
-                <dt className="muted">{t.contact.socials}</dt>
-                <dd className="flex flex-wrap gap-x-6 gap-y-2">
-                  {socials.map((s) => (
-                    <a key={s.name} href={s.url} rel="noopener" target="_blank" className="text-link">
-                      {s.name}
-                    </a>
-                  ))}
-                </dd>
-              </div>
-            )}
+            <div className="border-b border-[var(--hair)]">
+              <Reveal delay={rows.length * 0.08}>
+                <div className="grid gap-4 py-8 md:grid-cols-[14rem_1fr] md:items-center md:gap-10 md:py-10">
+                  <dt className="muted">{t.contact.socials}</dt>
+                  <dd>
+                    <Socials size="lg" label={t.contact.socials} />
+                  </dd>
+                </div>
+              </Reveal>
+            </div>
           </dl>
         </div>
       </section>
