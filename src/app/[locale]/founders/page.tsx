@@ -19,7 +19,7 @@ export default async function FoundersPage({ params }: Props) {
       <PageHead title={t.founders.title} lead={t.founders.lead} />
       <section className="section">
         <div className="shell">
-          <FounderGrid locale={locale} items={founders} />
+          <FounderGrid locale={locale} />
           {founders[0] && (
             <div className="mt-24 md:mt-36">
               <FounderQuote locale={locale} founder={founders[0]} />

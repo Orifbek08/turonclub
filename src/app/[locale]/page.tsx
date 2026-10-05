@@ -59,7 +59,7 @@ export default async function HomePage({ params }: Props) {
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-night/60 md:hidden" />
 
         <div className="shell flex flex-1 flex-col justify-end pb-8 pt-32 md:pb-10">
-          <div className="grid items-end gap-x-12 gap-y-12 lg:grid-cols-[1.12fr_0.88fr]">
+          <div className="grid items-end gap-x-6 gap-y-10 lg:grid-cols-[1fr_1.05fr]">
             <div>
               <Reveal intro y={16}>
                 <p className="text-lg text-gold-light">{pick(site.descriptor, locale)}</p>
@@ -81,7 +81,7 @@ export default async function HomePage({ params }: Props) {
                 </div>
               </Reveal>
             </div>
-            <Reveal intro delay={0.6} y={60} className="mx-auto w-full max-w-md lg:max-w-none">
+            <Reveal intro delay={0.6} y={60} className="mx-auto w-full max-w-xl lg:-mr-6 lg:max-w-none xl:-mr-10">
               <FounderTrio locale={locale} />
             </Reveal>
           </div>
@@ -164,7 +164,7 @@ export default async function HomePage({ params }: Props) {
             </div>
           )}
           <div className="mt-16 md:mt-24">
-            <FounderGrid locale={locale} items={founders.slice(0, 3)} />
+            <FounderGrid locale={locale} />
           </div>
         </div>
       </section>

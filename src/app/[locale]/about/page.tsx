@@ -13,7 +13,6 @@ import {
 } from "@/components/sections";
 import { getTexts, href, type Locale } from "@/lib/i18n";
 import { pageMeta } from "@/lib/seo";
-import { founders } from "@content/founders";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
@@ -60,7 +59,7 @@ export default async function AboutPage({ params }: Props) {
             }
           />
           <div className="mt-16">
-            <FounderGrid locale={locale} items={founders.slice(0, 3)} />
+            <FounderGrid locale={locale} />
           </div>
         </div>
       </section>

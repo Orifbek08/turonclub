@@ -3,9 +3,8 @@ import { Tiles } from "./Tiles";
 import { initials } from "@/lib/content";
 
 /**
- * Portret rasmi, oltin hoshiyali sakkiz qirrali ramkada.
- * `file` bo'sh bo'lsa, naqsh va ism bosh harflari chiqadi, shuning uchun
- * rasmlar hali tayyor bo'lmasa ham sahifa to'liq ko'rinadi.
+ * Portret: oltin hoshiyali sakkiz qirrali ramka, naqshli fon ustida fonsiz rasm.
+ * `file` bo'sh bo'lsa, o'rnida ism bosh harflari chiqadi.
  */
 export function Portrait({
   file,
@@ -24,7 +23,8 @@ export function Portrait({
 }) {
   return (
     <div className="frame octagon">
-      <div className="octagon relative aspect-[4/5] overflow-hidden bg-deep">
+      <div className="octagon relative aspect-square overflow-hidden bg-deep">
+        <Tiles cols={5} rows={5} seed={seed} density={29} className="absolute inset-0 h-full w-full opacity-60" />
         <div className="frame-inner absolute inset-0">
           {file ? (
             <Image
@@ -33,17 +33,14 @@ export function Portrait({
               fill
               sizes={sizes}
               priority={priority}
-              className="object-cover"
+              className="object-cover object-top"
             />
           ) : (
-            <div role="img" aria-label={alt} className="absolute inset-0">
-              <Tiles cols={4} rows={5} seed={seed} density={11} className="absolute inset-0 h-full w-full" />
-              <span className="absolute inset-0 grid place-items-center">
-                <span className="bg-deep px-5 py-3">
-                  <span className="gold-text font-display text-6xl leading-none">{initials(name)}</span>
-                </span>
+            <span role="img" aria-label={alt} className="absolute inset-0 grid place-items-center">
+              <span className="bg-deep px-5 py-3">
+                <span className="gold-text font-display text-6xl leading-none">{initials(name) || "T"}</span>
               </span>
-            </div>
+            </span>
           )}
         </div>
       </div>

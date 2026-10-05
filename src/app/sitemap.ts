@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { langTag, locales } from "@/lib/i18n";
 import { site } from "@content/site";
-import { founders } from "@content/founders";
+import { founders, hasPage } from "@content/founders";
 
 /** turonclub.uz/sitemap.xml — barcha sahifalar to‘rt tilda, hreflang bilan */
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/forum",
     "/membership",
     "/contact",
-    ...founders.map((f) => `/founders/${f.slug}`),
+    ...founders.filter(hasPage).map((f) => `/founders/${f.slug}`),
   ];
   return paths.flatMap((path) =>
     locales.map((locale) => ({

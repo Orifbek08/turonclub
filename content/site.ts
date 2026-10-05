@@ -55,7 +55,7 @@ export const site = {
    * portretlari yonma-yon chiqadi.
    * Tavsiya: fonsiz (shaffof PNG) yoki to'q fonli, kamida 2000 piksel kenglikda.
    */
-  heroPhoto: "",
+  heroPhoto: "asoschilar.webp",
 
   /**
    * Ijtimoiy tarmoqlar. Havolani to'liq yozing: "https://instagram.com/..."

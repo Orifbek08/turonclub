@@ -9,14 +9,14 @@ import { getTexts, href, locales, pick, type Locale } from "@/lib/i18n";
 import { findFounder } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@content/site";
-import { founders } from "@content/founders";
+import { founders, hasPage } from "@content/founders";
 
 export const dynamicParams = false;
 
 type Props = { params: Promise<{ locale: Locale; slug: string }> };
 
 export function generateStaticParams() {
-  return locales.flatMap((locale) => founders.map((f) => ({ locale, slug: f.slug })));
+  return locales.flatMap((locale) => founders.filter(hasPage).map((f) => ({ locale, slug: f.slug })));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return pageMeta({
     locale,
     path: `/founders/${slug}`,
-    title: `${pick(f.name, locale)}, ${pick(f.role, locale)}, ${f.company}`,
+    title: [pick(f.name, locale), pick(f.role, locale), f.company].filter(Boolean).join(", "),
     description: pick(f.bio, locale).slice(0, 160),
   });
 }
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function FounderPage({ params }: Props) {
   const { locale, slug } = await params;
   const f = findFounder(slug);
-  if (!f) notFound();
+  if (!f || !hasPage(f)) notFound();
   const t = getTexts(locale);
 
   return (
@@ -51,7 +51,7 @@ export default async function FounderPage({ params }: Props) {
               <Portrait
                 file={f.photo}
                 name={pick(f.name, locale)}
-                alt={`${pick(f.name, locale)}, ${pick(f.role, locale)}, ${f.company}`}
+                alt={[pick(f.name, locale), pick(f.role, locale), f.company].filter(Boolean).join(", ")}
                 sizes="(min-width: 768px) 416px, 92vw"
                 priority
               />
@@ -62,7 +62,7 @@ export default async function FounderPage({ params }: Props) {
               </h1>
               <Reveal delay={0.4}>
                 <p className="mt-5 text-xl text-gold-light">
-                  {pick(f.role, locale)}, {f.company}
+                  {[pick(f.role, locale), f.company].filter(Boolean).join(", ")}
                 </p>
               </Reveal>
               <Line className="mt-12" delay={0.5} />

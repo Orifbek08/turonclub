@@ -6,7 +6,7 @@ import { site } from "@content/site";
 import { partners } from "@content/partners";
 import { faq } from "@content/faq";
 import { forum } from "@content/forum";
-import { founders, type Founder } from "@content/founders";
+import { foundersOnStage, hasPage, type Founder } from "@content/founders";
 import { Portrait } from "./Portrait";
 import { Star, Tiles } from "./Tiles";
 import { ApplyForm } from "./ApplyForm";
@@ -88,28 +88,48 @@ export function Marquee({ items }: { items: string[] }) {
   );
 }
 
-export function FounderGrid({ locale, items }: { locale: Locale; items: Founder[] }) {
+/** Asoschining ismi, lavozimi va kompaniyasi bitta qatorda (bor ma'lumotlardan) */
+function founderLine(f: Founder, locale: Locale): string {
+  return [pick(f.role, locale), f.company].filter(Boolean).join(", ");
+}
+
+function founderAlt(f: Founder, locale: Locale): string {
+  return [pick(f.name, locale), founderLine(f, locale)].filter(Boolean).join(", ");
+}
+
+export function FounderGrid({ locale }: { locale: Locale }) {
   return (
-    <ul className="grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-3 md:gap-x-10">
-      {items.map((f, i) => (
-        <li key={f.slug}>
-          <Reveal delay={(i % 3) * 0.1}>
-            <Link href={href(locale, `/founders/${f.slug}`)} className="group block">
-              <Portrait
-                file={f.photo}
-                name={pick(f.name, locale)}
-                alt={`${pick(f.name, locale)}, ${pick(f.role, locale)}, ${f.company}`}
-                sizes="(min-width: 768px) 400px, 46vw"
-                seed={i * 5}
-              />
-              <h3 className="mt-6 text-[1.6rem] leading-tight md:text-[1.9rem]">{pick(f.name, locale)}</h3>
-              <p className="muted mt-1.5 text-[0.95rem]">
-                {pick(f.role, locale)}, {f.company}
-              </p>
-            </Link>
-          </Reveal>
-        </li>
-      ))}
+    <ul className="grid gap-x-8 gap-y-14 sm:grid-cols-3 md:gap-x-12">
+      {foundersOnStage().map((f, i) => {
+        const card = (
+          <>
+            <Portrait
+              file={f.photo}
+              name={pick(f.name, locale)}
+              alt={founderAlt(f, locale)}
+              sizes="(min-width: 640px) 400px, 92vw"
+              seed={i * 5}
+            />
+            {pick(f.name, locale) && (
+              <h3 className="mt-6 text-[1.7rem] leading-tight md:text-[2rem]">{pick(f.name, locale)}</h3>
+            )}
+            <p className={`muted ${pick(f.name, locale) ? "mt-1.5" : "mt-6 text-lg"}`}>{founderLine(f, locale)}</p>
+          </>
+        );
+        return (
+          <li key={f.slug} className={i === 1 ? "sm:-mt-6" : ""}>
+            <Reveal delay={i * 0.12}>
+              {hasPage(f) ? (
+                <Link href={href(locale, `/founders/${f.slug}`)} className="group block">
+                  {card}
+                </Link>
+              ) : (
+                <div className="group">{card}</div>
+              )}
+            </Reveal>
+          </li>
+        );
+      })}
     </ul>
   );
 }
@@ -120,35 +140,34 @@ export function FounderGrid({ locale, items }: { locale: Locale; items: Founder[
  */
 export function FounderTrio({ locale }: { locale: Locale }) {
   const t = getTexts(locale);
+  const stage = foundersOnStage();
   if (site.heroPhoto) {
     return (
-      <Link href={href(locale, "/founders")} className="relative block aspect-[5/4] w-full" aria-label={t.founders.title}>
+      <Link href={href(locale, "/founders")} className="relative block aspect-[1400/660] w-full" aria-label={t.founders.title}>
         <Image
           src={`/images/founders/${site.heroPhoto}`}
-          alt={founders.map((f) => pick(f.name, locale)).join(", ")}
+          alt={`${t.founders.title}: ${stage.map((f) => founderAlt(f, locale)).join("; ")}`}
           fill
           priority
-          sizes="(min-width: 1024px) 46vw, 92vw"
+          sizes="(min-width: 1024px) 52vw, 96vw"
           className="object-contain object-bottom"
         />
       </Link>
     );
   }
-  // O'rtadagi (ro'yxatda ikkinchi) asoschi kattaroq va oldinda turadi
-  const trio = founders.slice(0, 3);
   return (
-    <Link href={href(locale, "/founders")} className="group/trio flex items-end justify-center" aria-label={t.founders.title}>
-      {trio.map((f, i) => (
+    <Link href={href(locale, "/founders")} className="flex items-end justify-center" aria-label={t.founders.title}>
+      {stage.map((f, i) => (
         <div
           key={f.slug}
-          className={`group relative transition-transform duration-700 ease-out hover:z-20 hover:-translate-y-2 ${
-            i === 1 ? "z-10 w-[40%]" : "w-[33%]"
-          } ${i === 0 ? "-mr-[5%]" : ""} ${i === 2 ? "-ml-[5%]" : ""}`}
+          className={`group relative ${i === 1 ? "z-10 w-[40%]" : "w-[33%]"} ${i === 0 ? "-mr-[5%]" : ""} ${
+            i === 2 ? "-ml-[5%]" : ""
+          }`}
         >
           <Portrait
             file={f.photo}
             name={pick(f.name, locale)}
-            alt={`${pick(f.name, locale)}, ${pick(f.role, locale)}, ${f.company}`}
+            alt={founderAlt(f, locale)}
             sizes="(min-width: 1024px) 18vw, 36vw"
             seed={i * 5 + 1}
             priority
@@ -175,9 +194,7 @@ export function FounderQuote({ locale, founder }: { locale: Locale; founder: Fou
           <span aria-hidden="true" className="h-px w-14" style={{ background: "var(--gold-grad)" }} />
           <span>
             <span className="block font-semibold">{pick(founder.name, locale)}</span>
-            <span className="muted text-[0.95rem]">
-              {pick(founder.role, locale)}, {founder.company}
-            </span>
+            <span className="muted text-[0.95rem]">{founderLine(founder, locale)}</span>
           </span>
         </figcaption>
       </Reveal>
