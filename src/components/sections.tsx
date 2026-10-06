@@ -440,13 +440,30 @@ export function ForumGuests({ locale }: { locale: Locale }) {
   const guests = forum.guests.filter((g) => g.photo);
   if (guests.length === 0) return null;
   const t = getTexts(locale);
+  // Ustunlar soni mehmonlar soniga moslashadi: qator doim to'la turadi
+  const n = guests.length;
+  const cols =
+    n === 1
+      ? "mx-auto max-w-sm grid-cols-1"
+      : n === 2
+        ? "mx-auto max-w-3xl grid-cols-2"
+        : n === 3
+          ? "grid-cols-2 md:grid-cols-3"
+          : "grid-cols-2 lg:grid-cols-4";
   return (
     <section className="on-light section bg-ivory text-ink">
       <div className="shell">
         <SectionHead title={t.forum.guestsTitle} />
-        <ul className="mt-16 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4 lg:gap-x-9">
+        <ul className={`mt-16 grid gap-x-6 gap-y-12 lg:gap-x-12 ${cols}`}>
           {guests.map((g, i) => (
-            <li key={g.photo}>
+            <li
+              key={g.photo}
+              className={
+                n % 2 === 1 && n > 1 && i === n - 1
+                  ? "col-span-2 mx-auto w-[calc(50%-0.75rem)] md:col-span-1 md:w-auto"
+                  : undefined
+              }
+            >
               <Reveal delay={i * 0.12}>
                 <div className="group">
                   <Portrait
@@ -454,7 +471,7 @@ export function ForumGuests({ locale }: { locale: Locale }) {
                     file={g.photo}
                     name={pick(g.name, locale)}
                     alt={`${pick(g.name, locale)}. ${pick(g.about, locale)}`}
-                    sizes="(min-width: 1024px) 300px, 46vw"
+                    sizes="(min-width: 1024px) 420px, 46vw"
                     seed={i * 7 + 2}
                   />
                   <h3 className="mt-6 text-[1.45rem] leading-tight md:text-[1.7rem]">{pick(g.name, locale)}</h3>
