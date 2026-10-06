@@ -22,11 +22,36 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-/** Kirish ekrani ko'rsatilayotgan bo'lsa, bosh sahifa animatsiyasi undan keyin boshlanadi */
-function introDelay(): number {
-  if (typeof window === "undefined") return 0;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return 0;
-  return document.documentElement.classList.contains("intro-seen") ? 0.1 : 4.1;
+/** Kirish ekrani hali ko'rsatilayaptimi */
+function introPending(): boolean {
+  if (typeof window === "undefined") return false;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
+  if ((window as unknown as { __turonIntroDone?: boolean }).__turonIntroDone) return false;
+  return !document.documentElement.classList.contains("intro-seen");
+}
+
+/**
+ * Bosh sahifa animatsiyasi kirish ekrani erishni boshlagandagina ishga tushadi
+ * (Intro.tsx "turon:intro-done" xabarini yuboradi). `enabled` bo'lmasa, darhol tayyor.
+ */
+function useIntroDone(enabled: boolean): boolean {
+  const [done, setDone] = useState(() => !enabled || !introPending());
+  useEffect(() => {
+    if (done) return;
+    if (!introPending()) {
+      setDone(true);
+      return;
+    }
+    const go = () => setDone(true);
+    window.addEventListener("turon:intro-done", go, { once: true });
+    // Ehtiyot chorasi: xabar kelmasa ham sahifa bo'sh qolmasin
+    const safety = window.setTimeout(go, 7000);
+    return () => {
+      window.removeEventListener("turon:intro-done", go);
+      window.clearTimeout(safety);
+    };
+  }, [done]);
+  return done;
 }
 
 /** Silliq skroll va umumiy sozlamalar */
@@ -60,15 +85,16 @@ export function Reveal({
   intro?: boolean;
   className?: string;
 }) {
-  const [extra] = useState(() => (intro ? introDelay() : 0));
+  const ready = useIntroDone(intro);
+  const shown = { opacity: 1, y: 0 };
   return (
     <motion.div
       data-reveal
       className={className}
       initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      {...(intro ? { animate: ready ? shown : undefined } : { whileInView: shown })}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-      transition={{ duration: 1.2, ease: EASE, delay: delay + extra }}
+      transition={{ duration: 1.2, ease: EASE, delay: delay + (intro ? 0.1 : 0) }}
     >
       {children}
     </motion.div>
@@ -89,7 +115,7 @@ export function Words({
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" });
-  const [extra] = useState(() => (intro ? introDelay() : 0));
+  const ready = useIntroDone(intro);
   return (
     <span ref={ref}>
       {text.split(" ").map((w, i) => (
@@ -99,8 +125,8 @@ export function Words({
               data-reveal
               className="inline-block"
               initial={{ y: "118%" }}
-              animate={inView ? { y: 0 } : undefined}
-              transition={{ duration: 1.15, ease: EASE, delay: delay + extra + i * stagger }}
+              animate={inView && ready ? { y: 0 } : undefined}
+              transition={{ duration: 1.15, ease: EASE, delay: delay + (intro ? 0.1 : 0) + i * stagger }}
             >
               {w}
             </motion.span>
