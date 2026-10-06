@@ -21,9 +21,9 @@
  * Rangni o'zgartirish uchun faqat shu blokdagi qiymatlarni almashtiring.
  */
 @theme {
-  --color-night: #04051a; /* asosiy fon: tungi ko'k */
+  --color-night: #000052; /* asosiy fon: tungi ko'k */
   --color-navy: #000052; /* logotip rangi */
-  --color-deep: #0a0c33; /* fon ustidagi panellar */
+  --color-deep: #00003b; /* fon ustidagi panellar */
   --color-gold: #c9a96a; /* aksent: oltin */
   --color-gold-light: #f1e0b4;
   --color-gold-deep: #8c6f33;

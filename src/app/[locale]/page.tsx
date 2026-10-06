@@ -53,7 +53,7 @@ export default async function HomePage({ params }: Props) {
           className="absolute inset-0 -z-10"
           style={{
             background:
-              "linear-gradient(90deg, #04051a 0%, rgba(4,5,26,0.92) 34%, rgba(4,5,26,0.35) 72%, rgba(4,5,26,0.15) 100%), linear-gradient(0deg, #04051a 2%, transparent 38%), linear-gradient(180deg, #04051a 0%, rgba(4,5,26,0.85) 9%, transparent 20%)",
+              "linear-gradient(90deg, #000052 0%, rgba(0,0,82,0.92) 34%, rgba(0,0,82,0.35) 72%, rgba(0,0,82,0.15) 100%), linear-gradient(0deg, #000052 2%, transparent 38%), linear-gradient(180deg, #000052 0%, rgba(0,0,82,0.85) 9%, transparent 20%)",
           }}
         />
 

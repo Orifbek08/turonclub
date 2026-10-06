@@ -179,7 +179,7 @@ export function NetworkMap({
                 fill={isHome ? "#f1e0b4" : "#f5f0e6"}
                 fontSize={isHome ? 19 : 16}
                 fontWeight={isHome ? 600 : 500}
-                style={{ paintOrder: "stroke", stroke: "#04051a", strokeWidth: 5, strokeLinejoin: "round" }}
+                style={{ paintOrder: "stroke", stroke: "#000052", strokeWidth: 5, strokeLinejoin: "round" }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.25 }}

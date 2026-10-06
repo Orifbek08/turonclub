@@ -14,7 +14,7 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export const viewport: Viewport = { themeColor: "#04051a" };
+export const viewport: Viewport = { themeColor: "#000052" };
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
