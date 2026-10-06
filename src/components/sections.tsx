@@ -233,21 +233,32 @@ export function Benefits({ locale }: { locale: Locale }) {
     <section className="section bg-deep">
       <div className="shell">
         <SectionHead title={t.benefits.title} lead={t.benefits.lead} />
-        <ol className="mt-16 grid border-l border-t border-[var(--hair)] sm:grid-cols-2 lg:grid-cols-3">
+        {/* Keng ekranda: birinchi qatorda 4 ta, ikkinchi qatorda 3 ta */}
+        <ol className="mt-16 grid border-l border-t border-[var(--hair)] sm:grid-cols-2 xl:grid-cols-12">
           {t.benefits.items.map((item, i) => (
-            <li key={item.code} className="row-hover border-b border-r border-[var(--hair)]">
-              <Reveal delay={(i % 3) * 0.08} className="h-full">
-                <div className="flex h-full flex-col p-7 md:p-9">
-                  <div className="flex items-baseline justify-between gap-4">
-                    <span className="gold-text font-display text-4xl leading-none">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-right text-[0.8rem] font-semibold tracking-[0.14em] text-gold-light">
-                      {item.code}
-                    </span>
-                  </div>
-                  <h3 className="mt-8 text-[1.65rem] leading-tight">{item.name}</h3>
-                  <p className="muted mt-3 text-[0.98rem]">{item.text}</p>
+            <li
+              key={item.name}
+              className={`row-hover border-b border-r border-[var(--hair)] ${i < 4 ? "xl:col-span-3" : "xl:col-span-4"} ${
+                i === t.benefits.items.length - 1 && i % 2 === 0 ? "sm:col-span-2" : ""
+              }`}
+            >
+              <Reveal delay={(i < 4 ? i : i - 4) * 0.08} className="h-full">
+                <div className="flex h-full flex-col p-7 md:p-8">
+                  <span className="gold-text font-display text-5xl leading-none">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="mt-7 text-[1.55rem] leading-tight">{item.name}</h3>
+                  {item.when && (
+                    <p className="mt-4 self-start border border-[var(--color-gold)]/45 px-3 py-1 text-[0.85rem] font-semibold tracking-wide text-gold-light">
+                      {item.when}
+                    </p>
+                  )}
+                  <ul className="mt-6 space-y-3 border-t border-[var(--hair)] pt-6">
+                    {item.points.map((point) => (
+                      <li key={point} className="flex gap-3">
+                        <Star className="mt-[0.5em] h-2 w-2 shrink-0 text-gold" />
+                        <span className="muted text-[0.98rem]">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </Reveal>
             </li>
@@ -313,7 +324,7 @@ export function Tiers({ locale }: { locale: Locale }) {
   const t = getTexts(locale);
   const last = t.membership.tiers.length - 1;
   return (
-    <ul className="grid gap-6 lg:grid-cols-3">
+    <ul className={`grid gap-6 ${t.membership.tiers.length === 2 ? "lg:grid-cols-2" : "lg:grid-cols-3"}`}>
       {t.membership.tiers.map((tier, i) => (
         <li key={tier.name}>
           <Reveal delay={i * 0.12} className="h-full">

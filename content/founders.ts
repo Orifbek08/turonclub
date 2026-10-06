@@ -1,7 +1,7 @@
 /**
  * ASOSCHILAR
  * Tartib muhim: BIRINCHI — klub prezidenti (o'rtada turadi),
- * ikkinchi — uning o'ng tomonida, uchinchi — chap tomonida.
+ * ikkinchi — ekranda o'ng tomonda, uchinchi — ekranda chap tomonda turadi.
  *
  * slug    — sahifa manzili: turonclub.uz/uz/founders/<slug>
  *           faqat kichik lotin harflari va chiziqcha: "ilxom-begimqulov"
@@ -43,21 +43,25 @@ export const founders: Founder[] = [
     quote: empty,
   },
   {
-    slug: "asoschi-ong",
-    name: empty,
-    role: { uz: "Asoschi", ru: "Основатель", en: "Founder" },
+    slug: "shavkat-dadajonov",
+    name: { uz: "Shavkat Dadajonov", ru: "Шавкат Дадажонов", en: "Shavkat Dadajonov" },
+    role: { uz: "Biznesmen, investor, ustoz", ru: "Бизнесмен, инвестор, наставник", en: "Businessman, investor, mentor" },
     company: "",
-    photo: "asoschi-ong.webp",
+    photo: "shavkat-dadajonov.webp",
     focus: none,
     bio: empty,
     quote: empty,
   },
   {
-    slug: "asoschi-chap",
-    name: empty,
-    role: { uz: "Asoschi", ru: "Основатель", en: "Founder" },
+    slug: "farrux-fazliyev",
+    name: { uz: "Farrux Fazliyev", ru: "Фаррух Фазлиев", en: "Farrukh Fazliev" },
+    role: {
+      uz: "O‘zbekiston Milliy iqtisodiy hamkorlik uyushmasi raisi",
+      ru: "Председатель Национальной ассоциации экономического сотрудничества Узбекистана",
+      en: "Chairman of the National Association for Economic Cooperation of Uzbekistan",
+    },
     company: "",
-    photo: "asoschi-chap.webp",
+    photo: "farrux-fazliyev.webp",
     focus: none,
     bio: empty,
     quote: empty,

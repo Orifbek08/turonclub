@@ -45,68 +45,74 @@ export const en: Texts = {
     formulaTitle: "The club formula",
   },
   benefits: {
-    title: "The 12 core values of membership",
-    lead: "A member does more than attend events: they gain access to capital, connections, markets and expert support.",
+    title: "Services and privileges for club members",
+    lead: "Turon — business united, opportunities expanded, results achieved together.",
     items: [
       {
-        code: "CAPITAL",
-        name: "Raising investment and capital",
-        text: "We connect projects with investors, investment funds and potential financial partners.",
+        name: "Business breakfast",
+        when: "10 times a year",
+        points: [
+          "Closed business meetings",
+          "Networking",
+          "Conversations with guest speakers",
+          "Business discussions",
+          "Practical business cases",
+          "Themed talks",
+        ],
       },
       {
-        code: "CONNECTION",
-        name: "Strong business connections",
-        text: "A quality business network of entrepreneurs, investors, companies and international partners.",
+        name: "Business visits",
+        when: "5 times a year",
+        points: [
+          "Visits to plants, factories and logistics centres",
+          "Exchange of experience and new partnerships",
+        ],
       },
       {
-        code: "B2B",
-        name: "One-to-One business meetings",
-        text: "We arrange direct meetings with potential partners based on each member’s needs.",
+        name: "Business analysis",
+        when: "Once a year",
+        points: [
+          "A business analysis carried out at the member’s company",
+          "A review of operations and management processes",
+        ],
       },
       {
-        code: "MARKET",
-        name: "New markets",
-        text: "We help companies from Uzbekistan enter foreign markets, and foreign companies find their place in Uzbekistan and the region.",
+        name: "Member privileges",
+        when: "Throughout the year",
+        points: [
+          "Service: restaurants and hotels",
+          "Professional services: consulting, audit, IT and marketing",
+          "Lifestyle and health: clinics, sport and education",
+          "Services of banks and financial institutions",
+        ],
       },
       {
-        code: "EXPORT",
-        name: "Export opportunities",
-        text: "Contacts with partners and buyers to take products and services to international markets.",
+        name: "Legal services",
+        when: "Throughout the year",
+        points: [
+          "Legal advice for club members",
+          "Legal review of contracts",
+        ],
       },
       {
-        code: "IMPORT",
-        name: "Import and supply",
-        text: "The opportunity to source technology, raw materials, products and business partners from abroad.",
+        name: "Ilkhom Begimkulov’s signature business programmes",
+        when: "Throughout the year",
+        points: [
+          "Free participation in seminars. Up to 5 entrepreneurs may attend together with the member.",
+          "Free participation in coaching sessions. 1 entrepreneur may attend together with the member.",
+          "The organisational costs set for each coaching session are covered by the participants.",
+        ],
       },
       {
-        code: "GLOBAL",
-        name: "International business missions",
-        text: "Business visits to foreign countries, delegations, forums and participation in B2B meetings.",
-      },
-      {
-        code: "TURON PRIVILEGE CARD",
-        name: "Special privileges",
-        text: "Special privileges and discounts on partner companies’ services for club members, including offers of up to 30%.",
-      },
-      {
-        code: "KNOWLEDGE",
-        name: "Business knowledge",
-        text: "Seminars and meetings on investment, export, marketing, finance, management and international trade.",
-      },
-      {
-        code: "EXPERT SUPPORT",
-        name: "Expert support",
-        text: "Work with experts in legal, financial, investment, export-import and other areas.",
-      },
-      {
-        code: "VIP NETWORKING",
-        name: "A VIP business environment",
-        text: "Closed-format dialogue with high-level entrepreneurs, investors, executives and international delegations.",
-      },
-      {
-        code: "PERSONAL BUSINESS SUPPORT",
-        name: "Personal business support",
-        text: "An individual approach to each member’s specific goal: finding a partner, reaching an investor, entering a market, a B2B meeting or an international contact.",
+        name: "Investment, import and export",
+        when: "",
+        points: [
+          "Investment readiness and help in attracting investment",
+          "Identifying export needs and taking part in exhibitions",
+          "Online and offline meetings with foreign partners",
+          "Connecting importers with manufacturers and suppliers",
+          "Taking the business into new markets",
+        ],
       },
     ],
   },
@@ -165,23 +171,12 @@ export const en: Texts = {
     tiersTitle: "Membership packages",
     tiers: [
       {
-        name: "Business Member",
-        note: "Core business membership",
-        items: [
-          "Club events",
-          "Business networking",
-          "B2B meetings",
-          "Business information",
-          "Knowledge events",
-          "Privilege Card",
-          "General business cooperation opportunities",
-        ],
-      },
-      {
         name: "Premium Member",
         note: "Extended service",
         items: [
-          "All Business benefits",
+          "Club events and business networking",
+          "B2B meetings",
+          "Privilege Card",
           "Individual business support",
           "Priority B2B meetings",
           "Work with experts",
@@ -288,7 +283,7 @@ export const en: Texts = {
     membership: {
       title: "Membership",
       description:
-        "Membership of Turon International Business Club: 12 core values, Business, Premium and VIP packages, and the application form.",
+        "Membership of Turon International Business Club: services and privileges for members, Premium and VIP packages, and the application form.",
     },
     contact: {
       title: "Contact",

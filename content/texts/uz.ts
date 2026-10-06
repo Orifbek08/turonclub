@@ -47,68 +47,74 @@ export const uz = {
     formulaTitle: "Klub formulasi",
   },
   benefits: {
-    title: "A’zolikning 12 ta asosiy qiymati",
-    lead: "Klub a’zosi shunchaki tadbirlarga qatnashmaydi: u kapital, aloqalar, bozorlar va ekspert ko‘magiga yo‘l oladi.",
+    title: "Klub a’zolari uchun xizmatlar va imtiyozlar",
+    lead: "Turon — birlashgan biznes, kengaygan imkoniyatlar, birgalikdagi natija!",
     items: [
       {
-        code: "CAPITAL",
-        name: "Investitsiya va kapital jalb qilish",
-        text: "Loyihalarni investorlar, investitsiya fondlari va potensial moliyaviy hamkorlar bilan bog‘lash.",
+        name: "Biznes nonushtasi",
+        when: "Yiliga 10 marta",
+        points: [
+          "Yopiq biznes uchrashuvlar",
+          "Netvorking",
+          "Mehmon spikerlar bilan muloqot",
+          "Biznes muhokamalar",
+          "Amaliy biznes keyslar",
+          "Mavzuli suhbatlar",
+        ],
       },
       {
-        code: "CONNECTION",
-        name: "Kuchli biznes aloqalar",
-        text: "Tadbirkorlar, investorlar, kompaniyalar va xalqaro hamkorlar bilan sifatli biznes tarmoq.",
+        name: "Biznes tashriflar",
+        when: "Yiliga 5 marta",
+        points: [
+          "Zavod, fabrika va logistika majmualariga tashriflar",
+          "Tajriba almashish va hamkorlikni yo‘lga qo‘yish",
+        ],
       },
       {
-        code: "B2B",
-        name: "One-to-One biznes uchrashuvlar",
-        text: "A’zoning ehtiyojiga qarab potensial hamkorlar bilan to‘g‘ridan-to‘g‘ri uchrashuvlar tashkil qilish.",
+        name: "Biznes tahlili",
+        when: "Yiliga 1 marta",
+        points: [
+          "Klub a’zosining korxonasida biznes tahlilini o‘tkazish",
+          "Biznes faoliyati va boshqaruv jarayonlarini tahlil qilish",
+        ],
       },
       {
-        code: "MARKET",
-        name: "Yangi bozorlar",
-        text: "O‘zbekistondagi kompaniyalarga xorijiy bozorlarga chiqishda, xorijiy kompaniyalarga esa O‘zbekiston va mintaqada o‘z o‘rnini topishda yordam.",
+        name: "A’zolar uchun imtiyozlar",
+        when: "1 yil davomida",
+        points: [
+          "Servis: restoran va mehmonxona",
+          "Professional xizmatlar: konsalting, audit, IT va marketing",
+          "Turmush va sog‘liq: klinika, sport va ta’lim",
+          "Bank va moliya tashkilotlari xizmatlari",
+        ],
       },
       {
-        code: "EXPORT",
-        name: "Eksport imkoniyatlari",
-        text: "Mahsulot va xizmatlarni xalqaro bozorlarga olib chiqish uchun hamkorlar va xaridorlar bilan aloqalar.",
+        name: "Yuridik xizmatlar",
+        when: "1 yil davomida",
+        points: [
+          "Huquqiy masalalar bo‘yicha klub a’zolariga yuridik maslahat berish",
+          "Shartnomalarni huquqiy ekspertizadan o‘tkazish",
+        ],
       },
       {
-        code: "IMPORT",
-        name: "Import va ta’minot",
-        text: "Xorijdan texnologiya, xomashyo, mahsulot va biznes hamkorlarni topish imkoniyati.",
+        name: "Ilxom Begimqulovning mualliflik biznes dasturlari",
+        when: "1 yil davomida",
+        points: [
+          "Seminarlarda bepul ishtirok etish. A’zo bilan birga 5 nafargacha tadbirkor qatnashishi mumkin.",
+          "Kouching darslarida bepul ishtirok etish. A’zo bilan birga 1 nafar tadbirkor qatnashishi mumkin.",
+          "Har bir kouching uchun belgilangan tashkiliy xarajatlar ishtirokchilar tomonidan qoplanadi.",
+        ],
       },
       {
-        code: "GLOBAL",
-        name: "Xalqaro biznes missiyalar",
-        text: "Xorijiy mamlakatlarga biznes tashriflar, delegatsiyalar, forumlar va B2B uchrashuvlarda ishtirok.",
-      },
-      {
-        code: "TURON PRIVILEGE CARD",
-        name: "Maxsus imtiyozlar",
-        text: "Klub a’zolari uchun hamkor kompaniyalar xizmatlarida maxsus imtiyoz va chegirmalar, jumladan 30% gacha bo‘lgan takliflar.",
-      },
-      {
-        code: "KNOWLEDGE",
-        name: "Biznes bilimlari",
-        text: "Investitsiya, eksport, marketing, moliya, boshqaruv va xalqaro savdo bo‘yicha seminarlar va uchrashuvlar.",
-      },
-      {
-        code: "EXPERT SUPPORT",
-        name: "Ekspertlar yordami",
-        text: "Yuridik, moliyaviy, investitsion, eksport-import va boshqa yo‘nalishlarda ekspertlar bilan ishlash.",
-      },
-      {
-        code: "VIP NETWORKING",
-        name: "VIP biznes muhiti",
-        text: "Yuqori darajadagi tadbirkorlar, investorlar, rahbarlar va xalqaro delegatsiyalar bilan yopiq formatda muloqot.",
-      },
-      {
-        code: "PERSONAL BUSINESS SUPPORT",
-        name: "Shaxsiy biznes ko‘magi",
-        text: "A’zoning aniq maqsadiga qarab: hamkor topish, investorga chiqish, bozorga kirish, B2B uchrashuv yoki xalqaro aloqa o‘rnatish bo‘yicha individual yondashuv.",
+        name: "Investitsiya, import va eksport",
+        when: "",
+        points: [
+          "Investitsiyaga tayyorlash va investitsiya jalb qilishga ko‘maklashish",
+          "Eksport ehtiyojlarini aniqlash va ko‘rgazmalarda qatnashish",
+          "Xorijiy hamkorlar bilan onlayn va oflayn uchrashuvlar tashkil etish",
+          "Importyorlarni ishlab chiqaruvchilar va yetkazib beruvchilar bilan bog‘lash",
+          "Biznesni yangi bozorlarga olib chiqish",
+        ],
       },
     ],
   },
@@ -169,23 +175,12 @@ export const uz = {
     tiersTitle: "A’zolik paketlari",
     tiers: [
       {
-        name: "Business Member",
-        note: "Asosiy biznes a’zolik",
-        items: [
-          "Klub tadbirlari",
-          "Biznes netvorking",
-          "B2B uchrashuvlar",
-          "Biznes ma’lumotlar",
-          "Knowledge tadbirlari",
-          "Privilege Card",
-          "Umumiy biznes hamkorlik imkoniyatlari",
-        ],
-      },
-      {
         name: "Premium Member",
         note: "Kengaytirilgan xizmat",
         items: [
-          "Barcha Business imkoniyatlari",
+          "Klub tadbirlari va biznes netvorking",
+          "B2B uchrashuvlar",
+          "Privilege Card",
           "Individual biznes ko‘mak",
           "Ustuvor B2B uchrashuvlar",
           "Ekspertlar bilan ishlash",
@@ -293,7 +288,7 @@ export const uz = {
     membership: {
       title: "A’zolik",
       description:
-        "Turon xalqaro biznes klubiga a’zolik: 12 ta asosiy qiymat, Business, Premium va VIP paketlari, ariza shakli.",
+        "Turon xalqaro biznes klubiga a’zolik: a’zolar uchun xizmatlar va imtiyozlar, Premium va VIP paketlari, ariza shakli.",
     },
     contact: {
       title: "Aloqa",
