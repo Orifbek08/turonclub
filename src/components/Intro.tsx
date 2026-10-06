@@ -2,7 +2,7 @@
 
 /**
  * KIRISH EKRANI
- * Sayt birinchi ochilganda logotip videosi o'ynaydi (public/brand/intro.mp4).
+ * Sayt har safar ochilganda (yoki yangilanganda) logotip videosi o'ynaydi (public/brand/intro.mp4).
  * Telefon videoni o'zi boshlashga ruxsat bermasa (masalan, iPhone'da quvvat
  * tejash rejimi), video o'rniga logotipning o'zi silliq paydo bo'ladi —
  * "play" tugmasi hech qachon ko'rinmaydi.
@@ -19,9 +19,11 @@ export function Intro() {
   const box = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const root = document.documentElement;
+    const flags = window as unknown as { __turonIntro?: "pending" | "done" };
     const el = box.current;
-    if (!el || root.classList.contains("intro-seen")) return;
+    // "on" belgisini pastdagi skript faqat sahifa to'liq yuklanganda qo'yadi;
+    // til almashtirilganda yoki kirish tugagan bo'lsa, ekran qayta chiqmaydi.
+    if (!el || !el.classList.contains("on") || flags.__turonIntro !== "pending") return;
 
     const timers: number[] = [];
     const later = (fn: () => void, ms: number) => timers.push(window.setTimeout(fn, ms));
@@ -31,10 +33,10 @@ export function Intro() {
     const finish = () => {
       if (finished) return;
       finished = true;
-      root.classList.add("intro-out");
-      (window as unknown as { __turonIntroDone?: boolean }).__turonIntroDone = true;
+      el.classList.add("out");
+      flags.__turonIntro = "done";
       window.dispatchEvent(new Event("turon:intro-done"));
-      later(() => root.classList.add("intro-seen"), 1000);
+      window.setTimeout(() => el.classList.remove("on"), 1000);
     };
 
     // Video o'ynamasa: uni olib tashlab, logotipning o'zini ko'rsatamiz
@@ -88,13 +90,23 @@ export function Intro() {
     return () => {
       timers.forEach((t) => window.clearTimeout(t));
       video.remove();
+      if (!finished) finish();
     };
   }, []);
 
   return (
-    <div ref={box} className="intro" aria-hidden="true">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="intro-still" src="/brand/intro-poster.webp" alt="" decoding="async" />
-    </div>
+    <>
+      <div ref={box} id="intro" className="intro" aria-hidden="true" suppressHydrationWarning>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="intro-still" src="/brand/intro-poster.webp" alt="" decoding="async" />
+      </div>
+      {/* Sahifa har safar to'liq ochilganda (yoki yangilanganda) kirish ekranini yoqadi */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html:
+            "try{if(!window.__turonIntro&&!matchMedia('(prefers-reduced-motion: reduce)').matches){window.__turonIntro='pending';document.getElementById('intro').classList.add('on')}}catch(e){}",
+        }}
+      />
+    </>
   );
 }

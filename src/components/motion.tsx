@@ -25,9 +25,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 /** Kirish ekrani hali ko'rsatilayaptimi */
 function introPending(): boolean {
   if (typeof window === "undefined") return false;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
-  if ((window as unknown as { __turonIntroDone?: boolean }).__turonIntroDone) return false;
-  return !document.documentElement.classList.contains("intro-seen");
+  return (window as unknown as { __turonIntro?: string }).__turonIntro === "pending";
 }
 
 /**

@@ -385,16 +385,20 @@
     filter: blur(0);
   }
 }
+/* Odatda yashirin; sahifa to'liq yuklanganda Intro.tsx ichidagi skript "on" qo'yadi */
 .intro {
   position: fixed;
   inset: 0;
   z-index: 100;
-  display: grid;
+  display: none;
   place-items: center;
   background: var(--color-night);
 }
 /* Vaqtni Intro.tsx boshqaradi: video (yoki logotip) tugagach ekran eriydi */
-html.intro-out .intro {
+.intro.on {
+  display: grid;
+}
+.intro.out {
   animation: intro-out 0.9s var(--ease) forwards;
 }
 .intro-video,
@@ -425,10 +429,6 @@ html.intro-out .intro {
   -webkit-appearance: none;
   opacity: 0;
 }
-html.intro-seen .intro {
-  display: none;
-}
-
 @keyframes scroll-cue {
   0% {
     transform: translateY(-100%);
@@ -454,7 +454,7 @@ html.intro-seen .intro {
   .tiles-live .tile-fill {
     opacity: 0.8;
   }
-  .intro {
+  .intro.on {
     display: none;
   }
   .btn::after {

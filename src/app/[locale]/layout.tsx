@@ -45,16 +45,9 @@ export default async function LocaleLayout({
   return (
     <html lang={langTag[locale]}>
       <head>
-        {/* Kirish ekrani bir tashrifda faqat bir marta ko'rsatiladi */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "try{if(sessionStorage.getItem('turon-intro')){document.documentElement.classList.add('intro-seen')}else{sessionStorage.setItem('turon-intro','1')}}catch(e){}",
-          }}
-        />
         {/* JavaScript o'chirilgan bo'lsa ham matnlar ko'rinib turadi */}
         <noscript>
-          <style>{"[data-reveal]{opacity:1!important;transform:none!important}.intro{display:none}"}</style>
+          <style>{"[data-reveal]{opacity:1!important;transform:none!important}"}</style>
         </noscript>
       </head>
       <body>
