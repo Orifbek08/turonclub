@@ -44,15 +44,6 @@ export const forum = {
       photo: "muhammadali-eshonqulov.webp",
     },
     {
-      name: { uz: "Jahongir Ortiqxo‘jayev", ru: "Джахонгир Артыкходжаев", en: "Jakhongir Artikkhodjayev" },
-      about: {
-        uz: "Tadbirkor, Toshkent shahrining sobiq hokimi",
-        ru: "Предприниматель, бывший хоким города Ташкента",
-        en: "Entrepreneur, former mayor of Tashkent",
-      },
-      photo: "jahongir-ortiqxojayev.webp",
-    },
-    {
       name: { uz: "Rasul Kusherbayev", ru: "Расул Кушербаев", en: "Rasul Kusherbayev" },
       about: {
         uz: "Jurnalist va bloger, Oliy Majlis Qonunchilik palatasining sobiq deputati",
