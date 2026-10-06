@@ -111,7 +111,7 @@ export const en: Texts = {
     ],
   },
   forum: {
-    title: "Opening ceremony of Turon International Business Club",
+    title: "Turon Business Forum and the club’s opening ceremony",
     lead: "The official opening of the club and a one-day business forum for 600 participants: entrepreneurs, investors and international partners in one venue.",
     band: "Opening ceremony and forum",
     dateLabel: "Date",
@@ -250,7 +250,7 @@ export const en: Texts = {
   },
   contact: {
     title: "Contact",
-    lead: "If you have questions, call, write or visit our office.",
+    lead: "If you have a question or would like to join the club, leave an application and a club representative will contact you.",
     phone: "Phone",
     email: "Email",
     address: "Address",
@@ -258,17 +258,19 @@ export const en: Texts = {
     socials: "Social media",
   },
   footer: {
-    tagline: "An international business platform that connects entrepreneurs with investment, partnerships and new markets.",
+    tagline: "Turon Club — an international business platform that connects entrepreneurs with investment, partnerships and new markets.",
   },
   notFound: {
     title: "Page not found",
     text: "There is no page at this address. It may have been moved or removed.",
   },
   meta: {
+    /** Qidiruv uchun kalit so'zlar */
+    keywords: ["Turon Club", "Turon business club", "Turon International Business Club", "business forum", "business forum 2026", "Turon Business Forum", "business club Uzbekistan", "entrepreneurs club", "B2B meetings", "investment", "networking"],
     home: {
-      title: "Turon International Business Club",
+      title: "Turon Club — Turon International Business Club",
       description:
-        "Turon International Business Club is a business platform that connects entrepreneurs with investment, partnerships, B2B meetings, new markets and international contacts.",
+        "Turon Club — Turon International Business Club: a business platform that connects entrepreneurs with investment, partnerships, B2B meetings and new markets. A 600-participant business forum on 27 October.",
     },
     about: {
       title: "About the club",
@@ -279,9 +281,9 @@ export const en: Texts = {
       description: "The founders and leadership of Turon International Business Club.",
     },
     forum: {
-      title: "Opening ceremony and forum — 27 October 2026",
+      title: "Turon Business Forum 2026 — 27 October, the club’s opening ceremony",
       description:
-        "The official opening ceremony of Turon International Business Club and a one-day business forum for 600 participants take place on 27 October 2026.",
+        "Turon Business Forum: the opening ceremony of Turon International Business Club and a one-day business forum for 600 participants. 27 October 2026, Youth Creativity Palace. Ambassadors of more than 50 countries, international networking.",
     },
     membership: {
       title: "Membership",
@@ -290,7 +292,7 @@ export const en: Texts = {
     },
     contact: {
       title: "Contact",
-      description: "Phone number, address and working hours of Turon International Business Club.",
+      description: "Contact Turon International Business Club: application form and social media.",
     },
   },
   months: [

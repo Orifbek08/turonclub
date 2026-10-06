@@ -46,11 +46,15 @@ Rasmlar avtomatik kichraytiriladi va WebP/AVIF formatida beriladi.
 
 ## SEO
 
+- Sayt qidiruv tizimlariga ochiq (`content/site.ts` → `indexable: true`).
 - Har bir sahifa to‘rt tilda alohida manzilga ega: `/uz/...`, `/uz-cyrl/...`, `/ru/...`, `/en/...`
 - `hreflang`, `canonical`, Open Graph, `sitemap.xml`, `robots.txt` va schema.org
-  ma’lumotlari (tashkilot, tadbir, shaxs, FAQ) avtomatik yaratiladi.
-- **Sayt hozir qidiruv tizimlaridan yopiq.** Haqiqiy ma’lumotlarni to‘ldirib bo‘lgach,
-  `content/site.ts` faylida `indexable: true` qiling.
+  ma’lumotlari (tashkilot, sayt, forum tadbiri) avtomatik yaratiladi.
+- Sarlavha, tavsif va kalit so‘zlar: `content/texts/*.ts` → `meta`.
+- Google Search Console va Yandex Webmaster tasdiqlash kodlari:
+  `content/site.ts` → `verification`.
+- `turonclub.netlify.app` va `www.turonclub.uz` manzillari `turonclub.uz` ga
+  yo‘naltiriladi (`netlify.toml`).
 
 ## Ariza shakli (Bitrix24)
 

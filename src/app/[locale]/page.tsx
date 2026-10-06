@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
 import { Tiles } from "@/components/Tiles";
 import { LogoMark } from "@/components/Logo";
 import { Drift, Line, Parallax, Reveal, Scrub, Words } from "@/components/motion";
@@ -8,6 +9,7 @@ import {
   Benefits,
   FaqList,
   ForumBand,
+  ForumJsonLd,
   Formula,
   FounderGrid,
   FounderTrio,
@@ -199,6 +201,19 @@ export default async function HomePage({ params }: Props) {
 
       <FaqList locale={locale} />
       <ApplySection locale={locale} />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": `${site.url}/#website`,
+          name: site.brand,
+          alternateName: site.alternateNames,
+          url: site.url,
+          inLanguage: ["uz", "uz-Cyrl", "ru", "en"],
+          publisher: { "@id": `${site.url}/#organization` },
+        }}
+      />
+      {forumAhead && <ForumJsonLd locale={locale} />}
     </>
   );
 }

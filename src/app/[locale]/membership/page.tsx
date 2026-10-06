@@ -71,17 +71,19 @@ export default async function MembershipPage({ params }: Props) {
       </section>
       <ApplySection locale={locale} />
       <FaqList locale={locale} />
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: faq.map((item) => ({
-            "@type": "Question",
-            name: pick(item.q, locale),
-            acceptedAnswer: { "@type": "Answer", text: pick(item.a, locale) },
-          })),
-        }}
-      />
+      {faq.length > 0 && (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faq.map((item) => ({
+              "@type": "Question",
+              name: pick(item.q, locale),
+              acceptedAnswer: { "@type": "Answer", text: pick(item.a, locale) },
+            })),
+          }}
+        />
+      )}
     </>
   );
 }

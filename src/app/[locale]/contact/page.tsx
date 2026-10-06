@@ -17,7 +17,7 @@ export default async function ContactPage({ params }: Props) {
   const { locale } = await params;
   const t = getTexts(locale);
   const rows = [
-    {
+    site.phone && {
       label: t.contact.phone,
       value: (
         <a href={`tel:${site.phone.replace(/[^+\d]/g, "")}`} className="transition-colors hover:text-gold-light">
@@ -25,7 +25,7 @@ export default async function ContactPage({ params }: Props) {
         </a>
       ),
     },
-    {
+    site.email && {
       label: t.contact.email,
       value: (
         <a href={`mailto:${site.email}`} className="transition-colors hover:text-gold-light">
@@ -33,9 +33,9 @@ export default async function ContactPage({ params }: Props) {
         </a>
       ),
     },
-    { label: t.contact.address, value: pick(site.address, locale) },
-    { label: t.contact.hours, value: pick(site.hours, locale) },
-  ];
+    pick(site.address, locale) && { label: t.contact.address, value: pick(site.address, locale) },
+    pick(site.hours, locale) && { label: t.contact.hours, value: pick(site.hours, locale) },
+  ].filter((row) => row !== "") as { label: string; value: React.ReactNode }[];
   return (
     <>
       <PageHead title={t.contact.title} lead={t.contact.lead} />

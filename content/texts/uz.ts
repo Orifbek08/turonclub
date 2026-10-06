@@ -113,7 +113,7 @@ export const uz = {
     ],
   },
   forum: {
-    title: "Turon xalqaro biznes klubining ochilish marosimi",
+    title: "Turon biznes forumi va klubning ochilish marosimi",
     lead: "Klubning rasmiy ochilishi va 600 kishilik bir kunlik biznes forum: tadbirkorlar, investorlar va xalqaro hamkorlar bir maydonda.",
     band: "Ochilish marosimi va forum",
     dateLabel: "Sana",
@@ -255,7 +255,7 @@ export const uz = {
   },
   contact: {
     title: "Aloqa",
-    lead: "Savollaringiz bo‘lsa, qo‘ng‘iroq qiling, yozing yoki ofisimizga keling.",
+    lead: "Savolingiz bo‘lsa yoki klubga qo‘shilmoqchi bo‘lsangiz, ariza qoldiring — klub vakili siz bilan bog‘lanadi.",
     phone: "Telefon",
     email: "Elektron pochta",
     address: "Manzil",
@@ -263,17 +263,19 @@ export const uz = {
     socials: "Ijtimoiy tarmoqlar",
   },
   footer: {
-    tagline: "Tadbirkorlarni investitsiya, hamkorlik va yangi bozorlar bilan bog‘laydigan xalqaro biznes platforma.",
+    tagline: "Turon Club — tadbirkorlarni investitsiya, hamkorlik va yangi bozorlar bilan bog‘laydigan xalqaro biznes platforma.",
   },
   notFound: {
     title: "Sahifa topilmadi",
     text: "Bu manzilda sahifa yo‘q. U ko‘chirilgan yoki o‘chirilgan bo‘lishi mumkin.",
   },
   meta: {
+    /** Qidiruv uchun kalit so'zlar */
+    keywords: ["Turon Club", "Turon klub", "Turon biznes klubi", "Turon xalqaro biznes klubi", "biznes forum", "biznes forum 2026", "Turon biznes forumi", "biznes klub", "tadbirkorlar klubi", "B2B uchrashuvlar", "investitsiya", "netvorking"],
     home: {
-      title: "Turon xalqaro biznes klubi",
+      title: "Turon Club — Turon xalqaro biznes klubi",
       description:
-        "Turon xalqaro biznes klubi — tadbirkorlarni investitsiya, hamkorlik, B2B uchrashuvlar, yangi bozorlar va xalqaro aloqalar bilan bog‘laydigan biznes platforma.",
+        "Turon Club — Turon xalqaro biznes klubi: tadbirkorlarni investitsiya, hamkorlik, B2B uchrashuvlar va yangi bozorlar bilan bog‘laydigan biznes platforma. 27-oktabr kuni 600 kishilik biznes forum.",
     },
     about: {
       title: "Klub haqida",
@@ -284,9 +286,9 @@ export const uz = {
       description: "Turon xalqaro biznes klubi asoschilari va rahbariyati.",
     },
     forum: {
-      title: "Ochilish marosimi va forum — 27-oktabr 2026",
+      title: "Turon biznes forumi 2026 — 27-oktabr, klubning ochilish marosimi",
       description:
-        "Turon xalqaro biznes klubining rasmiy ochilish marosimi va 600 kishilik bir kunlik biznes forum 2026-yil 27-oktabrda bo‘lib o‘tadi.",
+        "Turon biznes forumi: Turon xalqaro biznes klubining ochilish marosimi va 600 kishilik bir kunlik biznes forum. 2026-yil 27-oktabr, Yoshlar ijodiyot saroyi. 50 dan ortiq davlat elchilari, xalqaro netvorking.",
     },
     membership: {
       title: "A’zolik",
@@ -295,7 +297,7 @@ export const uz = {
     },
     contact: {
       title: "Aloqa",
-      description: "Turon xalqaro biznes klubi telefon raqami, manzili va ish vaqti.",
+      description: "Turon xalqaro biznes klubi bilan bog‘lanish: ariza shakli va ijtimoiy tarmoqlar.",
     },
   },
   months: [

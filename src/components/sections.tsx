@@ -6,6 +6,7 @@ import { site } from "@content/site";
 import { faq } from "@content/faq";
 import { forum } from "@content/forum";
 import { foundersOnStage, hasPage, type Founder } from "@content/founders";
+import { JsonLd } from "./JsonLd";
 import { Portrait } from "./Portrait";
 import { Star, Tiles } from "./Tiles";
 import { ApplyForm } from "./ApplyForm";
@@ -468,6 +469,38 @@ export function ForumGuests({ locale }: { locale: Locale }) {
   );
 }
 
+/** Forum haqida qidiruv tizimlari uchun tuzilgan ma'lumot (schema.org Event) */
+export function ForumJsonLd({ locale }: { locale: Locale }) {
+  const t = getTexts(locale);
+  const venue = pick(forum.venue, locale);
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "BusinessEvent",
+        name: t.forum.title,
+        description: t.meta.forum.description,
+        startDate: forum.time ? `${forum.date}T${forum.time}:00+05:00` : forum.date,
+        endDate: forum.date,
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        eventStatus: "https://schema.org/EventScheduled",
+        image: [`${site.url}/og.png`],
+        inLanguage: locale === "uz-cyrl" ? "uz-Cyrl" : locale,
+        maximumAttendeeCapacity: forum.participants,
+        ...(venue && {
+          location: {
+            "@type": "Place",
+            name: venue,
+            address: { "@type": "PostalAddress", addressCountry: "UZ" },
+          },
+        }),
+        organizer: { "@type": "Organization", "@id": `${site.url}/#organization`, name: site.brand, url: site.url },
+        url: `${site.url}/${locale}/forum`,
+      }}
+    />
+  );
+}
+
 export function forumTarget() {
   return `${forum.date}T${forum.time || "00:00"}:00+05:00`;
 }
@@ -572,6 +605,7 @@ export function Steps({ locale }: { locale: Locale }) {
 }
 
 export function FaqList({ locale }: { locale: Locale }) {
+  if (faq.length === 0) return null;
   const t = getTexts(locale);
   return (
     <section className="section">
@@ -622,20 +656,26 @@ export function ApplySection({ locale }: { locale: Locale }) {
           </h2>
           <Reveal delay={0.3}>
             <p className="lead mt-7 text-ivory/80">{t.form.lead}</p>
-            <dl className="mt-12 space-y-4 border-t border-[var(--hair)] pt-8">
-              <div className="flex gap-4">
-                <dt className="muted w-28 shrink-0">{t.contact.phone}</dt>
-                <dd>
-                  <a href={`tel:${site.phone.replace(/[^+\d]/g, "")}`} className="text-link">
-                    {site.phone}
-                  </a>
-                </dd>
-              </div>
-              <div className="flex gap-4">
-                <dt className="muted w-28 shrink-0">{t.contact.hours}</dt>
-                <dd>{pick(site.hours, locale)}</dd>
-              </div>
-            </dl>
+            {(site.phone || pick(site.hours, locale)) && (
+              <dl className="mt-12 space-y-4 border-t border-[var(--hair)] pt-8">
+                {site.phone && (
+                  <div className="flex gap-4">
+                    <dt className="muted w-28 shrink-0">{t.contact.phone}</dt>
+                    <dd>
+                      <a href={`tel:${site.phone.replace(/[^+\d]/g, "")}`} className="text-link">
+                        {site.phone}
+                      </a>
+                    </dd>
+                  </div>
+                )}
+                {pick(site.hours, locale) && (
+                  <div className="flex gap-4">
+                    <dt className="muted w-28 shrink-0">{t.contact.hours}</dt>
+                    <dd>{pick(site.hours, locale)}</dd>
+                  </div>
+                )}
+              </dl>
+            )}
             <div className="mt-8">
               <Socials label={t.contact.socials} />
             </div>

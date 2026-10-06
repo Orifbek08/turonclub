@@ -4,3 +4,17 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Netlify manzili ochilsa, asosiy domenga yo'naltiriladi
+# (qidiruv tizimlarida faqat turonclub.uz ko'rinishi uchun)
+[[redirects]]
+  from = "https://turonclub.netlify.app/*"
+  to = "https://turonclub.uz/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.turonclub.uz/*"
+  to = "https://turonclub.uz/:splat"
+  status = 301
+  force = true

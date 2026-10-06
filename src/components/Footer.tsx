@@ -36,18 +36,22 @@ export function Footer({ locale }: { locale: Locale }) {
         </Reveal>
         <Reveal delay={0.2}>
           <address className="space-y-3 not-italic text-ivory/80">
-            <p>
-              <a href={`tel:${site.phone.replace(/[^+\d]/g, "")}`} className="transition-colors hover:text-gold-light">
-                {site.phone}
-              </a>
-            </p>
-            <p>
-              <a href={`mailto:${site.email}`} className="transition-colors hover:text-gold-light">
-                {site.email}
-              </a>
-            </p>
-            <p>{pick(site.address, locale)}</p>
-            <div className="pt-4">
+            {site.phone && (
+              <p>
+                <a href={`tel:${site.phone.replace(/[^+\d]/g, "")}`} className="transition-colors hover:text-gold-light">
+                  {site.phone}
+                </a>
+              </p>
+            )}
+            {site.email && (
+              <p>
+                <a href={`mailto:${site.email}`} className="transition-colors hover:text-gold-light">
+                  {site.email}
+                </a>
+              </p>
+            )}
+            {pick(site.address, locale) && <p>{pick(site.address, locale)}</p>}
+            <div className={site.phone || site.email || pick(site.address, locale) ? "pt-4" : ""}>
               <Socials label={t.contact.socials} />
             </div>
           </address>

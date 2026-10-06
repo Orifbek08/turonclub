@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { JsonLd } from "@/components/JsonLd";
 import { Countdown, Reveal } from "@/components/motion";
 import {
   ApplySection,
   ForumExpect,
   ForumFacts,
   ForumGuests,
+  ForumJsonLd,
   NetworkSection,
   PageHead,
   SectionHead,
@@ -14,7 +14,6 @@ import {
 import { getTexts, pick, todayInTashkent, type Locale } from "@/lib/i18n";
 import { pageMeta } from "@/lib/seo";
 import { forum } from "@content/forum";
-import { site } from "@content/site";
 
 export const revalidate = 3600;
 
@@ -29,7 +28,6 @@ export default async function ForumPage({ params }: Props) {
   const { locale } = await params;
   const t = getTexts(locale);
   const upcoming = forum.date >= todayInTashkent();
-  const venue = pick(forum.venue, locale);
 
   return (
     <>
@@ -72,20 +70,7 @@ export default async function ForumPage({ params }: Props) {
 
       <ApplySection locale={locale} />
 
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "BusinessEvent",
-          name: t.forum.title,
-          description: t.forum.lead,
-          startDate: forum.time ? `${forum.date}T${forum.time}:00+05:00` : forum.date,
-          eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-          eventStatus: "https://schema.org/EventScheduled",
-          ...(venue && { location: { "@type": "Place", name: venue, address: venue } }),
-          organizer: { "@type": "Organization", name: `${site.name} — ${pick(site.descriptor, locale)}`, url: site.url },
-          url: `${site.url}/${locale}/forum`,
-        }}
-      />
+      <ForumJsonLd locale={locale} />
     </>
   );
 }

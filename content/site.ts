@@ -9,6 +9,19 @@ import type { Localized } from "@/lib/i18n";
 export const site = {
   name: "Turon",
 
+  /** Qidiruv tizimlari va brauzer sarlavhasi uchun to'liq nom */
+  brand: "Turon Club",
+
+  /** Odamlar qidiruvda yozishi mumkin bo'lgan boshqa nomlar */
+  alternateNames: [
+    "Turon xalqaro biznes klubi",
+    "Turon International Business Club",
+    "Международный бизнес-клуб Turon",
+    "Turon biznes klubi",
+    "Turon klub",
+    "Турон клуб",
+  ],
+
   /** Logotip ostidagi yozuv */
   descriptor: {
     uz: "Xalqaro biznes klubi",
@@ -20,32 +33,38 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://turonclub.uz",
 
   /**
-   * MUHIM: hozir sayt qidiruv tizimlaridan yashirilgan (namunaviy matnlar
-   * Google va Yandex'ga tushib qolmasligi uchun).
-   * Haqiqiy ma'lumotlarni to'ldirib bo'lgach, `true` qiling.
+   * Sayt qidiruv tizimlariga (Google, Yandex) ochiq.
+   * Yopish kerak bo'lsa, `false` qiling.
    */
-  indexable: false,
+  indexable: true,
 
-  /** Yuridik shaxs nomi, masalan: "TURON CLUB" MChJ */
-  legalName: {
-    uz: "“Turon” MChJ",
-    ru: "ООО «Turon»",
-    en: "Turon LLC",
-  } satisfies Localized,
+  /**
+   * Google Search Console va Yandex Webmaster tasdiqlash kodlari.
+   * Xizmat bergan kodni (faqat content="..." ichidagi qismini) shu yerga yozing.
+   */
+  verification: {
+    google: "",
+    yandex: "",
+  },
 
-  phone: "+998 00 000 00 00",
-  email: "info@turonclub.uz",
+  /**
+   * Aloqa ma'lumotlari. Bo'sh ("") qoldirilgani saytda ko'rinmaydi.
+   * Telefon namunasi: "+998 90 123 45 67"
+   */
+  phone: "",
+  email: "",
 
   address: {
-    uz: "Toshkent shahri, ko‘cha va uy raqami",
-    ru: "г. Ташкент, улица и номер дома",
-    en: "Tashkent, street and building number",
+    uz: "",
+    ru: "",
+    en: "",
   } satisfies Localized,
 
+  /** Ish vaqti, masalan uz: "Dushanba – shanba, 10:00 – 19:00" */
   hours: {
-    uz: "Dushanba – shanba, 10:00 – 19:00",
-    ru: "Понедельник – суббота, 10:00 – 19:00",
-    en: "Monday – Saturday, 10:00 – 19:00",
+    uz: "",
+    ru: "",
+    en: "",
   } satisfies Localized,
 
   /**

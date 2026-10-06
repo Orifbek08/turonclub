@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@content/site";
-import { langTag, locales, ogLocale, type Locale } from "./i18n";
+import { getTexts, langTag, locales, ogLocale, type Locale } from "./i18n";
 
 /**
  * Har bir sahifa uchun SEO ma'lumotlari: title, description, canonical,
@@ -21,16 +21,17 @@ export function pageMeta(opts: {
   return {
     title: opts.absoluteTitle ? { absolute: title } : title,
     description,
+    keywords: getTexts(locale).meta.keywords,
     alternates: { canonical: `/${locale}${path}`, languages },
     openGraph: {
       type: "website",
-      siteName: site.name,
+      siteName: site.brand,
       title,
       description,
       url: `/${locale}${path}`,
       locale: ogLocale[locale],
       alternateLocale: [...new Set(locales.map((l) => ogLocale[l]))].filter((l) => l !== ogLocale[locale]),
-      images: [{ url: "/og.png", width: 1200, height: 630, alt: site.name }],
+      images: [{ url: "/og.png", width: 1200, height: 630, alt: site.brand }],
     },
     twitter: { card: "summary_large_image", title, description, images: ["/og.png"] },
   };
