@@ -32,7 +32,7 @@ export const forum = {
     {
       name: { uz: "Abror Muxtor Aliy", ru: "Аброр Мухтор Алий", en: "Abror Mukhtor Aliy" },
       about: { uz: "Bloger", ru: "Блогер", en: "Blogger" },
-      photo: "abror-muxtor-aliy.webp",
+      photo: "abror-muxtor-aliy-2.webp",
     },
     {
       name: { uz: "Muhammadali Eshonqulov", ru: "Мухаммадали Эшонкулов", en: "Muhammadali Eshonqulov" },
@@ -41,7 +41,7 @@ export const forum = {
         ru: "Бизнес-тренер, экономист-международник",
         en: "Business mentor, international economist",
       },
-      photo: "muhammadali-eshonqulov.webp",
+      photo: "muhammadali-eshonqulov-2.webp",
     },
     {
       name: { uz: "Rasul Kusherbayev", ru: "Расул Кушербаев", en: "Rasul Kusherbayev" },
