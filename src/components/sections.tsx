@@ -118,7 +118,7 @@ export function FounderGrid({ locale }: { locale: Locale }) {
           </>
         );
         return (
-          <li key={f.slug} className={i === 1 ? "sm:-mt-6" : ""}>
+          <li key={f.slug}>
             <Reveal delay={i * 0.12}>
               {hasPage(f) ? (
                 <Link href={href(locale, `/founders/${f.slug}`)} className="group block">
@@ -144,7 +144,7 @@ export function FounderTrio({ locale }: { locale: Locale }) {
   const stage = foundersOnStage();
   if (site.heroPhoto) {
     return (
-      <Link href={href(locale, "/founders")} className="relative block aspect-[1400/660] w-full" aria-label={t.founders.title}>
+      <Link href={href(locale, "/founders")} className="relative block aspect-[1400/560] w-full" aria-label={t.founders.title}>
         <Image
           src={`/images/founders/${site.heroPhoto}`}
           alt={`${t.founders.title}: ${stage.map((f) => founderAlt(f, locale)).join("; ")}`}
@@ -161,9 +161,7 @@ export function FounderTrio({ locale }: { locale: Locale }) {
       {stage.map((f, i) => (
         <div
           key={f.slug}
-          className={`group relative ${i === 1 ? "z-10 w-[40%]" : "w-[33%]"} ${i === 0 ? "-mr-[5%]" : ""} ${
-            i === 2 ? "-ml-[5%]" : ""
-          }`}
+          className="group relative w-1/3 px-[1%]"
         >
           <Portrait
             file={f.photo}

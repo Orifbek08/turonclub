@@ -1,7 +1,8 @@
 /**
  * ASOSCHILAR
- * Tartib muhim: BIRINCHI — klub prezidenti (o'rtada turadi),
- * ikkinchi — ekranda o'ng tomonda, uchinchi — ekranda chap tomonda turadi.
+ * Tartib muhim: saytda shu ro'yxatdagi tartibda, chapdan o'ngga, teng turadi.
+ * Bosh sahifadagi umumiy surat (uch-asoschi.webp) ham shu tartibda yig'ilgan:
+ * tartib yoki rasm o'zgarsa, uni qayta yig'ish kerak.
  *
  * slug    — sahifa manzili: turonclub.uz/uz/founders/<slug>
  *           faqat kichik lotin harflari va chiziqcha: "ilxom-begimqulov"
@@ -43,16 +44,6 @@ export const founders: Founder[] = [
     quote: empty,
   },
   {
-    slug: "shavkat-dadajonov",
-    name: { uz: "Shavkat Dadajonov", ru: "Шавкат Дадажонов", en: "Shavkat Dadajonov" },
-    role: { uz: "Biznesmen, investor, ustoz", ru: "Бизнесмен, инвестор, наставник", en: "Businessman, investor, mentor" },
-    company: "",
-    photo: "shavkat-dadajonov.webp",
-    focus: none,
-    bio: empty,
-    quote: empty,
-  },
-  {
     slug: "farrux-fazliyev",
     name: { uz: "Farrux Fazliyev", ru: "Фаррух Фазлиев", en: "Farrukh Fazliev" },
     role: {
@@ -66,12 +57,21 @@ export const founders: Founder[] = [
     bio: empty,
     quote: empty,
   },
+  {
+    slug: "shavkat-dadajonov",
+    name: { uz: "Shavkat Dadajonov", ru: "Шавкат Дадажонов", en: "Shavkat Dadajonov" },
+    role: { uz: "Biznesmen, investor, ustoz", ru: "Бизнесмен, инвестор, наставник", en: "Businessman, investor, mentor" },
+    company: "",
+    photo: "shavkat-dadajonov.webp",
+    focus: none,
+    bio: empty,
+    quote: empty,
+  },
 ];
 
-/** Saytda ko'rsatish tartibi: chapdagi, prezident, o'ngdagi */
+/** Saytda ko'rsatish tartibi: ro'yxatdagi tartibda, chapdan o'ngga, hammasi teng */
 export function foundersOnStage(): Founder[] {
-  const [president, right, left] = founders;
-  return [left, president, right].filter((f): f is Founder => f !== undefined);
+  return founders;
 }
 
 /** Tarjimai holi yozilgan asoschilargina alohida sahifaga ega */
