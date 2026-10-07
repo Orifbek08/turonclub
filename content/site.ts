@@ -51,13 +51,13 @@ export const site = {
    * Aloqa ma'lumotlari. Bo'sh ("") qoldirilgani saytda ko'rinmaydi.
    * Telefon namunasi: "+998 90 123 45 67"
    */
-  phone: "",
+  phone: "+998 92 001 32 57",
   email: "",
 
   address: {
-    uz: "",
-    ru: "",
-    en: "",
+    uz: "Toshkent shahri, Shayxontohur tumani, Islom Karimov ko‘chasi, 1A",
+    ru: "г. Ташкент, Шайхантахурский район, улица Ислама Каримова, 1А",
+    en: "1A Islam Karimov Street, Shaykhantakhur District, Tashkent",
   } satisfies Localized,
 
   /** Ish vaqti, masalan uz: "Dushanba – shanba, 10:00 – 19:00" */
@@ -78,11 +78,10 @@ export const site = {
 
   /**
    * Ijtimoiy tarmoqlar. Havolani to'liq yozing: "https://instagram.com/..."
-   * Instagram, LinkedIn va Facebook belgisi doim ko'rinadi (havola bo'lmasa, bosilmaydi).
-   * Telegram va YouTube faqat havola yozilganda chiqadi.
+   * Faqat havolasi yozilgan tarmoq belgisi saytda chiqadi.
    */
   socials: {
-    instagram: "",
+    instagram: "https://www.instagram.com/turonclub/",
     linkedin: "",
     facebook: "",
     telegram: "",

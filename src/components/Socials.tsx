@@ -2,9 +2,9 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTelegram, FaYoutube } from "r
 import { site } from "@content/site";
 
 const networks = [
-  { key: "instagram", name: "Instagram", Icon: FaInstagram, always: true },
-  { key: "linkedin", name: "LinkedIn", Icon: FaLinkedinIn, always: true },
-  { key: "facebook", name: "Facebook", Icon: FaFacebookF, always: true },
+  { key: "instagram", name: "Instagram", Icon: FaInstagram, always: false },
+  { key: "linkedin", name: "LinkedIn", Icon: FaLinkedinIn, always: false },
+  { key: "facebook", name: "Facebook", Icon: FaFacebookF, always: false },
   { key: "telegram", name: "Telegram", Icon: FaTelegram, always: false },
   { key: "youtube", name: "YouTube", Icon: FaYoutube, always: false },
 ] as const;
@@ -22,8 +22,7 @@ export function socialUrls(): string[] {
 }
 
 /**
- * Ijtimoiy tarmoq belgilari. Havola hali yozilmagan tarmoq belgisi
- * ko'rinadi, lekin bosilmaydi; content/site.ts ga havola yozilgach, faollashadi.
+ * Ijtimoiy tarmoq belgilari. Faqat content/site.ts da havolasi yozilgan tarmoqlar chiqadi.
  */
 export function Socials({ size = "md", label }: { size?: "md" | "lg"; label: string }) {
   const box = size === "lg" ? "h-16 w-16 text-2xl" : "h-12 w-12 text-lg";

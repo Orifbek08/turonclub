@@ -68,8 +68,8 @@ Bitrix24’da formaga maydon qo‘shilsa yoki o‘chirilsa, `bitrix.fields` va
 
 ## Ijtimoiy tarmoqlar
 
-Havolalar `content/site.ts` → `socials`. Instagram, LinkedIn va Facebook belgisi
-doim ko‘rinadi; havola yozilmaguncha bosilmaydi.
+Havolalar `content/site.ts` → `socials`. Faqat havolasi yozilgan tarmoq belgisi
+saytda chiqadi.
 
 ## Dizayn
 
