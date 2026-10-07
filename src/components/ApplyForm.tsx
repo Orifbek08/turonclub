@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, type FormEvent, type ReactNode } from "react";
 import type { Texts } from "@content/texts/uz";
 import { site } from "@content/site";
 
@@ -51,6 +51,8 @@ async function sendToBitrix(values: Record<string, string>, lang: string) {
 
 export function ApplyForm({ locale, t }: { locale: string; t: Texts["form"] }) {
   const [status, setStatus] = useState<Status>("idle");
+  // Paket kartasidagi tugma orqali kelingan bo'lsa, o'sha paket nomi
+  const [tier, setTier] = useState("");
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -74,6 +76,7 @@ export function ApplyForm({ locale, t }: { locale: string; t: Texts["form"] }) {
         locale === "en" ? "en" : "ru",
       );
       form.reset();
+      setTier((window as unknown as { __turonTier?: string }).__turonTier ?? "");
       setStatus("success");
     } catch (err) {
       console.error(err);
@@ -82,10 +85,14 @@ export function ApplyForm({ locale, t }: { locale: string; t: Texts["form"] }) {
   }
 
   if (status === "success") {
+    const s = t.success;
     return (
-      <p role="status" className="font-display text-4xl leading-snug text-gold-light">
-        {t.success}
-      </p>
+      <div role="status" className="space-y-5">
+        <p className="gold-text font-display text-[clamp(2rem,3.4vw,2.9rem)] leading-tight">{s.title}</p>
+        <p className="text-lg">{s.thanks}</p>
+        <p className="muted text-lg">{tier ? s.nextTier.replace("{0}", tier) : s.next}</p>
+        <p className="border-t border-[var(--hair)] pt-5 font-display text-2xl leading-snug text-gold-light">{s.outro}</p>
+      </div>
     );
   }
 
@@ -135,5 +142,20 @@ export function ApplyForm({ locale, t }: { locale: string; t: Texts["form"] }) {
         )}
       </div>
     </form>
+  );
+}
+
+/** Paket kartasidagi "Ariza qoldirish" tugmasi: tanlangan paketni eslab qoladi */
+export function TierLink({ tier, className, children }: { tier: string; className?: string; children: ReactNode }) {
+  return (
+    <a
+      href="#apply"
+      className={className}
+      onClick={() => {
+        (window as unknown as { __turonTier?: string }).__turonTier = tier;
+      }}
+    >
+      {children}
+    </a>
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Reveal, Words } from "@/components/motion";
 import {
+  ForWho,
   ApplySection,
   Benefits,
   Chain,
@@ -45,22 +45,7 @@ export default async function MembershipPage({ params }: Props) {
           </div>
         </div>
       </section>
-      <section className="section bg-deep">
-        <div className="shell grid gap-12 lg:grid-cols-[1fr_1.7fr] lg:gap-24">
-          <h2 className="h-section">
-            <Words text={t.membership.forWhoTitle} />
-          </h2>
-          <ul className="border-t border-[var(--hair)]">
-            {t.membership.forWho.map((item, i) => (
-              <li key={item} className="row-hover border-b border-[var(--hair)]">
-                <Reveal delay={i * 0.08}>
-                  <p className="row-shift h-item py-9 md:py-11">{item}</p>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <ForWho locale={locale} to="#apply" />
       <section className="section">
         <div className="shell">
           <SectionHead title={t.membership.stepsTitle} />

@@ -11,6 +11,7 @@ import {
   ForumBand,
   ForumJsonLd,
   Formula,
+  ForWho,
   FounderGrid,
   FounderTrio,
   FounderQuote,
@@ -157,6 +158,7 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       <Benefits locale={locale} />
+      <ForWho locale={locale} to={href(locale, "/membership")} />
 
       {/* ---------- Asoschilar (och bo'lim) ---------- */}
       <section className="on-light section bg-ivory text-ink">

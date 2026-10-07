@@ -131,12 +131,19 @@ export const uz = {
       { code: "CAPITAL", name: "Kapital" },
       { code: "GROWTH", name: "O‘sish" },
     ],
-    forWhoTitle: "Klub kimlar uchun",
+    forWhoTitle: "Klub kimlar uchun?",
+    forWhoLead: "TURON Xalqaro Biznes Klubi — yangi imkoniyatlar, ishonchli hamkorlar va xalqaro rivojlanishga intilayotganlar uchun.",
     forWho: [
-      "Xorijiy bozorlarga chiqmoqchi bo‘lgan O‘zbekiston kompaniyalari",
-      "O‘zbekiston va mintaqada o‘z o‘rnini topmoqchi bo‘lgan xorijiy kompaniyalar",
-      "Loyiha va ishonchli hamkor izlayotgan investorlar",
+      "Xalqaro bozorlarga chiqishni maqsad qilgan tadbirkorlar",
+      "O‘zbekiston va xorijda ishonchli biznes hamkorlar izlayotgan kompaniyalar",
+      "Investitsiya kiritish yoki jalb qilishni rejalashtirayotgan tadbirkorlar",
+      "Biznesini kengaytirish va yangi bosqichga olib chiqishni istagan kompaniya rahbarlari",
+      "Import va eksport imkoniyatlarini kengaytirmoqchi bo‘lgan biznes egalari",
+      "O‘zbekiston va Markaziy Osiyo bozorlariga kirishni istagan xorijiy kompaniyalar",
+      "Kuchli biznes muhiti va strategik aloqalarga intilayotgan tadbirkorlar",
     ],
+    forWhoOutro: "Siz ham katta imkoniyatlar sari qadam qo‘ying!",
+    forWhoCta: "A’zolik imkoniyatlarini bilish",
     tiersTitle: "A’zolik paketlari",
     tiers: [
       {
@@ -210,7 +217,14 @@ export const uz = {
     turnover: "Aylanmangiz",
     submit: "Arizani yuborish",
     sending: "Yuborilmoqda…",
-    success: "Ariza yuborildi. Klub vakili siz bilan bog‘lanadi.",
+    /** Ariza yuborilgandan keyin chiqadigan xabar. {0} o‘rniga tanlangan paket nomi qo‘yiladi. */
+    success: {
+      title: "Arizangiz qabul qilindi!",
+      thanks: "TURON Xalqaro Biznes Klubiga qiziqish bildirganingiz uchun tashakkur!",
+      next: "Klub vakili siz bilan bog‘lanib, a’zolik imkoniyatlari va shartlari haqida ma’lumot beradi.",
+      nextTier: "Klub vakili siz bilan bog‘lanib, {0} a’zoligining imkoniyatlari va shartlari haqida ma’lumot beradi.",
+      outro: "TURON — katta imkoniyatlar sari birinchi qadam!",
+    },
     error: "Ariza yuborilmadi. Qayta urinib ko‘ring yoki bizga qo‘ng‘iroq qiling.",
   },
   contact: {

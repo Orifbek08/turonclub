@@ -127,12 +127,19 @@ export const en: Texts = {
       { code: "CAPITAL", name: "Capital" },
       { code: "GROWTH", name: "Growth" },
     ],
-    forWhoTitle: "Who the club is for",
+    forWhoTitle: "Who is the club for?",
+    forWhoLead: "TURON International Business Club is for those who seek new opportunities, reliable partners and international growth.",
     forWho: [
-      "Companies from Uzbekistan that want to enter foreign markets",
-      "Foreign companies that want to find their place in Uzbekistan and the region",
-      "Investors looking for projects and reliable partners",
+      "Entrepreneurs who aim to enter international markets",
+      "Companies looking for reliable business partners in Uzbekistan and abroad",
+      "Entrepreneurs planning to invest or to attract investment",
+      "Company leaders who want to expand their business and take it to the next stage",
+      "Business owners who want to widen their import and export opportunities",
+      "Foreign companies that want to enter the markets of Uzbekistan and Central Asia",
+      "Entrepreneurs who seek a strong business environment and strategic connections",
     ],
+    forWhoOutro: "Take your step towards big opportunities too!",
+    forWhoCta: "Explore membership opportunities",
     tiersTitle: "Membership packages",
     tiers: [
       {
@@ -205,7 +212,14 @@ export const en: Texts = {
     turnover: "Your turnover",
     submit: "Send application",
     sending: "Sending…",
-    success: "Application sent. A club representative will contact you.",
+    /** Ariza yuborilgandan keyin chiqadigan xabar. {0} o‘rniga tanlangan paket nomi qo‘yiladi. */
+    success: {
+      title: "Your application has been received!",
+      thanks: "Thank you for your interest in TURON International Business Club!",
+      next: "A club representative will contact you and tell you about the opportunities and terms of membership.",
+      nextTier: "A club representative will contact you and tell you about the opportunities and terms of {0} membership.",
+      outro: "TURON — the first step towards big opportunities!",
+    },
     error: "The application was not sent. Try again or call us.",
   },
   contact: {

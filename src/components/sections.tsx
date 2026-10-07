@@ -9,7 +9,7 @@ import { foundersOnStage, hasPage, type Founder } from "@content/founders";
 import { JsonLd } from "./JsonLd";
 import { Portrait } from "./Portrait";
 import { Star, Tiles } from "./Tiles";
-import { ApplyForm } from "./ApplyForm";
+import { ApplyForm, TierLink } from "./ApplyForm";
 import { Socials } from "./Socials";
 import { NetworkMap } from "./NetworkMap";
 import { CountUp, Countdown, Line, Reveal, Words } from "./motion";
@@ -342,14 +342,55 @@ export function Tiers({ locale }: { locale: Locale }) {
                   </li>
                 ))}
               </ul>
-              <Link href="#apply" className={`btn mt-10 ${i === last ? "btn-gold" : "btn-ghost"}`}>
+              <TierLink tier={tier.name} className={`btn mt-10 ${i === last ? "btn-gold" : "btn-ghost"}`}>
                 {t.cta.apply}
-              </Link>
+              </TierLink>
             </article>
           </Reveal>
         </li>
       ))}
     </ul>
+  );
+}
+
+/** Klub kimlar uchun: ro'yxat, yakuniy chaqiriq va tugma */
+export function ForWho({ locale, to }: { locale: Locale; to: string }) {
+  const t = getTexts(locale).membership;
+  return (
+    <section className="section">
+      <div className="shell grid gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-24">
+        <div className="lg:sticky lg:top-32 lg:self-start">
+          <h2 className="h-section">
+            <Words text={t.forWhoTitle} />
+          </h2>
+          <Reveal delay={0.2}>
+            <p className="muted mt-8 max-w-md text-lg">{t.forWhoLead}</p>
+          </Reveal>
+        </div>
+        <div>
+          <ul className="border-t border-[var(--hair)]">
+            {t.forWho.map((item, i) => (
+              <li key={item} className="row-hover border-b border-[var(--hair)]">
+                <Reveal delay={i * 0.06}>
+                  <p className="row-shift flex gap-6 py-6 md:py-7">
+                    <span className="gold-text w-9 shrink-0 font-display text-2xl leading-tight">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-[1.15rem] leading-snug md:text-[1.3rem]">{item}</span>
+                  </p>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
+          <Reveal className="mt-12 flex flex-col gap-7 sm:flex-row sm:items-center sm:justify-between">
+            <p className="font-display text-[clamp(1.5rem,2.3vw,2.1rem)] leading-tight text-gold-light">{t.forWhoOutro}</p>
+            <Link href={to} className="btn btn-gold shrink-0 self-start sm:self-auto">
+              {t.forWhoCta}
+            </Link>
+          </Reveal>
+        </div>
+      </div>
+    </section>
   );
 }
 
