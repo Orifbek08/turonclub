@@ -144,7 +144,7 @@ export function FounderTrio({ locale }: { locale: Locale }) {
   const stage = foundersOnStage();
   if (site.heroPhoto) {
     return (
-      <Link href={href(locale, "/founders")} className="relative block aspect-[1400/560] w-full" aria-label={t.founders.title}>
+      <Link href={href(locale, "/founders")} className="relative block aspect-[1600/933] w-full" aria-label={t.founders.title}>
         <Image
           src={`/images/founders/${site.heroPhoto}`}
           alt={`${t.founders.title}: ${stage.map((f) => founderAlt(f, locale)).join("; ")}`}
@@ -244,24 +244,21 @@ export function Benefits({ locale }: { locale: Locale }) {
                 <div className="flex h-full flex-col p-7 md:p-8">
                   <span className="gold-text font-display text-5xl leading-none">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="mt-7 text-[1.55rem] leading-tight">{item.name}</h3>
-                  {item.when && (
-                    <p className="mt-4 self-start border border-[var(--color-gold)]/45 px-3 py-1 text-[0.85rem] font-semibold tracking-wide text-gold-light">
-                      {item.when}
-                    </p>
-                  )}
-                  <ul className="mt-6 space-y-3 border-t border-[var(--hair)] pt-6">
-                    {item.points.map((point) => (
-                      <li key={point} className="flex gap-3">
-                        <Star className="mt-[0.5em] h-2 w-2 shrink-0 text-gold" />
-                        <span className="muted text-[0.98rem]">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="muted mt-4 text-[0.98rem]">{item.text}</p>
                 </div>
               </Reveal>
             </li>
           ))}
         </ol>
+        <Reveal className="mt-14 flex flex-col gap-8 md:mt-16 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl">
+            <p className="font-display text-[clamp(1.6rem,2.6vw,2.4rem)] leading-tight">{t.benefits.outro}</p>
+            <p className="gold-text mt-4 text-lg font-semibold">{t.benefits.outroSub}</p>
+          </div>
+          <Link href={href(locale, "/membership")} className="btn btn-gold shrink-0 self-start lg:self-auto">
+            {t.cta.membership}
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

@@ -70,11 +70,11 @@ export const site = {
   /**
    * Bosh sahifaning birinchi ekranidagi rasm: uch asoschi birga turgan surat.
    * Faylni public/images/founders/ papkasiga qo'ying va nomini shu yerga yozing,
-   * masalan "uch-asoschi.webp". Bo'sh bo'lsa, o'rnida uch asoschining alohida
+   * masalan "asoschilar-birga.webp". Bo'sh bo'lsa, o'rnida uch asoschining alohida
    * portretlari yonma-yon chiqadi.
    * Tavsiya: fonsiz (shaffof PNG) yoki to'q fonli, kamida 2000 piksel kenglikda.
    */
-  heroPhoto: "uch-asoschi.webp",
+  heroPhoto: "asoschilar-birga.webp",
 
   /**
    * Ijtimoiy tarmoqlar. Havolani to'liq yozing: "https://instagram.com/..."

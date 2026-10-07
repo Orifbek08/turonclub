@@ -1,8 +1,8 @@
 /**
  * ASOSCHILAR
  * Tartib muhim: saytda shu ro'yxatdagi tartibda, chapdan o'ngga, teng turadi.
- * Bosh sahifadagi umumiy surat (uch-asoschi.webp) ham shu tartibda yig'ilgan:
- * tartib yoki rasm o'zgarsa, uni qayta yig'ish kerak.
+ * Bosh sahifadagi umumiy surat (asoschilar-birga.webp) — uchalasi birga tushgan surat:
+ * yangi surat bo‘lsa, menga yuboring, fondan ajratib qo‘yaman.
  *
  * slug    — sahifa manzili: turonclub.uz/uz/founders/<slug>
  *           faqat kichik lotin harflari va chiziqcha: "ilxom-begimqulov"
@@ -35,7 +35,7 @@ const none = { uz: [], ru: [], en: [] };
 export const founders: Founder[] = [
   {
     slug: "ilxom-begimqulov",
-    name: { uz: "Ilxom Begimqulov", ru: "Илхом Бегимкулов", en: "Ilkhom Begimkulov" },
+    name: { uz: "Ilhom Begimqulov", ru: "Илхом Бегимкулов", en: "Ilkhom Begimkulov" },
     role: { uz: "Klub prezidenti", ru: "Президент клуба", en: "President of the club" },
     company: "",
     photo: "ilxom-begimqulov.webp",

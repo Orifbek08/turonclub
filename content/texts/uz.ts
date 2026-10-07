@@ -47,74 +47,39 @@ export const uz = {
     formulaTitle: "Klub formulasi",
   },
   benefits: {
-    title: "Klub a’zolari uchun xizmatlar va imtiyozlar",
-    lead: "Turon — birlashgan biznes, kengaygan imkoniyatlar, birgalikdagi natija!",
+    title: "A’zolik imtiyozlari",
+    lead: "Biznesingiz uchun yangi aloqalar, yangi bozorlar va katta imkoniyatlar!",
+    /** Bo‘lim ostidagi yakuniy so‘z */
+    outro: "TURON — biznesingiz chegaralarini kengaytiruvchi xalqaro hamjamiyat!",
+    outroSub: "Yangi hamkorlar. Yangi bozorlar. Yangi imkoniyatlar.",
     items: [
       {
-        name: "Biznes nonushtasi",
-        when: "Yiliga 10 marta",
-        points: [
-          "Yopiq biznes uchrashuvlar",
-          "Netvorking",
-          "Mehmon spikerlar bilan muloqot",
-          "Biznes muhokamalar",
-          "Amaliy biznes keyslar",
-          "Mavzuli suhbatlar",
-        ],
+        name: "Biznes uchrashuvlar va netvorking",
+        text: "Turli sohalardagi tadbirkorlar bilan tanishish, ishonchli biznes aloqalarini o‘rnatish va yangi hamkorlik imkoniyatlarini kashf etish.",
       },
       {
         name: "Biznes tashriflar",
-        when: "Yiliga 5 marta",
-        points: [
-          "Zavod, fabrika va logistika majmualariga tashriflar",
-          "Tajriba almashish va hamkorlikni yo‘lga qo‘yish",
-        ],
+        text: "Mahalliy va xalqaro kompaniyalar faoliyati bilan yaqindan tanishish, ilg‘or tajribalarni o‘rganish va yangi biznes g‘oyalarga ega bo‘lish.",
       },
       {
-        name: "Biznes tahlili",
-        when: "Yiliga 1 marta",
-        points: [
-          "Klub a’zosining korxonasida biznes tahlilini o‘tkazish",
-          "Biznes faoliyati va boshqaruv jarayonlarini tahlil qilish",
-        ],
+        name: "Biznes tahlil",
+        text: "Biznesingizning bugungi holatini tahlil qilish, rivojlanish nuqtalarini aniqlash va o‘sish uchun samarali yechimlarni topish.",
       },
       {
-        name: "A’zolar uchun imtiyozlar",
-        when: "1 yil davomida",
-        points: [
-          "Servis: restoran va mehmonxona",
-          "Professional xizmatlar: konsalting, audit, IT va marketing",
-          "Turmush va sog‘liq: klinika, sport va ta’lim",
-          "Bank va moliya tashkilotlari xizmatlari",
-        ],
+        name: "Maxsus a’zolik imkoniyatlari",
+        text: "Klub a’zolari uchun yaratilgan eksklyuziv imkoniyatlar, maxsus biznes tadbirlar va hamkorlik aloqalaridan foydalanish.",
       },
       {
         name: "Yuridik xizmatlar",
-        when: "1 yil davomida",
-        points: [
-          "Huquqiy masalalar bo‘yicha klub a’zolariga yuridik maslahat berish",
-          "Shartnomalarni huquqiy ekspertizadan o‘tkazish",
-        ],
+        text: "Biznes faoliyatida yuzaga keladigan huquqiy masalalar bo‘yicha maslahat va yuridik ko‘mak olish imkoniyati.",
       },
       {
-        name: "Ilxom Begimqulovning mualliflik biznes dasturlari",
-        when: "1 yil davomida",
-        points: [
-          "Seminarlarda bepul ishtirok etish. A’zo bilan birga 5 nafargacha tadbirkor qatnashishi mumkin.",
-          "Kouching darslarida bepul ishtirok etish. A’zo bilan birga 1 nafar tadbirkor qatnashishi mumkin.",
-          "Har bir kouching uchun belgilangan tashkiliy xarajatlar ishtirokchilar tomonidan qoplanadi.",
-        ],
+        name: "Ilhom Begimqulovning mualliflik darslari",
+        text: "Ilhom Begimqulovning biznesni boshqarish, tizimlashtirish va rivojlantirishga qaratilgan maxsus mualliflik darslarida ishtirok etish imkoniyati.",
       },
       {
-        name: "Investitsiya, import va eksport",
-        when: "",
-        points: [
-          "Investitsiyaga tayyorlash va investitsiya jalb qilishga ko‘maklashish",
-          "Eksport ehtiyojlarini aniqlash va ko‘rgazmalarda qatnashish",
-          "Xorijiy hamkorlar bilan onlayn va oflayn uchrashuvlar tashkil etish",
-          "Importyorlarni ishlab chiqaruvchilar va yetkazib beruvchilar bilan bog‘lash",
-          "Biznesni yangi bozorlarga olib chiqish",
-        ],
+        name: "Import, eksport va investitsiya imkoniyatlari",
+        text: "Xalqaro bozorlarga chiqish, import va eksport yo‘nalishlarini rivojlantirish, investitsiya va strategik hamkorlik imkoniyatlarini o‘rganish.",
       },
     ],
   },
@@ -288,7 +253,7 @@ export const uz = {
     membership: {
       title: "A’zolik",
       description:
-        "Turon xalqaro biznes klubiga a’zolik: a’zolar uchun xizmatlar va imtiyozlar, Premium va VIP paketlari, ariza shakli.",
+        "Turon xalqaro biznes klubiga a’zolik: a’zolik imtiyozlari, Premium va VIP paketlari, ariza shakli.",
     },
     contact: {
       title: "Aloqa",

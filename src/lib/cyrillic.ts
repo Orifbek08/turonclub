@@ -37,9 +37,14 @@ const WORDS: Record<string, string> = {
  */
 export const KEEP_PHRASES = [
   "One-to-One", "Privilege Card", "Global Council", "Business Member", "Premium Member",
-  "VIP Member", "VIP networking", "Turon Club", "Turon", "Business", "Premium", "Knowledge",
-  "Capital", "Connection", "Market", "Export", "Import", "Global",
+  "VIP Member", "VIP networking", "Turon Club", "Turon", "Business", "Premium",
 ];
+
+/**
+ * Faqat yolg'iz o'zi turganda lotincha qoladigan inglizcha so'zlar (bosh sahifadagi yuguruvchi qator).
+ * Gap ichida kelsa, odatdagidek kirillga o'giriladi: "Import, eksport" → "Импорт, экспорт".
+ */
+const KEEP_ALONE = new Set(["Capital", "Connection", "Market", "Export", "Import", "Global", "Knowledge"]);
 
 /** Lotincha qoladigan bo'laklar: havolalar, pochta, domenlar */
 const KEEP = /\S*[@/]\S*|\b[\w-]+\.(?:uz|com|org|net|ru)\b/g;
@@ -108,6 +113,7 @@ const PHRASES = new RegExp(
 );
 
 export function toCyrillic(text: string): string {
+  if (KEEP_ALONE.has(text.trim())) return text;
   // Apostroflarni bir xil ko'rinishga keltiramiz
   const normalized = text
     .replace(/([oOgG])[ʻ'`‘]/g, "$1‘")
