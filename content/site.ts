@@ -52,7 +52,7 @@ export const site = {
    * Telefon namunasi: "+998 90 123 45 67"
    */
   phone: "+998 92 001 32 57",
-  email: "",
+  email: "turonclub@gmail.com",
 
   address: {
     uz: "Toshkent shahri, Shayxontohur tumani, Islom Karimov ko‘chasi, 1A",

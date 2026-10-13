@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { FaFacebookF, FaGlobe, FaInstagram, FaLinkedinIn, FaPhone, FaTelegram } from "react-icons/fa6";
+import { FaFacebookF, FaGlobe, FaInstagram, FaLinkedinIn, FaPhone, FaTelegram, FaEnvelope } from "react-icons/fa6";
 import { LogoMark, LogoTag, LogoWord } from "@/components/Logo";
 import { Star, Tiles } from "@/components/Tiles";
 import { ticket, type TicketBrand } from "@content/ticket";
@@ -58,6 +58,7 @@ function Brand({ brand, logo }: { brand: TicketBrand; logo: ReactNode }) {
       href: brand.telegram ? `https://t.me/${brand.telegram}` : "",
       Icon: FaTelegram,
     },
+    { label: "Pochta", value: brand.email, href: brand.email ? `mailto:${brand.email}` : "", Icon: FaEnvelope },
     { label: "Facebook", value: brand.facebook ? brand.name : "", href: brand.facebook, Icon: FaFacebookF },
     { label: "LinkedIn", value: brand.linkedin ? brand.name : "", href: brand.linkedin, Icon: FaLinkedinIn },
   ];
@@ -96,8 +97,7 @@ function Brand({ brand, logo }: { brand: TicketBrand; logo: ReactNode }) {
               {href ? (
                 <a
                   href={href}
-                  target="_blank"
-                  rel="noopener"
+                  {...(href.startsWith("http") && { target: "_blank", rel: "noopener" })}
                   className="flex items-center gap-4 py-3.5 transition-colors hover:text-gold-light"
                 >
                   {row}

@@ -16,6 +16,7 @@ export type TicketBrand = {
   telegram: string;
   facebook: string;
   linkedin: string;
+  email: string;
   phone: string;
 };
 
@@ -28,6 +29,7 @@ export const ticket = {
     telegram: "Ilxombegimkulov",
     facebook: "",
     linkedin: "",
+    email: "turonclub@gmail.com",
     phone: "+998 92 001 32 57",
   },
   mihu: {
@@ -38,6 +40,7 @@ export const ticket = {
     telegram: "mihu_uz",
     facebook: "https://www.facebook.com/share/182RwsAQWC/",
     linkedin: "",
+    email: "uzmihu@gmail.com",
     phone: "+998 95 760 00 00",
   },
 } satisfies Record<string, TicketBrand>;
