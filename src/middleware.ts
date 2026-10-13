@@ -19,6 +19,6 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // API, Next ichki fayllari va kengaytmali fayllar (rasm, sitemap.xml...) bundan mustasno
-  matcher: ["/((?!api|_next|.*\\..*).*)"],
+  // API, Next ichki fayllari, kengaytmali fayllar (rasm, sitemap.xml...) va /ticket (QR-kod sahifasi) bundan mustasno
+  matcher: ["/((?!api|_next|ticket|.*\\..*).*)"],
 };
