@@ -11,7 +11,7 @@ import { ticket, type TicketBrand } from "@content/ticket";
 export default function TicketPage() {
   return (
     <main className="relative isolate min-h-[100svh] overflow-hidden">
-      <h1 className="sr-only">Turon Club × MIHU</h1>
+      <h1 className="sr-only">MIHU × Turon Club</h1>
       <Tiles
         cols={8}
         rows={16}
@@ -21,13 +21,17 @@ export default function TicketPage() {
       <div className="mx-auto w-full max-w-md px-5 pb-16 pt-12">
         <header className="flex flex-col items-center text-center">
           <div className="flex items-center gap-5 text-ivory">
-            <LogoMark className="h-12 w-auto" />
-            <span className="gold-text font-display text-3xl leading-none">×</span>
             <span className="font-display text-[2.6rem] leading-none tracking-[0.08em]">MIHU</span>
+            <span className="gold-text font-display text-3xl leading-none">×</span>
+            <LogoMark className="h-12 w-auto" />
           </div>
           <span aria-hidden="true" className="mt-8 block h-px w-24" style={{ background: "var(--gold-grad)" }} />
         </header>
 
+        <Brand
+          brand={ticket.mihu}
+          logo={<span className="font-display text-[3.4rem] leading-none tracking-[0.1em] text-ivory">MIHU</span>}
+        />
         <Brand
           brand={ticket.turon}
           logo={
@@ -37,10 +41,6 @@ export default function TicketPage() {
               <LogoTag className="h-[0.55rem] w-auto opacity-80" />
             </span>
           }
-        />
-        <Brand
-          brand={ticket.mihu}
-          logo={<span className="font-display text-[3.4rem] leading-none tracking-[0.1em] text-ivory">MIHU</span>}
         />
       </div>
     </main>
