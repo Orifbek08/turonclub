@@ -18,7 +18,7 @@ export type InviteOption = { text: string; points: number; stop?: boolean };
 export type InviteQuestion = { q: string; options: InviteOption[] };
 
 export const invite = {
-  endpoint: "",
+  endpoint: "https://script.google.com/macros/s/AKfycbx83dTzRFy3sKyxnCTihg1dQnkiSzm6iZrns5ddSqudbDAevi8hThTWGZ5MxUZXEPD7/exec",
 
   /** kod → Sheets'dagi «Манба» ustunida yoziladigan nom */
   links: {
