@@ -79,3 +79,14 @@ saytda chiqadi.
   skrollda “yonadigan” matn, fon parallaksi, sanaladigan raqamlar).
 - Naqsh (sakkiz qirrali yulduz koshinlari): `src/components/Tiles.tsx`.
 - Harakatlanuvchi yozuv so‘zlari: `content/texts/*.ts` ichida `home.marquee`.
+
+## Maxfiy taklif havolasi (bepul bilet)
+
+Manzil: `turonclub.uz/taklif/<kod>` — menyuda, sitemap'da va qidiruvda ko‘rinmaydi.
+Odam 6 ta savolga javob beradi, mos kelsa ism va telefonini yozib, bepul bilet oladi
+(ID 4000 dan, to‘q qizil rang, 100 $ ogohlantirish bilan). Bitta telefonga bitta bilet.
+
+- Savollar, kodlar, forum ma’lumotlari: `content/invite.ts`
+- Google Sheets’ga yozuvchi skript: `apps-script/taklif-bilet.gs`
+  (o‘rnatish tartibi faylning boshida). Joylashtirilgach berilgan `.../exec` manzilini
+  `content/invite.ts` → `endpoint` ga yozing.
