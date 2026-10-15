@@ -77,13 +77,19 @@ function TK_register(p) {
   }
 }
 
-/** "+998 90 123-45-67" | "901234567" | "998901234567" → "998901234567" ; noto'g'ri bo'lsa "" */
+/**
+ * "+998 90 123-45-67" | "901234567" | "998901234567" → "998901234567"
+ * Xorijiy raqam davlat kodi bilan: "+7 912 345 67 89" → "79123456789" (10–15 raqam)
+ * Noto'g'ri bo'lsa → ""
+ */
 function TK_normPhone(v) {
   var d = String(v === null || v === undefined ? "" : v).replace(/\D/g, "");
   if (d.length === 9) d = "998" + d;
-  return /^998\d{9}$/.test(d) ? d : "";
+  if (d.indexOf("998") === 0) return /^998\d{9}$/.test(d) ? d : "";
+  return d.length >= 10 && d.length <= 15 ? d : "";
 }
 function TK_prettyPhone(d) {
+  if (d.indexOf("998") !== 0) return "+" + d;
   return "+998 " + d.slice(3, 5) + " " + d.slice(5, 8) + " " + d.slice(8, 10) + " " + d.slice(10, 12);
 }
 

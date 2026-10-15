@@ -253,6 +253,8 @@ function Form({
 }) {
   const [name, setName] = useState("");
   const [digits, setDigits] = useState("");
+  /** Xorijiy raqam: davlat kodi bilan to'liq yoziladi (+7…, +90…, +1…) */
+  const [foreign, setForeign] = useState(false);
   const [agree, setAgree] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -263,7 +265,9 @@ function Form({
     setError("");
     const clean = name.replace(/\s+/g, " ").trim();
     if (clean.length < 3 || !/\s/.test(clean)) return setError("Исм ва фамилиянгизни тўлиқ ёзинг.");
-    if (digits.length !== 9) return setError("Телефон рақамини тўлиқ киритинг: 9 та рақам.");
+    if (!foreign && digits.length !== 9) return setError("Телефон рақамини тўлиқ киритинг: 9 та рақам.");
+    if (foreign && (digits.length < 10 || digits.length > 15))
+      return setError("Телефон рақамини давлат коди билан тўлиқ киритинг, масалан: +7 912 345 67 89.");
     if (!agree) return setError(`${invite.event.fee} ташкилий тўлов ҳақидаги шартни тасдиқланг.`);
     if (!invite.endpoint) return setError("Рўйхатдан ўтиш ҳали уланмаган. Бироздан сўнг қайта уриниб кўринг.");
 
@@ -273,7 +277,7 @@ function Form({
       action: "register",
       rid: rid.current,
       name: clean,
-      phone: `998${digits}`,
+      phone: foreign ? digits : `998${digits}`,
       source,
       utm: ["utm_source", "utm_campaign", "utm_content"].map((k) => params.get(k)).filter(Boolean).join(" / "),
       answers,
@@ -300,7 +304,7 @@ function Form({
       }
       // Reklama uchun: yangi bilet = yangi lid (eski biletini qayta olgani hisoblanmaydi)
       if (!json.existing) track("Lead", { content_name: "Taklif bileti" });
-      onDone({ id: String(json.id), name: json.name || clean, phone: `+998 ${fmtPhone(digits)}` });
+      onDone({ id: String(json.id), name: json.name || clean, phone: foreign ? `+${digits}` : `+998 ${fmtPhone(digits)}` });
     } catch {
       setError("Интернет билан алоқа йўқ. Қайта уриниб кўринг.");
     } finally {
@@ -329,22 +333,35 @@ function Form({
         <label className="block">
           <span className="text-[0.95rem] text-gold-light">Телефон рақами</span>
           <span className="mt-2 flex border border-[var(--hair)] bg-deep/70 transition-colors focus-within:border-gold">
-            <span className="grid place-items-center border-r border-[var(--hair)] px-4 text-lg text-gold-light">+998</span>
+            <span className="grid place-items-center border-r border-[var(--hair)] px-4 text-lg text-gold-light">
+              {foreign ? "+" : "+998"}
+            </span>
             <input
               name="phone"
               type="tel"
               inputMode="numeric"
-              autoComplete="tel-national"
-              value={fmtPhone(digits)}
+              autoComplete={foreign ? "tel" : "tel-national"}
+              value={foreign ? digits : fmtPhone(digits)}
               onChange={(e) => {
                 let d = e.target.value.replace(/\D/g, "");
+                if (foreign) return setDigits(d.slice(0, 15));
                 if (d.length > 9 && d.startsWith("998")) d = d.slice(3);
                 setDigits(d.slice(0, 9));
               }}
-              placeholder="90 123 45 67"
+              placeholder={foreign ? "7 912 345 67 89" : "90 123 45 67"}
               className="w-full bg-transparent px-4 py-4 text-lg tracking-wide text-ivory outline-none placeholder:text-white/30"
             />
           </span>
+          <button
+            type="button"
+            onClick={() => {
+              setForeign(!foreign);
+              setDigits("");
+            }}
+            className="mt-2 text-[0.92rem] text-gold-light underline-offset-4 hover:underline"
+          >
+            {foreign ? "Ўзбекистон рақами" : "Хорижий рақам (бошқа давлат)"}
+          </button>
         </label>
         {/* Botlar uchun yashirin maydon */}
         <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 opacity-0" />
