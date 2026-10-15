@@ -62,7 +62,8 @@ function TK_register(p) {
     for (var k = 0; k < TK_H.length; k++) row.push("");
     row[TK_C.ID]    = newId;
     row[TK_C.NAME]  = name;
-    row[TK_C.PHONE] = TK_prettyPhone(phone);
+    // Oldidagi ' belgisi: Sheets "+998..." ni formula deb o'qimasin (aks holda #ERROR! chiqadi)
+    row[TK_C.PHONE] = "'" + TK_prettyPhone(phone);
     row[TK_C.DATE]  = Utilities.formatDate(new Date(), "Asia/Tashkent", "dd.MM.yyyy HH:mm");
     row[TK_C.SRC]   = [String(p.source || ""), String(p.utm || "")].filter(String).join(" · ").slice(0, 200);
     row[TK_C.SCORE] = Number(p.score) || 0;
@@ -113,9 +114,37 @@ function TK_sheet() {
   return sh;
 }
 
+/**
+ * Barcha qatorlar. Telefon ustunida formula bo'lib qolgan (#ERROR! ko'rinadigan)
+ * eski yozuvlar shu yerning o'zida matnga qaytariladi.
+ */
 function TK_rows(sh) {
   var n = sh.getLastRow() - 1;
-  return n < 1 ? [] : sh.getRange(2, 1, n, TK_H.length).getValues();
+  if (n < 1) return [];
+  var vals = sh.getRange(2, 1, n, TK_H.length).getValues();
+  var phoneRange = sh.getRange(2, TK_C.PHONE + 1, n, 1);
+  var formulas = phoneRange.getFormulas(), fixed = false;
+  for (var i = 0; i < n; i++) {
+    var f = String(formulas[i][0] || "");
+    if (f) {
+      var d = TK_normPhone(f.replace(/^=/, ""));
+      var text = d ? TK_prettyPhone(d) : f.replace(/^=/, "");
+      formulas[i][0] = "'" + text;
+      vals[i][TK_C.PHONE] = text;
+      fixed = true;
+    } else {
+      formulas[i][0] = vals[i][TK_C.PHONE];
+    }
+  }
+  if (fixed) phoneRange.setValues(formulas);
+  return vals;
+}
+
+/** #ERROR! bo'lib qolgan telefonlarni qo'lda tuzatish (bir marta ishga tushirsangiz bo'ldi) */
+function TAKLIF_TELEFON_TUZATISH() {
+  var sh = TK_sheet();
+  TK_rows(sh);
+  Logger.log("Тайёр: телефонлар матнга қайтарилди.");
 }
 
 /** Birinchi marta ishga tushirish: ruxsat beriladi va list yaratiladi */
