@@ -1,7 +1,10 @@
 import Script from "next/script";
 
-/** Meta (Facebook/Instagram) piksel — target reklama natijalarini o'lchash uchun */
-export const META_PIXEL_ID = "2096668338389476";
+/**
+ * Meta (Facebook/Instagram) piksellari — target reklama natijalarini o'lchash uchun.
+ * Bir nechta piksel bo'lsa, har bir hodisa hammasiga yuboriladi.
+ */
+export const META_PIXEL_IDS = ["2096668338389476", "1726064479077063"];
 
 export function MetaPixel() {
   return (
@@ -11,17 +14,20 @@ export function MetaPixel() {
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','${META_PIXEL_ID}');fbq('track','PageView');`}
+${META_PIXEL_IDS.map((id) => `fbq('init','${id}');`).join("")}fbq('track','PageView');`}
       </Script>
       <noscript>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          height="1"
-          width="1"
-          style={{ display: "none" }}
-          alt=""
-          src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
-        />
+        {META_PIXEL_IDS.map((id) => (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            key={id}
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            alt=""
+            src={`https://www.facebook.com/tr?id=${id}&ev=PageView&noscript=1`}
+          />
+        ))}
       </noscript>
     </>
   );
