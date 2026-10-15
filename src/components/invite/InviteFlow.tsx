@@ -11,6 +11,7 @@ import { invite } from "@content/invite";
 import { LogoMark, LogoWord } from "@/components/Logo";
 import { Tiles } from "@/components/Tiles";
 import { InviteTicket } from "./InviteTicket";
+import { track } from "./MetaPixel";
 
 type Ticket = { id: string; name: string; phone: string };
 type Step = { kind: "intro" } | { kind: "q"; i: number } | { kind: "fail" } | { kind: "form" } | { kind: "ticket"; t: Ticket };
@@ -88,7 +89,14 @@ export function InviteFlow({ source }: { source: string }) {
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.45, ease: EASE }}
           >
-            {step.kind === "intro" && <Intro onStart={() => setStep({ kind: "q", i: 0 })} />}
+            {step.kind === "intro" && (
+              <Intro
+                onStart={() => {
+                  track("ViewContent", { content_name: "Taklif savollari" });
+                  setStep({ kind: "q", i: 0 });
+                }}
+              />
+            )}
             {step.kind === "q" && (
               <Question
                 i={step.i}
@@ -285,11 +293,13 @@ function Form({
           await new Promise((r) => setTimeout(r, 1200));
         }
       }
-      const json = (await res!.json()) as { ok: boolean; id?: string | number; name?: string; error?: string };
+      const json = (await res!.json()) as { ok: boolean; id?: string | number; name?: string; error?: string; existing?: boolean };
       if (!json.ok || !json.id) {
         setError(json.error || "Хатолик юз берди. Қайта уриниб кўринг.");
         return;
       }
+      // Reklama uchun: yangi bilet = yangi lid (eski biletini qayta olgani hisoblanmaydi)
+      if (!json.existing) track("Lead", { content_name: "Taklif bileti" });
       onDone({ id: String(json.id), name: json.name || clean, phone: `+998 ${fmtPhone(digits)}` });
     } catch {
       setError("Интернет билан алоқа йўқ. Қайта уриниб кўринг.");
