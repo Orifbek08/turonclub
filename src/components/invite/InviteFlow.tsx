@@ -14,7 +14,7 @@ import { InviteTicket } from "./InviteTicket";
 import { track } from "./MetaPixel";
 
 type Ticket = { id: string; name: string; phone: string };
-type Step = { kind: "intro" } | { kind: "q"; i: number } | { kind: "fail" } | { kind: "form" } | { kind: "ticket"; t: Ticket };
+type Step = { kind: "q"; i: number } | { kind: "fail" } | { kind: "form" } | { kind: "ticket"; t: Ticket };
 
 const STORE = "turon-taklif-bilet";
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -40,7 +40,8 @@ function fmtPhone(d: string) {
 
 export function InviteFlow({ source }: { source: string }) {
   const qs = invite.questions;
-  const [step, setStep] = useState<Step>({ kind: "intro" });
+  // Kirish sahifasi yo'q: odam to'g'ridan-to'g'ri birinchi savolga tushadi
+  const [step, setStep] = useState<Step>({ kind: "q", i: 0 });
   const [answers, setAnswers] = useState<number[]>([]);
 
   // Avval bilet olgan bo'lsa — darhol biletini ko'rsatamiz
@@ -50,6 +51,8 @@ export function InviteFlow({ source }: { source: string }) {
   }, []);
 
   function choose(i: number, opt: number) {
+    // Reklama uchun: birinchi javob — odam savollarni boshladi
+    if (i === 0 && answers.length === 0) track("ViewContent", { content_name: "Taklif savollari" });
     const next = [...answers.slice(0, i), opt];
     setAnswers(next);
     window.setTimeout(() => {
@@ -80,7 +83,7 @@ export function InviteFlow({ source }: { source: string }) {
         <LogoWord className="h-5 w-auto" />
       </header>
 
-      <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col justify-center px-5 py-10">
+      <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col justify-start px-5 pb-10 pt-8 sm:justify-center sm:py-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={step.kind === "q" ? `q${step.i}` : step.kind}
@@ -89,28 +92,20 @@ export function InviteFlow({ source }: { source: string }) {
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.45, ease: EASE }}
           >
-            {step.kind === "intro" && (
-              <Intro
-                onStart={() => {
-                  track("ViewContent", { content_name: "Taklif savollari" });
-                  setStep({ kind: "q", i: 0 });
-                }}
-              />
-            )}
             {step.kind === "q" && (
               <Question
                 i={step.i}
                 total={qs.length}
                 chosen={answers[step.i]}
                 onChoose={(o) => choose(step.i, o)}
-                onBack={() => setStep(step.i === 0 ? { kind: "intro" } : { kind: "q", i: step.i - 1 })}
+                onBack={step.i === 0 ? undefined : () => setStep({ kind: "q", i: step.i - 1 })}
               />
             )}
             {step.kind === "fail" && (
               <Fail
                 onRetry={() => {
                   setAnswers([]);
-                  setStep({ kind: "intro" });
+                  setStep({ kind: "q", i: 0 });
                 }}
               />
             )}
@@ -133,29 +128,6 @@ export function InviteFlow({ source }: { source: string }) {
   );
 }
 
-function Intro({ onStart }: { onStart: () => void }) {
-  const e = invite.event;
-  return (
-    <div className="text-center">
-      <p className="text-[0.95rem] tracking-[0.18em] text-gold-light uppercase">Шахсий таклиф</p>
-      <h1 className="mx-auto mt-6 max-w-2xl font-display text-[clamp(2.1rem,6vw,3.6rem)] leading-[1.05]">{e.title}</h1>
-      <div className="mx-auto mt-8 flex max-w-xl flex-wrap justify-center gap-x-8 gap-y-3 text-[1.05rem]">
-        <span className="gold-text font-display text-2xl">{e.date}</span>
-        <span className="gold-text font-display text-2xl">{e.time}</span>
-      </div>
-      <p className="muted mx-auto mt-3 max-w-xl">{e.venue}</p>
-      <span aria-hidden="true" className="mx-auto mt-10 block h-px w-24" style={{ background: "var(--gold-grad)" }} />
-      <p className="mx-auto mt-10 max-w-xl text-lg leading-relaxed">
-        Форумда қатнашиш сизга тўғри келадими? Буни билиш учун {invite.questions.length} та қисқа саволга жавоб беринг —
-        бир дақиқа вақт олади. Мос келсангиз, сизга <span className="text-gold-light">бепул билет</span> берилади.
-      </p>
-      <button type="button" onClick={onStart} className="btn btn-gold mt-10 w-full sm:w-auto sm:px-14">
-        Саволларни бошлаш
-      </button>
-    </div>
-  );
-}
-
 function Question({
   i,
   total,
@@ -167,15 +139,19 @@ function Question({
   total: number;
   chosen: number | undefined;
   onChoose: (o: number) => void;
-  onBack: () => void;
+  onBack?: () => void;
 }) {
   const q = invite.questions[i]!;
   return (
     <div>
       <div className="flex items-center justify-between text-[0.95rem]">
-        <button type="button" onClick={onBack} className="muted transition-colors hover:text-ivory">
-          ← Орқага
-        </button>
+        {onBack ? (
+          <button type="button" onClick={onBack} className="muted transition-colors hover:text-ivory">
+            ← Орқага
+          </button>
+        ) : (
+          <span className="text-gold-light">Форумга бепул билет</span>
+        )}
         <span className="text-gold-light">
           Савол {i + 1} / {total}
         </span>
