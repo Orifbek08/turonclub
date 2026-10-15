@@ -406,10 +406,15 @@ function TicketView({ t }: { t: Ticket }) {
 
       <div className="mt-8 border border-gold/60 bg-gold/10 p-5 leading-relaxed">
         <b className="text-gold-light">Муҳим:</b> билет бепул берилди, лекин форумга кириш учун ташкилий харажатларга{" "}
-        <b className="text-gold-light">{e.fee}</b> тўлов қилиниши шарт. Тўлов бўйича клуб вакили сиз билан боғланади ёки ўзингиз
-        қўнғироқ қилинг:{" "}
-        <a href={`tel:${e.phone.replace(/[^+\d]/g, "")}`} className="whitespace-nowrap text-gold-light underline underline-offset-4">
-          {e.phone}
+        <b className="text-gold-light">{e.fee}</b> тўлов қилиниши шарт.
+        <span className="mt-3 block">
+          Залдаги аниқ жойингизни банд қилиб қўйиш ва тўлов бўйича қўнғироқ қилинг:
+        </span>
+        <a
+          href={`tel:${e.seatPhone.replace(/[^+\d]/g, "")}`}
+          className="mt-2 inline-block font-display text-2xl text-gold-light underline underline-offset-4"
+        >
+          {e.seatPhone}
         </a>
       </div>
 
