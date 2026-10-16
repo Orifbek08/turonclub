@@ -41,7 +41,7 @@ export const en: Texts = {
     lead: "Turon is not an ordinary business club. It is a business platform that connects entrepreneurs with investment, partnerships, B2B meetings, new markets and international contacts.",
     missionTitle: "Mission",
     mission:
-      "The mission of Turon International Business Club is to unite entrepreneurs from Uzbekistan and abroad, build trusted business relationships between them, attract investment and capital, open new markets and create practical opportunities for international cooperation.",
+      "The mission of Turon International Business Club is to unite local and foreign entrepreneurs, build trusted business relationships between them, attract investment and capital, open new markets and create practical opportunities for international cooperation.",
     formulaTitle: "The club formula",
   },
   benefits: {
@@ -83,7 +83,7 @@ export const en: Texts = {
   },
   forum: {
     title: "Turon Business Forum and the club’s opening ceremony",
-    lead: "The official opening of the club and a one-day business forum for 600 participants: entrepreneurs, investors and international partners in one venue.",
+    lead: "As part of the official opening ceremony of Turon International Business Club, a one-day business forum will be held with entrepreneurs, investors and international partners.",
     band: "Opening ceremony and forum",
     dateLabel: "Date",
     formatLabel: "Format",
@@ -94,12 +94,12 @@ export const en: Texts = {
     venueTbd: "To be announced soon",
     timeLabel: "Starts",
     expectTitle: "Expected at the forum",
-    ambassadorsLabel: "ambassadors",
+    ambassadorsLabel: "embassies",
     participantsShort: "participants",
     tvLabel: "TV channels",
     highlights: [
       { name: "International-level networking", text: "Meet and talk directly with entrepreneurs, investors and foreign delegations." },
-      { name: "Ambassadors of more than 50 countries", text: "Ambassadors of more than 50 countries are expected to attend the forum." },
+      { name: "Embassies and diplomatic corps of 50+ countries", text: "Representatives of the embassies and diplomatic corps of more than 50 countries are expected to attend the forum." },
       { name: "Show business figures", text: "Well-known figures from the arts and show business will take part." },
       { name: "More than 10 leading TV channels", text: "More than 10 of Uzbekistan’s leading TV channels will attend the forum." },
       { name: "Leading media and bloggers", text: "The forum is covered by the country’s well-known journalists and bloggers." },
@@ -189,6 +189,7 @@ export const en: Texts = {
       { key: "tr", name: "Türkiye" },
       { key: "cn", name: "China" },
       { key: "sa", name: "Saudi Arabia" },
+      { key: "jo", name: "Jordan" },
       { key: "kr", name: "South Korea" },
       { key: "pl", name: "Poland" },
     ],
@@ -257,7 +258,7 @@ export const en: Texts = {
     forum: {
       title: "Turon Business Forum 2026 — 27 October, the club’s opening ceremony",
       description:
-        "Turon Business Forum: the opening ceremony of Turon International Business Club and a one-day business forum for 600 participants. 27 October 2026, Youth Creativity Palace. Ambassadors of more than 50 countries, international networking.",
+        "Turon Business Forum: the opening ceremony of Turon International Business Club and a one-day business forum for 600 participants. 27 October 2026, Youth Creativity Palace. Representatives of embassies and the diplomatic corps of more than 50 countries, international networking.",
     },
     membership: {
       title: "Membership",

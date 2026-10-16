@@ -43,7 +43,7 @@ export const uz = {
     lead: "Turon — oddiy biznes klub emas. Bu tadbirkorlarni investitsiya, hamkorlik, B2B uchrashuvlar, yangi bozorlar va xalqaro aloqalar bilan bog‘laydigan biznes platforma.",
     missionTitle: "Missiya",
     mission:
-      "Turon xalqaro biznes klubining missiyasi — O‘zbekiston va xorij tadbirkorlarini birlashtirish, ular o‘rtasida ishonchli biznes aloqalarini shakllantirish, investitsiya va kapital jalb qilish, yangi bozorlarga chiqish hamda xalqaro hamkorlik uchun amaliy imkoniyatlar yaratish.",
+      "“Turon xalqaro biznes klubi”ning missiyasi — mahalliy va xorijiy tadbirkorlarni birlashtirish, ular o‘rtasida ishonchli biznes aloqalarini shakllantirish, investitsiya va kapital jalb qilish, yangi bozorlarga chiqish hamda xalqaro hamkorlik uchun amaliy imkoniyatlar yaratish.",
     formulaTitle: "Klub formulasi",
   },
   benefits: {
@@ -85,7 +85,7 @@ export const uz = {
   },
   forum: {
     title: "Turon biznes forumi va klubning ochilish marosimi",
-    lead: "Klubning rasmiy ochilishi va 600 kishilik bir kunlik biznes forum: tadbirkorlar, investorlar va xalqaro hamkorlar bir maydonda.",
+    lead: "“Turon xalqaro biznes klubi”ning rasmiy ochilish marosimi doirasida tadbirkorlar, investorlar va xalqaro hamkorlar ishtirokida bir kunlik biznes-forum o‘tkaziladi.",
     band: "Ochilish marosimi va forum",
     dateLabel: "Sana",
     formatLabel: "Format",
@@ -96,13 +96,13 @@ export const uz = {
     venueTbd: "Tez orada e’lon qilinadi",
     timeLabel: "Boshlanishi",
     expectTitle: "Forumda kutilmoqda",
-    ambassadorsLabel: "davlat elchilari",
+    ambassadorsLabel: "davlat elchixonalari",
     participantsShort: "ishtirokchi",
     tvLabel: "telekanal",
     /** Forumning asosiy jihatlari */
     highlights: [
       { name: "Xalqaro darajadagi netvorking", text: "Tadbirkorlar, investorlar va xorijiy delegatsiyalar bilan bevosita tanishuv va muloqot." },
-      { name: "50 dan ortiq davlat elchilari", text: "Forumga 50 dan ortiq davlatning elchilari tashrif buyurishi kutilmoqda." },
+      { name: "50 dan ortiq davlat elchixonalari va diplomatik korpus vakillari", text: "Forumga 50 dan ortiq davlat elchixonalari va diplomatik korpus vakillari tashrif buyurishi kutilmoqda." },
       { name: "Shou-biznes vakillari", text: "Taniqli san’at va shou-biznes namoyandalari ishtiroki." },
       { name: "10 dan ortiq yetakchi telekanal", text: "Forumga O‘zbekistonning eng yetakchi 10 dan ortiq telekanali tashrif buyuradi." },
       { name: "Yetakchi media va blogerlar", text: "Forumni mamlakatning taniqli jurnalist va blogerlari yoritadi." },
@@ -194,6 +194,7 @@ export const uz = {
       { key: "tr", name: "Turkiya" },
       { key: "cn", name: "Xitoy" },
       { key: "sa", name: "Saudiya Arabistoni" },
+      { key: "jo", name: "Iordaniya" },
       { key: "kr", name: "Janubiy Koreya" },
       { key: "pl", name: "Polsha" },
     ],
@@ -262,7 +263,7 @@ export const uz = {
     forum: {
       title: "Turon biznes forumi 2026 — 27-oktabr, klubning ochilish marosimi",
       description:
-        "Turon biznes forumi: Turon xalqaro biznes klubining ochilish marosimi va 600 kishilik bir kunlik biznes forum. 2026-yil 27-oktabr, Yoshlar ijodiyot saroyi. 50 dan ortiq davlat elchilari, xalqaro netvorking.",
+        "Turon biznes forumi: Turon xalqaro biznes klubining ochilish marosimi va 600 kishilik bir kunlik biznes forum. 2026-yil 27-oktabr, Yoshlar ijodiyot saroyi. 50 dan ortiq davlat elchixonalari va diplomatik korpus vakillari, xalqaro netvorking.",
     },
     membership: {
       title: "A’zolik",

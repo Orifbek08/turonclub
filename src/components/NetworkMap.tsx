@@ -21,6 +21,7 @@ const LABEL: Record<string, { dx: number; dy: number; anchor: "start" | "middle"
   tr: { dx: 0, dy: -15, anchor: "middle" },
   cn: { dx: 0, dy: -15, anchor: "middle" },
   sa: { dx: 0, dy: 26, anchor: "middle" },
+  jo: { dx: -12, dy: 5, anchor: "end" },
   kr: { dx: 0, dy: 26, anchor: "middle" },
   pl: { dx: 0, dy: -15, anchor: "middle" },
 };
