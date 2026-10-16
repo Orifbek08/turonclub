@@ -87,7 +87,6 @@ Odam 6 ta savolga javob beradi, mos kelsa ism va telefonini yozib, bepul bilet o
 (ID 4000 dan, to‘q qizil rang, 100 $ ogohlantirish bilan). Bitta telefonga bitta bilet.
 
 - Savollar, kodlar, forum ma’lumotlari: `content/invite.ts`
-- Google Sheets’ga yozuvchi skript: `apps-script/taklif-bilet.gs` (eski bilet skripti loyihasida alohida `taklif.gs` fayli;
-  `Код.gs` dagi doPost ichida `if (p.action === "register") return out(TK_register(p));` qatori bo‘lishi kerak)
+- Google Sheets’ga yozuvchi skript: `apps-script/taklif-bilet.gs` (alohida Google loyihasi, bilet platformasiga bog‘liq emas)
   (o‘rnatish tartibi faylning boshida). Joylashtirilgach berilgan `.../exec` manzilini
   `content/invite.ts` → `endpoint` ga yozing.

@@ -1,20 +1,21 @@
 /*****************************************************************
  * TURON — MAXFIY TAKLIF HAVOLASI (bepul bilet, ID 4000 dan)
  *
- * Bu fayl ESKI «Билет / Таклифнома» skripti bilan BIR LOYIHADA turadi
- * (alohida fayl: taklif.gs). Unda doGet/doPost YO'Q — so'rovni eski
- * Код.gs dagi doPost qabul qiladi va «register» amalini shu faylga uzatadi.
+ * ALOHIDA LOYIHA. Bilet platformasi (Код.gs) bilan hech qanday bog'liq emas:
+ * o'z manzili bor, o'sha loyihaga tegmaydi.
  * Sayt (turonclub.uz/taklif/...) ro'yxatdan o'tganlarni jadvaldagi
- * «Сайт таклиф билети» listiga yozadi. List o'zi yaratiladi.
+ * «Сайт таклиф билети» listiga yozadi.
  *
- * Код.gs dagi doPost ichida, «var p = JSON.parse(...)» qatoridan KEYIN
- * (login tekshiruvidan OLDIN) bitta qator turishi kerak:
+ * O'RNATISH (bir marta):
+ *  1. script.google.com → «Новый проект». Nomi: «Турон — таклиф билети».
+ *  2. Ichidagi hamma narsani o'chirib, shu kodni to'liq qo'ying → Ctrl+S.
+ *  3. Funksiyalar ro'yxatidan TAKLIF_SOZLASH → «Выполнить» → ruxsat bering.
+ *  4. «Начать развертывание» → «Новое развертывание» → ⚙️ → «Веб-приложение»
+ *       Выполнять от имени: «Я»     У кого есть доступ: «Все»
+ *     → «Развернуть». Berilgan «.../exec» manzilini saytga ulash uchun yuboring.
  *
- *     if (p.action === "register") return out(TK_register(p));
- *
- * Kodni o'zgartirgandan keyin:
- *  «Развертывание» → «Управление развертываниями» → ✏️ → Версия: «Новая версия» → «Развернуть»
- *  (manzil o'zgarmaydi).
+ * KEYIN KODNI YANGILASANGIZ:
+ *  «Развертывание» → «Управление развертываниями» → ✏️ → «Новая версия» → «Развернуть»
  *****************************************************************/
 
 // ═════════ SOZLAMALAR ═════════
@@ -26,6 +27,26 @@ var TK_COLOR    = "#7a1734";     // sarlavha rangi (bilet rangi bilan bir xil �
 var TK_H = ["ID", "Исм фамилия", "Телефон", "Сана", "Манба", "Балл", "Жавоблар",
          "Тўлов (100 $)", "Давомат", "Келган вақти", "Ким белгилади", "Изоҳ"];
 var TK_C = { ID: 0, NAME: 1, PHONE: 2, DATE: 3, SRC: 4, SCORE: 5, ANS: 6 };
+
+
+// ═════════ API ═════════
+function doGet() {
+  return TK_out({ ok: true, msg: "Турон таклиф API ишлаяпти" });
+}
+
+function doPost(e) {
+  try {
+    var p = JSON.parse((e && e.postData && e.postData.contents) || "{}");
+    if (p.action === "register") return TK_out(TK_register(p));
+    return TK_out({ ok: false, error: "Номаълум амал" });
+  } catch (err) {
+    return TK_out({ ok: false, error: "Сервер хатоси: " + String(err && err.message || err) });
+  }
+}
+
+function TK_out(o) {
+  return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON);
+}
 
 
 // ═════════ RO'YXATDAN O'TKAZISH ═════════
