@@ -37,7 +37,7 @@ const WORDS: Record<string, string> = {
  */
 export const KEEP_PHRASES = [
   "One-to-One", "Privilege Card", "Global Council", "Business Member", "Premium Member",
-  "VIP Member", "VIP networking", "Turon Club", "TURON xalqaro biznes klubi", "TURON xalqaro biznes klubining", "TURON xalqaro biznes klubiga", "TURON xalqaro biznes klubini", "TURON xalqaro biznes klubida", "TURON xalqaro biznes klubidan", "Business", "Premium",
+  "VIP Member", "VIP networking", "Turon Club", "Business", "Premium",
 ];
 
 /**

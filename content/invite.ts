@@ -33,7 +33,7 @@ export const invite = {
 
   /** Forum ma'lumotlari (biletda chiqadi) */
   event: {
-    title: "TURON xalqaro biznes klubining расмий очилиш маросими",
+    title: "TURON XALQARO BIZNES KLUBINING расмий очилиш маросими",
     date: "27.10.2026",
     time: "09:00 – 17:00",
     venue: "Тошкент шаҳри, Юнусобод тумани, Ёшлар ижод саройи",

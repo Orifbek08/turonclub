@@ -22,7 +22,7 @@ export type TicketBrand = {
 
 export const ticket = {
   turon: {
-    name: "TURON xalqaro biznes klubi",
+    name: "TURON XALQARO BIZNES KLUBI",
     tagline: "",
     website: "https://turonclub.uz",
     instagram: "https://www.instagram.com/turonclub/",
