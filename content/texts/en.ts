@@ -28,20 +28,20 @@ export const en: Texts = {
   },
   home: {
     title: "The right people, the right markets, the right opportunities — in one place",
-    lead: "Turon International Business Club is a business platform that connects entrepreneurs with investment, partnerships, B2B meetings, new markets and international contacts.",
+    lead: "TURON International Business Club is a business platform that connects entrepreneurs with investment, partnerships, B2B meetings, new markets and international contacts.",
     nextEvent: "Next event",
     scroll: "Scroll",
     marquee: ["Capital", "Connection", "B2B", "Market", "Export", "Import", "Global", "Knowledge"],
     manifesto:
-      "Turon is an international business ecosystem that brings together the right people, the right markets and the right opportunities to grow your business.",
+      "TURON is an international business ecosystem that brings together the right people, the right markets and the right opportunities to grow your business.",
     formula: ["Strong connections", "New opportunities", "New markets", "New results"],
   },
   about: {
     title: "About the club",
-    lead: "Turon is not an ordinary business club. It is a business platform that connects entrepreneurs with investment, partnerships, B2B meetings, new markets and international contacts.",
+    lead: "TURON is not an ordinary business club. It is a business platform that connects entrepreneurs with investment, partnerships, B2B meetings, new markets and international contacts.",
     missionTitle: "Mission",
     mission:
-      "The mission of Turon International Business Club is to unite local and foreign entrepreneurs, build trusted business relationships between them, attract investment and capital, open new markets and create practical opportunities for international cooperation.",
+      "The mission of TURON International Business Club is to unite local and foreign entrepreneurs, build trusted business relationships between them, attract investment and capital, open new markets and create practical opportunities for international cooperation.",
     formulaTitle: "The club formula",
   },
   benefits: {
@@ -82,8 +82,8 @@ export const en: Texts = {
     ],
   },
   forum: {
-    title: "Turon Business Forum and the club’s opening ceremony",
-    lead: "As part of the official opening ceremony of Turon International Business Club, a one-day business forum will be held with entrepreneurs, investors and international partners.",
+    title: "TURON Business Forum and the club’s opening ceremony",
+    lead: "As part of the official opening ceremony of TURON International Business Club, a one-day business forum will be held with entrepreneurs, investors and international partners.",
     band: "Opening ceremony and forum",
     dateLabel: "Date",
     formatLabel: "Format",
@@ -179,7 +179,7 @@ export const en: Texts = {
     ],
   },
   network: {
-    title: "Turon is more than a club: an international business network",
+    title: "TURON is more than a club: an international business network",
     lead: "The club connects entrepreneurs from Uzbekistan with world markets and foreign partners.",
     countries: [
       { key: "uz", name: "Uzbekistan" },
@@ -233,7 +233,7 @@ export const en: Texts = {
     socials: "Social media",
   },
   footer: {
-    tagline: "Turon Club — an international business platform that connects entrepreneurs with investment, partnerships and new markets.",
+    tagline: "TURON International Business Club — an international business platform that connects entrepreneurs with investment, partnerships and new markets.",
   },
   notFound: {
     title: "Page not found",
@@ -241,33 +241,33 @@ export const en: Texts = {
   },
   meta: {
     /** Qidiruv uchun kalit so'zlar */
-    keywords: ["Turon Club", "Turon business club", "Turon International Business Club", "business forum", "business forum 2026", "Turon Business Forum", "business club Uzbekistan", "entrepreneurs club", "B2B meetings", "investment", "networking"],
+    keywords: ["TURON International Business Club", "TURON", "Turon Club", "Turon business club", "Turon International Business Club", "business forum", "business forum 2026", "Turon Business Forum", "business club Uzbekistan", "entrepreneurs club", "B2B meetings", "investment", "networking"],
     home: {
-      title: "Turon Club — Turon International Business Club",
+      title: "TURON International Business Club",
       description:
-        "Turon Club — Turon International Business Club: a business platform that connects entrepreneurs with investment, partnerships, B2B meetings and new markets. A 600-participant business forum on 27 October.",
+        "TURON International Business Club: a business platform that connects entrepreneurs with investment, partnerships, B2B meetings and new markets. A 600-participant business forum on 27 October.",
     },
     about: {
       title: "About the club",
-      description: "The mission, positioning and key areas of Turon International Business Club.",
+      description: "The mission, positioning and key areas of TURON International Business Club.",
     },
     founders: {
       title: "Founders",
-      description: "The founders and leadership of Turon International Business Club.",
+      description: "The founders and leadership of TURON International Business Club.",
     },
     forum: {
-      title: "Turon Business Forum 2026 — 27 October, the club’s opening ceremony",
+      title: "TURON Business Forum 2026 — 27 October, the club’s opening ceremony",
       description:
-        "Turon Business Forum: the opening ceremony of Turon International Business Club and a one-day business forum for 600 participants. 27 October 2026, Youth Creativity Palace. Representatives of embassies and the diplomatic corps of more than 50 countries, international networking.",
+        "TURON Business Forum: the opening ceremony of TURON International Business Club and a one-day business forum for 600 participants. 27 October 2026, Youth Creativity Palace. Representatives of embassies and the diplomatic corps of more than 50 countries, international networking.",
     },
     membership: {
       title: "Membership",
       description:
-        "Membership of Turon International Business Club: membership privileges, Premium and VIP packages, and the application form.",
+        "Membership of TURON International Business Club: membership privileges, Premium and VIP packages, and the application form.",
     },
     contact: {
       title: "Contact",
-      description: "Contact Turon International Business Club: application form and social media.",
+      description: "Contact TURON International Business Club: application form and social media.",
     },
   },
   months: [

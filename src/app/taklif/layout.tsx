@@ -5,7 +5,7 @@ import { MetaPixel } from "@/components/invite/MetaPixel";
 export const viewport: Viewport = { themeColor: "#000052" };
 
 export const metadata: Metadata = {
-  title: "Турон бизнес форуми — таклиф",
+  title: "TURON бизнес форуми — таклиф",
   icons: { icon: "/brand/icon.svg", apple: "/brand/apple-icon.png" },
   // Maxfiy havola: qidiruv tizimlariga ko'rsatilmaydi
   robots: { index: false, follow: false, googleBot: { index: false, follow: false } },

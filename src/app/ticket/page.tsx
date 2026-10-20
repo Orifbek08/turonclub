@@ -5,13 +5,13 @@ import { Star, Tiles } from "@/components/Tiles";
 import { ticket, type TicketBrand } from "@content/ticket";
 
 /**
- * Tadbir kartochkasidagi QR-kod ochadigan sahifa: Turon Club va MIHU kontaktlari.
+ * Tadbir kartochkasidagi QR-kod ochadigan sahifa: TURON va MIHU kontaktlari.
  * Matnlar va havolalar: content/ticket.ts
  */
 export default function TicketPage() {
   return (
     <main className="relative isolate min-h-[100svh] overflow-hidden">
-      <h1 className="sr-only">MIHU × Turon Club</h1>
+      <h1 className="sr-only">MIHU × TURON</h1>
       <Tiles
         cols={8}
         rows={16}

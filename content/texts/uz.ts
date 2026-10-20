@@ -27,23 +27,23 @@ export const uz = {
   },
   home: {
     title: "Kerakli odamlar, kerakli bozorlar, kerakli imkoniyatlar — bir joyda",
-    lead: "Turon xalqaro biznes klubi tadbirkorlarni investitsiya, hamkorlik, B2B uchrashuvlar, yangi bozorlar va xalqaro aloqalar bilan bog‘laydigan biznes platforma.",
+    lead: "TURON xalqaro biznes klubi tadbirkorlarni investitsiya, hamkorlik, B2B uchrashuvlar, yangi bozorlar va xalqaro aloqalar bilan bog‘laydigan biznes platforma.",
     nextEvent: "Yaqin tadbir",
     scroll: "Pastga",
     /** Bosh sahifadagi harakatlanuvchi yozuv */
     marquee: ["Capital", "Connection", "B2B", "Market", "Export", "Import", "Global", "Knowledge"],
     /** Skroll qilganda so‘zma-so‘z ochiladigan matn */
     manifesto:
-      "Turon — biznesingizni rivojlantirish uchun kerakli odamlar, kerakli bozorlar va kerakli imkoniyatlarni bir joyga birlashtiruvchi xalqaro biznes ekotizim.",
+      "TURON — biznesingizni rivojlantirish uchun kerakli odamlar, kerakli bozorlar va kerakli imkoniyatlarni bir joyga birlashtiruvchi xalqaro biznes ekotizim.",
     /** Klub formulasi: to‘rt bosqich */
     formula: ["Kuchli aloqalar", "Yangi imkoniyatlar", "Yangi bozorlar", "Yangi natijalar"],
   },
   about: {
     title: "Klub haqida",
-    lead: "Turon — oddiy biznes klub emas. Bu tadbirkorlarni investitsiya, hamkorlik, B2B uchrashuvlar, yangi bozorlar va xalqaro aloqalar bilan bog‘laydigan biznes platforma.",
+    lead: "TURON — oddiy biznes klub emas. Bu tadbirkorlarni investitsiya, hamkorlik, B2B uchrashuvlar, yangi bozorlar va xalqaro aloqalar bilan bog‘laydigan biznes platforma.",
     missionTitle: "Missiya",
     mission:
-      "“Turon xalqaro biznes klubi”ning missiyasi — mahalliy va xorijiy tadbirkorlarni birlashtirish, ular o‘rtasida ishonchli biznes aloqalarini shakllantirish, investitsiya va kapital jalb qilish, yangi bozorlarga chiqish hamda xalqaro hamkorlik uchun amaliy imkoniyatlar yaratish.",
+      "“TURON xalqaro biznes klubi”ning missiyasi — mahalliy va xorijiy tadbirkorlarni birlashtirish, ular o‘rtasida ishonchli biznes aloqalarini shakllantirish, investitsiya va kapital jalb qilish, yangi bozorlarga chiqish hamda xalqaro hamkorlik uchun amaliy imkoniyatlar yaratish.",
     formulaTitle: "Klub formulasi",
   },
   benefits: {
@@ -84,8 +84,8 @@ export const uz = {
     ],
   },
   forum: {
-    title: "Turon biznes forumi va klubning ochilish marosimi",
-    lead: "“Turon xalqaro biznes klubi”ning rasmiy ochilish marosimi doirasida tadbirkorlar, investorlar va xalqaro hamkorlar ishtirokida bir kunlik biznes-forum o‘tkaziladi.",
+    title: "TURON biznes forumi va klubning ochilish marosimi",
+    lead: "“TURON xalqaro biznes klubi”ning rasmiy ochilish marosimi doirasida tadbirkorlar, investorlar va xalqaro hamkorlar ishtirokida bir kunlik biznes-forum o‘tkaziladi.",
     band: "Ochilish marosimi va forum",
     dateLabel: "Sana",
     formatLabel: "Format",
@@ -132,7 +132,7 @@ export const uz = {
       { code: "GROWTH", name: "O‘sish" },
     ],
     forWhoTitle: "Klub kimlar uchun?",
-    forWhoLead: "TURON Xalqaro Biznes Klubi — yangi imkoniyatlar, ishonchli hamkorlar va xalqaro rivojlanishga intilayotganlar uchun.",
+    forWhoLead: "TURON xalqaro biznes klubi — yangi imkoniyatlar, ishonchli hamkorlar va xalqaro rivojlanishga intilayotganlar uchun.",
     forWho: [
       "Xalqaro bozorlarga chiqishni maqsad qilgan tadbirkorlar",
       "O‘zbekiston va xorijda ishonchli biznes hamkorlar izlayotgan kompaniyalar",
@@ -183,7 +183,7 @@ export const uz = {
     ],
   },
   network: {
-    title: "Turon — oddiy klub emas, xalqaro biznes tarmog‘i",
+    title: "TURON — oddiy klub emas, xalqaro biznes tarmog‘i",
     lead: "Klub O‘zbekiston tadbirkorlarini dunyo bozorlari va xorijiy hamkorlar bilan bog‘laydi.",
     /** key — xaritadagi nuqta kaliti, o‘zgartirmang */
     countries: [
@@ -221,7 +221,7 @@ export const uz = {
     /** Ariza yuborilgandan keyin chiqadigan xabar. {0} o‘rniga tanlangan paket nomi qo‘yiladi. */
     success: {
       title: "Arizangiz qabul qilindi!",
-      thanks: "TURON Xalqaro Biznes Klubiga qiziqish bildirganingiz uchun tashakkur!",
+      thanks: "TURON xalqaro biznes klubiga qiziqish bildirganingiz uchun tashakkur!",
       next: "Klub vakili siz bilan bog‘lanib, a’zolik imkoniyatlari va shartlari haqida ma’lumot beradi.",
       nextTier: "Klub vakili siz bilan bog‘lanib, {0} a’zoligining imkoniyatlari va shartlari haqida ma’lumot beradi.",
       outro: "TURON — katta imkoniyatlar sari birinchi qadam!",
@@ -238,7 +238,7 @@ export const uz = {
     socials: "Ijtimoiy tarmoqlar",
   },
   footer: {
-    tagline: "Turon Club — tadbirkorlarni investitsiya, hamkorlik va yangi bozorlar bilan bog‘laydigan xalqaro biznes platforma.",
+    tagline: "TURON xalqaro biznes klubi — tadbirkorlarni investitsiya, hamkorlik va yangi bozorlar bilan bog‘laydigan xalqaro biznes platforma.",
   },
   notFound: {
     title: "Sahifa topilmadi",
@@ -246,33 +246,33 @@ export const uz = {
   },
   meta: {
     /** Qidiruv uchun kalit so'zlar */
-    keywords: ["Turon Club", "Turon klub", "Turon biznes klubi", "Turon xalqaro biznes klubi", "biznes forum", "biznes forum 2026", "Turon biznes forumi", "biznes klub", "tadbirkorlar klubi", "B2B uchrashuvlar", "investitsiya", "netvorking"],
+    keywords: ["TURON xalqaro biznes klubi", "TURON", "Turon Club", "Turon klub", "Turon biznes klubi", "Turon xalqaro biznes klubi", "biznes forum", "biznes forum 2026", "Turon biznes forumi", "biznes klub", "tadbirkorlar klubi", "B2B uchrashuvlar", "investitsiya", "netvorking"],
     home: {
-      title: "Turon Club — Turon xalqaro biznes klubi",
+      title: "TURON xalqaro biznes klubi",
       description:
-        "Turon Club — Turon xalqaro biznes klubi: tadbirkorlarni investitsiya, hamkorlik, B2B uchrashuvlar va yangi bozorlar bilan bog‘laydigan biznes platforma. 27-oktabr kuni 600 kishilik biznes forum.",
+        "TURON xalqaro biznes klubi: tadbirkorlarni investitsiya, hamkorlik, B2B uchrashuvlar va yangi bozorlar bilan bog‘laydigan biznes platforma. 27-oktabr kuni 600 kishilik biznes forum.",
     },
     about: {
       title: "Klub haqida",
-      description: "Turon xalqaro biznes klubining missiyasi, pozitsiyasi va asosiy yo‘nalishlari.",
+      description: "TURON xalqaro biznes klubining missiyasi, pozitsiyasi va asosiy yo‘nalishlari.",
     },
     founders: {
       title: "Asoschilar",
-      description: "Turon xalqaro biznes klubi asoschilari va rahbariyati.",
+      description: "TURON xalqaro biznes klubi asoschilari va rahbariyati.",
     },
     forum: {
-      title: "Turon biznes forumi 2026 — 27-oktabr, klubning ochilish marosimi",
+      title: "TURON biznes forumi 2026 — 27-oktabr, klubning ochilish marosimi",
       description:
-        "Turon biznes forumi: Turon xalqaro biznes klubining ochilish marosimi va 600 kishilik bir kunlik biznes forum. 2026-yil 27-oktabr, Yoshlar ijodiyot saroyi. 50 dan ortiq davlat elchixonalari va diplomatik korpus vakillari, xalqaro netvorking.",
+        "TURON biznes forumi: TURON xalqaro biznes klubining ochilish marosimi va 600 kishilik bir kunlik biznes forum. 2026-yil 27-oktabr, Yoshlar ijodiyot saroyi. 50 dan ortiq davlat elchixonalari va diplomatik korpus vakillari, xalqaro netvorking.",
     },
     membership: {
       title: "A’zolik",
       description:
-        "Turon xalqaro biznes klubiga a’zolik: a’zolik imtiyozlari, Premium va VIP paketlari, ariza shakli.",
+        "TURON xalqaro biznes klubiga a’zolik: a’zolik imtiyozlari, Premium va VIP paketlari, ariza shakli.",
     },
     contact: {
       title: "Aloqa",
-      description: "Turon xalqaro biznes klubi bilan bog‘lanish: ariza shakli va ijtimoiy tarmoqlar.",
+      description: "TURON xalqaro biznes klubi bilan bog‘lanish: ariza shakli va ijtimoiy tarmoqlar.",
     },
   },
   months: [

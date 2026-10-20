@@ -7,16 +7,17 @@
 import type { Localized } from "@/lib/i18n";
 
 export const site = {
-  name: "Turon",
+  name: "TURON",
 
   /** Qidiruv tizimlari va brauzer sarlavhasi uchun to'liq nom */
-  brand: "Turon Club",
+  brand: "TURON",
 
   /** Odamlar qidiruvda yozishi mumkin bo'lgan boshqa nomlar */
   alternateNames: [
-    "Turon xalqaro biznes klubi",
-    "Turon International Business Club",
-    "Международный бизнес-клуб Turon",
+    "TURON xalqaro biznes klubi",
+    "TURON International Business Club",
+    "Международный бизнес-клуб TURON",
+    "Turon Club",
     "Turon biznes klubi",
     "Turon klub",
     "Турон клуб",

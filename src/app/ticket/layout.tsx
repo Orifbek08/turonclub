@@ -4,7 +4,7 @@ import "../globals.css";
 export const viewport: Viewport = { themeColor: "#000052" };
 
 export const metadata: Metadata = {
-  title: "MIHU × Turon Club",
+  title: "MIHU × TURON",
   icons: { icon: "/brand/icon.svg", apple: "/brand/apple-icon.png" },
   // Faqat QR-kod orqali ochiladi: qidiruv tizimlariga ko'rsatilmaydi
   robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
