@@ -10,7 +10,7 @@ export const site = {
   name: "TURON",
 
   /** Qidiruv tizimlari va brauzer sarlavhasi uchun to'liq nom */
-  brand: "TURON",
+  brand: "TURON xalqaro biznes klubi",
 
   /** Odamlar qidiruvda yozishi mumkin bo'lgan boshqa nomlar */
   alternateNames: [

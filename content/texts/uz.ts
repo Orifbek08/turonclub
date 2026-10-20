@@ -34,23 +34,23 @@ export const uz = {
     marquee: ["Capital", "Connection", "B2B", "Market", "Export", "Import", "Global", "Knowledge"],
     /** Skroll qilganda so‘zma-so‘z ochiladigan matn */
     manifesto:
-      "TURON — biznesingizni rivojlantirish uchun kerakli odamlar, kerakli bozorlar va kerakli imkoniyatlarni bir joyga birlashtiruvchi xalqaro biznes ekotizim.",
+      "TURON xalqaro biznes klubi — biznesingizni rivojlantirish uchun kerakli odamlar, kerakli bozorlar va kerakli imkoniyatlarni bir joyga birlashtiruvchi xalqaro biznes ekotizim.",
     /** Klub formulasi: to‘rt bosqich */
     formula: ["Kuchli aloqalar", "Yangi imkoniyatlar", "Yangi bozorlar", "Yangi natijalar"],
   },
   about: {
     title: "Klub haqida",
-    lead: "TURON — oddiy biznes klub emas. Bu tadbirkorlarni investitsiya, hamkorlik, B2B uchrashuvlar, yangi bozorlar va xalqaro aloqalar bilan bog‘laydigan biznes platforma.",
+    lead: "TURON xalqaro biznes klubi — oddiy biznes klub emas. Bu tadbirkorlarni investitsiya, hamkorlik, B2B uchrashuvlar, yangi bozorlar va xalqaro aloqalar bilan bog‘laydigan biznes platforma.",
     missionTitle: "Missiya",
     mission:
-      "“TURON xalqaro biznes klubi”ning missiyasi — mahalliy va xorijiy tadbirkorlarni birlashtirish, ular o‘rtasida ishonchli biznes aloqalarini shakllantirish, investitsiya va kapital jalb qilish, yangi bozorlarga chiqish hamda xalqaro hamkorlik uchun amaliy imkoniyatlar yaratish.",
+      "TURON xalqaro biznes klubining missiyasi — mahalliy va xorijiy tadbirkorlarni birlashtirish, ular o‘rtasida ishonchli biznes aloqalarini shakllantirish, investitsiya va kapital jalb qilish, yangi bozorlarga chiqish hamda xalqaro hamkorlik uchun amaliy imkoniyatlar yaratish.",
     formulaTitle: "Klub formulasi",
   },
   benefits: {
     title: "A’zolik imtiyozlari",
     lead: "Biznesingiz uchun yangi aloqalar, yangi bozorlar va katta imkoniyatlar!",
     /** Bo‘lim ostidagi yakuniy so‘z */
-    outro: "TURON — biznesingiz chegaralarini kengaytiruvchi xalqaro hamjamiyat!",
+    outro: "TURON xalqaro biznes klubi — biznesingiz chegaralarini kengaytiruvchi xalqaro hamjamiyat!",
     outroSub: "Yangi hamkorlar. Yangi bozorlar. Yangi imkoniyatlar.",
     items: [
       {
@@ -85,7 +85,7 @@ export const uz = {
   },
   forum: {
     title: "TURON biznes forumi va klubning ochilish marosimi",
-    lead: "“TURON xalqaro biznes klubi”ning rasmiy ochilish marosimi doirasida tadbirkorlar, investorlar va xalqaro hamkorlar ishtirokida bir kunlik biznes-forum o‘tkaziladi.",
+    lead: "TURON xalqaro biznes klubining rasmiy ochilish marosimi doirasida tadbirkorlar, investorlar va xalqaro hamkorlar ishtirokida bir kunlik biznes-forum o‘tkaziladi.",
     band: "Ochilish marosimi va forum",
     dateLabel: "Sana",
     formatLabel: "Format",
@@ -183,7 +183,7 @@ export const uz = {
     ],
   },
   network: {
-    title: "TURON — oddiy klub emas, xalqaro biznes tarmog‘i",
+    title: "TURON xalqaro biznes klubi — oddiy klub emas, xalqaro biznes tarmog‘i",
     lead: "Klub O‘zbekiston tadbirkorlarini dunyo bozorlari va xorijiy hamkorlar bilan bog‘laydi.",
     /** key — xaritadagi nuqta kaliti, o‘zgartirmang */
     countries: [
@@ -224,7 +224,7 @@ export const uz = {
       thanks: "TURON xalqaro biznes klubiga qiziqish bildirganingiz uchun tashakkur!",
       next: "Klub vakili siz bilan bog‘lanib, a’zolik imkoniyatlari va shartlari haqida ma’lumot beradi.",
       nextTier: "Klub vakili siz bilan bog‘lanib, {0} a’zoligining imkoniyatlari va shartlari haqida ma’lumot beradi.",
-      outro: "TURON — katta imkoniyatlar sari birinchi qadam!",
+      outro: "TURON xalqaro biznes klubi — katta imkoniyatlar sari birinchi qadam!",
     },
     error: "Ariza yuborilmadi. Qayta urinib ko‘ring yoki bizga qo‘ng‘iroq qiling.",
   },

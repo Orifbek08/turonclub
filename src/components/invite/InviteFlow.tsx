@@ -380,7 +380,7 @@ function TicketView({ t }: { t: Ticket }) {
       const file = new File([blob], `turon-bilet-${t.id}.png`, { type: "image/png" });
       const nav = navigator as Navigator & { canShare?: (d: { files: File[] }) => boolean };
       if (nav.canShare?.({ files: [file] }) && window.matchMedia("(pointer: coarse)").matches) {
-        await navigator.share({ files: [file], title: "TURON — билет" });
+        await navigator.share({ files: [file], title: "TURON xalqaro biznes klubi — билет" });
       } else {
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");

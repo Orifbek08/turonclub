@@ -28,27 +28,27 @@ export const en: Texts = {
   },
   home: {
     title: "The right people, the right markets, the right opportunities — in one place",
-    lead: "TURON International Business Club is a business platform that connects entrepreneurs with investment, partnerships, B2B meetings, new markets and international contacts.",
+    lead: "TURON xalqaro biznes klubi is a business platform that connects entrepreneurs with investment, partnerships, B2B meetings, new markets and international contacts.",
     nextEvent: "Next event",
     scroll: "Scroll",
     marquee: ["Capital", "Connection", "B2B", "Market", "Export", "Import", "Global", "Knowledge"],
     manifesto:
-      "TURON is an international business ecosystem that brings together the right people, the right markets and the right opportunities to grow your business.",
+      "TURON xalqaro biznes klubi is an international business ecosystem that brings together the right people, the right markets and the right opportunities to grow your business.",
     formula: ["Strong connections", "New opportunities", "New markets", "New results"],
   },
   about: {
     title: "About the club",
-    lead: "TURON is not an ordinary business club. It is a business platform that connects entrepreneurs with investment, partnerships, B2B meetings, new markets and international contacts.",
+    lead: "TURON xalqaro biznes klubi is not an ordinary business club. It is a business platform that connects entrepreneurs with investment, partnerships, B2B meetings, new markets and international contacts.",
     missionTitle: "Mission",
     mission:
-      "The mission of TURON International Business Club is to unite local and foreign entrepreneurs, build trusted business relationships between them, attract investment and capital, open new markets and create practical opportunities for international cooperation.",
+      "The mission of TURON xalqaro biznes klubi is to unite local and foreign entrepreneurs, build trusted business relationships between them, attract investment and capital, open new markets and create practical opportunities for international cooperation.",
     formulaTitle: "The club formula",
   },
   benefits: {
     title: "Membership privileges",
     lead: "New connections, new markets and big opportunities for your business!",
     /** Bo‘lim ostidagi yakuniy so‘z */
-    outro: "TURON — an international community that expands the boundaries of your business!",
+    outro: "TURON xalqaro biznes klubi — an international community that expands the boundaries of your business!",
     outroSub: "New partners. New markets. New opportunities.",
     items: [
       {
@@ -83,7 +83,7 @@ export const en: Texts = {
   },
   forum: {
     title: "TURON Business Forum and the club’s opening ceremony",
-    lead: "As part of the official opening ceremony of TURON International Business Club, a one-day business forum will be held with entrepreneurs, investors and international partners.",
+    lead: "As part of the official opening ceremony of TURON xalqaro biznes klubi, a one-day business forum will be held with entrepreneurs, investors and international partners.",
     band: "Opening ceremony and forum",
     dateLabel: "Date",
     formatLabel: "Format",
@@ -128,7 +128,7 @@ export const en: Texts = {
       { code: "GROWTH", name: "Growth" },
     ],
     forWhoTitle: "Who is the club for?",
-    forWhoLead: "TURON International Business Club is for those who seek new opportunities, reliable partners and international growth.",
+    forWhoLead: "TURON xalqaro biznes klubi is for those who seek new opportunities, reliable partners and international growth.",
     forWho: [
       "Entrepreneurs who aim to enter international markets",
       "Companies looking for reliable business partners in Uzbekistan and abroad",
@@ -179,7 +179,7 @@ export const en: Texts = {
     ],
   },
   network: {
-    title: "TURON is more than a club: an international business network",
+    title: "TURON xalqaro biznes klubi is more than a club: an international business network",
     lead: "The club connects entrepreneurs from Uzbekistan with world markets and foreign partners.",
     countries: [
       { key: "uz", name: "Uzbekistan" },
@@ -216,10 +216,10 @@ export const en: Texts = {
     /** Ariza yuborilgandan keyin chiqadigan xabar. {0} o‘rniga tanlangan paket nomi qo‘yiladi. */
     success: {
       title: "Your application has been received!",
-      thanks: "Thank you for your interest in TURON International Business Club!",
+      thanks: "Thank you for your interest in TURON xalqaro biznes klubi!",
       next: "A club representative will contact you and tell you about the opportunities and terms of membership.",
       nextTier: "A club representative will contact you and tell you about the opportunities and terms of {0} membership.",
-      outro: "TURON — the first step towards big opportunities!",
+      outro: "TURON xalqaro biznes klubi — the first step towards big opportunities!",
     },
     error: "The application was not sent. Try again or call us.",
   },
@@ -233,7 +233,7 @@ export const en: Texts = {
     socials: "Social media",
   },
   footer: {
-    tagline: "TURON International Business Club — an international business platform that connects entrepreneurs with investment, partnerships and new markets.",
+    tagline: "TURON xalqaro biznes klubi — an international business platform that connects entrepreneurs with investment, partnerships and new markets.",
   },
   notFound: {
     title: "Page not found",
@@ -243,31 +243,31 @@ export const en: Texts = {
     /** Qidiruv uchun kalit so'zlar */
     keywords: ["TURON International Business Club", "TURON", "Turon Club", "Turon business club", "Turon International Business Club", "business forum", "business forum 2026", "Turon Business Forum", "business club Uzbekistan", "entrepreneurs club", "B2B meetings", "investment", "networking"],
     home: {
-      title: "TURON International Business Club",
+      title: "TURON xalqaro biznes klubi",
       description:
-        "TURON International Business Club: a business platform that connects entrepreneurs with investment, partnerships, B2B meetings and new markets. A 600-participant business forum on 27 October.",
+        "TURON xalqaro biznes klubi: a business platform that connects entrepreneurs with investment, partnerships, B2B meetings and new markets. A 600-participant business forum on 27 October.",
     },
     about: {
       title: "About the club",
-      description: "The mission, positioning and key areas of TURON International Business Club.",
+      description: "The mission, positioning and key areas of TURON xalqaro biznes klubi.",
     },
     founders: {
       title: "Founders",
-      description: "The founders and leadership of TURON International Business Club.",
+      description: "The founders and leadership of TURON xalqaro biznes klubi.",
     },
     forum: {
       title: "TURON Business Forum 2026 — 27 October, the club’s opening ceremony",
       description:
-        "TURON Business Forum: the opening ceremony of TURON International Business Club and a one-day business forum for 600 participants. 27 October 2026, Youth Creativity Palace. Representatives of embassies and the diplomatic corps of more than 50 countries, international networking.",
+        "TURON Business Forum: the opening ceremony of TURON xalqaro biznes klubi and a one-day business forum for 600 participants. 27 October 2026, Youth Creativity Palace. Representatives of embassies and the diplomatic corps of more than 50 countries, international networking.",
     },
     membership: {
       title: "Membership",
       description:
-        "Membership of TURON International Business Club: membership privileges, Premium and VIP packages, and the application form.",
+        "Membership of TURON xalqaro biznes klubi: membership privileges, Premium and VIP packages, and the application form.",
     },
     contact: {
       title: "Contact",
-      description: "Contact TURON International Business Club: application form and social media.",
+      description: "Contact TURON xalqaro biznes klubi: application form and social media.",
     },
   },
   months: [
