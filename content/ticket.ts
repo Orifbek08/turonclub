@@ -44,3 +44,17 @@ export const ticket = {
     phone: "+998 95 760 00 00",
   },
 } satisfies Record<string, TicketBrand>;
+
+/**
+ * HAMKOR KOMPANIYALAR — /ticket sahifasining pastida chiqadi.
+ * site — to'liq havola. Yangi hamkor qo'shish uchun ro'yxatga qator qo'shing.
+ */
+export const partners: { name: string; site: string }[] = [
+  { name: "BMB Holding", site: "https://bmb-holding.uz" },
+  { name: "Almazmed-Line", site: "https://almazmed.uz" },
+  { name: "Shox Med", site: "https://shox.hospital" },
+  { name: "7saber", site: "https://7saber.uz" },
+  { name: "Gavalli", site: "https://gavalli.uz" },
+  { name: "Universalbank", site: "https://universalbank.uz" },
+  { name: "Aloqa Bank", site: "https://aloqabank.uz" },
+];

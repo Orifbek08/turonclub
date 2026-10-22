@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { FaFacebookF, FaGlobe, FaInstagram, FaLinkedinIn, FaPhone, FaTelegram, FaEnvelope } from "react-icons/fa6";
 import { LogoMark, LogoTag, LogoWord } from "@/components/Logo";
 import { Star, Tiles } from "@/components/Tiles";
-import { ticket, type TicketBrand } from "@content/ticket";
+import { partners, ticket, type TicketBrand } from "@content/ticket";
 
 /**
  * Tadbir kartochkasidagi QR-kod ochadigan sahifa: TURON va MIHU kontaktlari.
@@ -42,8 +42,39 @@ export default function TicketPage() {
             </span>
           }
         />
+        <Partners />
       </div>
     </main>
+  );
+}
+
+function Partners() {
+  if (partners.length === 0) return null;
+  return (
+    <section className="mt-14">
+      <div className="flex items-center gap-4">
+        <span aria-hidden="true" className="h-px flex-1" style={{ background: "var(--gold-grad)" }} />
+        <h2 className="font-display text-[1.7rem] leading-none text-ivory">Hamkor kompaniyalar</h2>
+        <span aria-hidden="true" className="h-px flex-1" style={{ background: "var(--gold-grad)" }} />
+      </div>
+      <ul className="mt-7 grid grid-cols-2 gap-3">
+        {partners.map((p, i) => (
+          <li key={p.name} className={partners.length % 2 === 1 && i === partners.length - 1 ? "col-span-2" : ""}>
+            <a
+              href={p.site}
+              target="_blank"
+              rel="noopener"
+              className="flex h-full flex-col items-center justify-center border border-[var(--hair)] bg-deep/70 px-3 py-5 text-center transition-colors hover:border-gold/70"
+            >
+              <span className="font-display text-[1.3rem] leading-tight text-ivory">{p.name}</span>
+              <span className="mt-1.5 text-[0.82rem] text-gold-light">
+                {p.site.replace(/^https?:\/\/(www\.)?/, "")}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 
