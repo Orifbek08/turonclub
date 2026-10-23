@@ -234,6 +234,8 @@ export const en: Texts = {
   },
   footer: {
     tagline: "TURON XALQARO BIZNES KLUBI — an international business platform that connects entrepreneurs with investment, partnerships and new markets.",
+    /** Klubning boshqa nomlari (qidiruvda shunday yozilsa ham sayt chiqishi uchun) */
+    aka: "Turon Club · Turon Business Club · Turon International Business Club",
   },
   notFound: {
     title: "Page not found",
@@ -241,11 +243,11 @@ export const en: Texts = {
   },
   meta: {
     /** Qidiruv uchun kalit so'zlar */
-    keywords: ["TURON International Business Club", "TURON", "Turon Club", "Turon business club", "Turon International Business Club", "business forum", "business forum 2026", "Turon Business Forum", "business club Uzbekistan", "entrepreneurs club", "B2B meetings", "investment", "networking"],
+    keywords: ["TURON XALQARO BIZNES KLUBI", "Turon Club", "Turon Business Club", "Turon International Business Club", "Turon klub", "Turon biznes klubi", "TURON", "Turon Business Forum", "business forum 2026", "business forum Tashkent", "business club Uzbekistan", "entrepreneurs club", "B2B meetings", "investment", "networking"],
     home: {
-      title: "TURON XALQARO BIZNES KLUBI",
+      title: "TURON XALQARO BIZNES KLUBI — Turon Club, Turon Business Club",
       description:
-        "TURON XALQARO BIZNES KLUBI: a business platform that connects entrepreneurs with investment, partnerships, B2B meetings and new markets. A 600-participant business forum on 27 October.",
+        "TURON XALQARO BIZNES KLUBI (Turon Club, Turon Business Club) — a business club that connects entrepreneurs with investment, partners, B2B meetings and new markets. A 600-participant business forum on 27 October.",
     },
     about: {
       title: "About the club",

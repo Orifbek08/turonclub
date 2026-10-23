@@ -15,12 +15,19 @@ export const site = {
   /** Odamlar qidiruvda yozishi mumkin bo'lgan boshqa nomlar */
   alternateNames: [
     "TURON XALQARO BIZNES KLUBI",
-    "TURON International Business Club",
-    "Международный бизнес-клуб TURON",
     "Turon Club",
-    "Turon biznes klubi",
     "Turon klub",
+    "Turon biznes klubi",
+    "Turon biznes club",
+    "Turon Business Club",
+    "Turon International Business Club",
+    "Turon xalqaro biznes klubi",
     "Турон клуб",
+    "Турон бизнес клуби",
+    "Турон халқаро бизнес клуби",
+    "Турон бизнес клуб",
+    "Бизнес-клуб Турон",
+    "Международный бизнес-клуб Турон",
   ],
 
   /** Logotip ostidagi yozuv */

@@ -234,6 +234,8 @@ export const ru: Texts = {
   },
   footer: {
     tagline: "«TURON XALQARO BIZNES KLUBI» — бизнес-платформа, которая связывает предпринимателей с инвестициями, партнёрами и новыми рынками.",
+    /** Klubning boshqa nomlari (qidiruvda shunday yozilsa ham sayt chiqishi uchun) */
+    aka: "Turon Club · Турон клуб · бизнес-клуб Турон",
   },
   notFound: {
     title: "Страница не найдена",
@@ -241,11 +243,11 @@ export const ru: Texts = {
   },
   meta: {
     /** Qidiruv uchun kalit so'zlar */
-    keywords: ["Международный бизнес-клуб TURON", "TURON", "Turon Club", "Турон клуб", "бизнес-клуб Turon", "международный бизнес-клуб Turon", "бизнес-форум", "бизнес-форум 2026", "бизнес-форум Turon", "бизнес-клуб Узбекистан", "клуб предпринимателей", "B2B-встречи", "инвестиции", "нетворкинг"],
+    keywords: ["TURON XALQARO BIZNES KLUBI", "Turon Club", "Турон клуб", "Турон бизнес клуб", "бизнес-клуб Турон", "бизнес клуб Turon", "международный бизнес-клуб Турон", "Turon biznes klubi", "TURON", "бизнес-форум Турон", "бизнес-форум 2026", "бизнес-форум Ташкент", "бизнес-клуб Узбекистан", "клуб предпринимателей", "B2B-встречи", "инвестиции", "нетворкинг"],
     home: {
-      title: "TURON XALQARO BIZNES KLUBI",
+      title: "TURON XALQARO BIZNES KLUBI — Турон клуб, Turon Club",
       description:
-        "«TURON XALQARO BIZNES KLUBI»: бизнес-платформа, которая связывает предпринимателей с инвестициями, партнёрами, B2B-встречами и новыми рынками. 27 октября — бизнес-форум на 600 участников.",
+        "TURON XALQARO BIZNES KLUBI (Турон клуб, Turon Club) — бизнес-клуб, который связывает предпринимателей с инвестициями, партнёрами, B2B-встречами и новыми рынками. 27 октября — бизнес-форум на 600 участников.",
     },
     about: {
       title: "О клубе",

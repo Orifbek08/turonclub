@@ -239,6 +239,8 @@ export const uz = {
   },
   footer: {
     tagline: "TURON XALQARO BIZNES KLUBI — tadbirkorlarni investitsiya, hamkorlik va yangi bozorlar bilan bog‘laydigan xalqaro biznes platforma.",
+    /** Klubning boshqa nomlari (qidiruvda shunday yozilsa ham sayt chiqishi uchun) */
+    aka: "Turon Club · Turon klub · Turon biznes klubi",
   },
   notFound: {
     title: "Sahifa topilmadi",
@@ -246,11 +248,11 @@ export const uz = {
   },
   meta: {
     /** Qidiruv uchun kalit so'zlar */
-    keywords: ["TURON XALQARO BIZNES KLUBI", "TURON", "Turon Club", "Turon klub", "Turon biznes klubi", "Turon xalqaro biznes klubi", "biznes forum", "biznes forum 2026", "Turon biznes forumi", "biznes klub", "tadbirkorlar klubi", "B2B uchrashuvlar", "investitsiya", "netvorking"],
+    keywords: ["TURON XALQARO BIZNES KLUBI", "Turon Club", "Turon klub", "Turon biznes klubi", "Turon biznes club", "Turon business club", "Turon xalqaro biznes klubi", "TURON", "Turon biznes forumi", "biznes forum 2026", "biznes forum Toshkent", "biznes klub", "tadbirkorlar klubi", "biznes klub O‘zbekiston", "B2B uchrashuvlar", "investitsiya", "netvorking"],
     home: {
-      title: "TURON XALQARO BIZNES KLUBI",
+      title: "TURON XALQARO BIZNES KLUBI — Turon Club, Turon biznes klubi",
       description:
-        "TURON XALQARO BIZNES KLUBI: tadbirkorlarni investitsiya, hamkorlik, B2B uchrashuvlar va yangi bozorlar bilan bog‘laydigan biznes platforma. 27-oktabr kuni 600 kishilik biznes forum.",
+        "TURON XALQARO BIZNES KLUBI (Turon Club, Turon klub) — tadbirkorlarni investitsiya, hamkorlik, B2B uchrashuvlar va yangi bozorlar bilan bog‘laydigan biznes klub. 27-oktabr kuni 600 kishilik biznes forum.",
     },
     about: {
       title: "Klub haqida",

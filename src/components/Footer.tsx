@@ -20,6 +20,7 @@ export function Footer({ locale }: { locale: Locale }) {
         <Reveal>
           <LogoMark className="h-20 w-auto text-gold" />
           <p className="mt-6 max-w-sm text-mist">{t.footer.tagline}</p>
+          <p className="mt-3 max-w-sm text-[0.85rem] text-mist/70">{t.footer.aka}</p>
         </Reveal>
         <Reveal delay={0.1}>
           <nav aria-label="Footer">
